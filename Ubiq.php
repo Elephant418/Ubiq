@@ -108,7 +108,7 @@ namespace Util\Str {
 		\Util\Arr\must_be_array( $needles );
 		$return = '';
 		foreach( $needles as $needle ) {
-			if ( ! empty( $needle) && \Util\String\contains( $hay, $needle ) ) {
+			if ( ! empty( $needle ) && \Util\String\contains( $hay, $needle ) ) {
 				$cut = substr( $hay, 0, strrpos( $hay, $needle ) );
 				if ( strlen( $cut ) > strlen ( $return ) ) {
 					$return = $cut;
@@ -225,6 +225,18 @@ namespace Util\Obj {
 
 	function get_attribute_names( $object ) {
 		return array_keys( get_object_vars( $object ) );
+	}
+
+	function get_namespace( $class ) {
+		\Util\Obj\must_be_class( $class );
+		\Util\Str\must_starts_with( $class, '\\' );
+		return \Util\Str\substr_before_last( $class, '\\' );
+	}
+
+	function get_class_name( $class ) {
+		\Util\Obj\must_be_class( $class );
+		\Util\Str\must_starts_with( $class, '\\' );
+		return \Util\Str\substr_after_last( $class, '\\' );
 	}
 }
 
