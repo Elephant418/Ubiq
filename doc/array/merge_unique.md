@@ -1,4 +1,4 @@
-[Ubiq](https://github.com/Pixel418/Ubiq#ubiq) / [Documentation](../index.md#documentation) / [String](../index.md#array) / merge_unique
+[Ubiq](https://github.com/Pixel418/Ubiq#ubiq) / [Documentation](../index.md#readme) / [String](../index.md#array) / merge_unique
 ======
 
 
@@ -11,7 +11,7 @@ array \Util\Arr\merge_unique( array $array1 [, array $array2, [ … ] ] );
 
 Merges the elements of one or more arrays together without duplicate values. <br>
 
-**Note**: The order follow the first match. See [reverse_merge_unique](./reverse_merge_unique.md).
+**Note**: The order follow the first match. See [reverse_merge_unique](./reverse_merge_unique.md#readme).
 
 
 

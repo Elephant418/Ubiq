@@ -1,4 +1,4 @@
-[Ubiq](https://github.com/Pixel418/Ubiq#ubiq) / [Documentation](../index.md#documentation) / [String](../index.md#string) / starts_with
+[Ubiq](https://github.com/Pixel418/Ubiq#ubiq) / [Documentation](../index.md#readme) / [String](../index.md#string) / starts_with
 ======
 
 
@@ -14,7 +14,7 @@ If several matches are given, checks if the string starts with at least one of t
 
 Returns TRUE if there is a match, FALSE otherwise.
 
-**Note**: This function is case sensitive. See [i_starts_with](./i_starts_with.md).
+**Note**: This function is case sensitive. See [i_starts_with](./i_starts_with.md#readme).
 
 
 

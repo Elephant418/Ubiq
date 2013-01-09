@@ -1,4 +1,4 @@
-[Ubiq](https://github.com/Pixel418/Ubiq#ubiq) / [Documentation](../index.md#documentation) / [String](../index.md#string) / i_contains
+[Ubiq](https://github.com/Pixel418/Ubiq#ubiq) / [Documentation](../index.md#readme) / [String](../index.md#string) / i_contains
 ======
 
 
@@ -14,7 +14,7 @@ If several matches are given, checks if the string contains at least one of them
 
 Returns TRUE if there is a match, FALSE otherwise.
 
-**Note**: This function is case insensitive. See [contains](./contains.md).
+**Note**: This function is case insensitive. See [contains](./contains.md#readme).
 
 
 

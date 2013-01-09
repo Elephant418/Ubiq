@@ -1,4 +1,4 @@
-[Ubiq](https://github.com/Pixel418/Ubiq#ubiq) / [Documentation](../index.md#documentation) / [String](../index.md#string) / ends_with
+[Ubiq](https://github.com/Pixel418/Ubiq#ubiq) / [Documentation](../index.md#readme) / [String](../index.md#string) / ends_with
 ======
 
 
@@ -14,7 +14,7 @@ If several matches are given, checks if the string ends with at least one of the
 
 Returns TRUE if there is a match, FALSE otherwise.
 
-**Note**: This function is case sensitive. See [i_ends_with](./i_ends_with.md).
+**Note**: This function is case sensitive. See [i_ends_with](./i_ends_with.md#readme).
 
 
 
