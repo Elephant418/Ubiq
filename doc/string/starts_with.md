@@ -66,18 +66,32 @@ Returns TRUE.
 ### Example 2
 
 ```php
-\Util\Str\starts_with( 'Ubiq is so cool', 'Java' );
+\Util\Str\starts_with( 'Ubiq is so cool', 'ubiq' );
 ```
 Returns FALSE.
 
 ### Example 3
 
 ```php
+\Util\Str\starts_with( 'Ubiq is so cool', 'Java' );
+```
+Returns FALSE.
+
+### Example 4
+
+```php
 \Util\Str\starts_with( 'Ubiq is so cool', [ 'Ubiq', 'Java' ] );
 ```
 Returns TRUE.
 
-### Example 4
+### Example 5
+
+```php
+\Util\Str\starts_with( 'Ubiq is so cool', [ 'ubiq', 'Java' ] );
+```
+Returns FALSE.
+
+### Example 6
 
 ```php
 \Util\Str\starts_with( 'Ubiq is so cool', [ 'Java', '.NET' ] );
