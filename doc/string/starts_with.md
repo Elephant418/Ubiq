@@ -2,21 +2,17 @@
 ======
 
 
-Summary
+Description
 -------- 
+
+```php
+bool \Util\String\starts_with( string $hay, mixed $needles );
+```
 
 Checks if a string starts with a specific character/sequence. <br>
 If several matches are given, checks if the string starts with at least one of them. <br>
 This function is case sensitive.
 
-
-
-Usage
---------
-
-```php
-\Util\String|starts_with( $hay, $needles )
-```
 
 
 
