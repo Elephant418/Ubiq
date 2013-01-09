@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-void \Util\String\must_starts_with( string &$hay, string $needle );
+void \Util\Str\must_starts_with( string &$hay, string $needle );
 ```
 
 If a string does not start with a specific character/sequence, the string is prefixed.

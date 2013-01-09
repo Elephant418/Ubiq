@@ -1,4 +1,4 @@
-[Ubiq](../index.md) / [String](../index.md#string) / ends_with
+[Ubiq](../index.md) / [String](../index.md#string) / contains
 ======
 
 
@@ -6,13 +6,13 @@ Description
 -------- 
 
 ```php
-bool \Util\Str\ends_with( string $hay, mixed $needles );
+bool \Util\Str\contains( string $hay, mixed $needles );
 ```
 
-Checks if a string ends with a specific character/sequence. <br>
-If several matches are given, checks if the string ends with at least one of them.
+Checks if a string contains a specific character/sequence. <br>
+If several matches are given, checks if the string contains at least one of them.
 
-**Note**: This function is case sensitive. See [i_ends_with](./i_ends_with.md).
+**Note**: This function is case sensitive. See [i_contains](./i_contains.md).
 
 
 
@@ -59,41 +59,41 @@ Examples
 ### Example 1
 
 ```php
-\Util\Str\ends_with( 'Ubiq is so cool', 'cool' );
+\Util\Str\contains( '/path/to/a/folder', '/to/' );
 ```
 Returns TRUE.
 
 ### Example 2
 
 ```php
-\Util\Str\ends_with( 'Ubiq is so cool', 'Cool' );
+\Util\Str\contains( '/path/to/a/folder', '/TO/' );
 ```
 Returns FALSE.
 
 ### Example 3
 
 ```php
-\Util\Str\ends_with( 'Ubiq is so cool', 'boring' );
+\Util\Str\contains( '/path/to/a/folder', '.' );
 ```
 Returns FALSE.
 
 ### Example 4
 
 ```php
-\Util\Str\ends_with( 'Ubiq is so cool', [ 'cool', 'boring' ] );
+\Util\Str\contains( '/path/to/a/folder', [ '/to/', '.' ] );
 ```
 Returns TRUE.
 
 ### Example 5
 
 ```php
-\Util\Str\ends_with( 'Ubiq is so cool', [ 'Cool', 'boring' ] );
+\Util\Str\contains( '/path/to/a/folder', [ '/TO/', '.' ] );
 ```
 Returns FALSE.
 
-### Example 6
+### Example 46
 
 ```php
-\Util\Str\ends_with( 'Ubiq is so cool', [ 'boring', 'classy' ] );
+\Util\Str\contains( '/path/to/a/folder', [ 'php', '.' ] );
 ```
 Returns FALSE.

@@ -197,4 +197,37 @@ class Ubiq_Test extends \PHPUnit_Framework_TestCase {
 		\Util\Str\must_not_ends_with( $assertion, '/' );
 		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
+
+
+
+	// CONTAINS
+	public function test_contains__valid( ) {
+		$test = \Util\Str\contains( '/path/to/a/folder', '/to/' );
+		$this->assertTrue( $test );
+	}
+
+	public function test_contains__valid_sensitive( ) {
+		$test = \Util\Str\contains( '/path/to/a/folder', '/TO/' );
+		$this->assertFalse( $test );
+	}
+
+	public function test_contains__invalid( ) {
+		$test = \Util\Str\contains( '/path/to/a/folder', '.' );
+		$this->assertFalse( $test );
+	}
+
+	public function test_contains__multiple_valid( ) {
+		$test = \Util\Str\contains( '/path/to/a/folder', [ '/to/', '.' ] );
+		$this->assertTrue( $test );
+	}
+
+	public function test_contains__multiple_valid_sensitive( ) {
+		$test = \Util\Str\contains( '/path/to/a/folder', [ '/TO/', '.' ] );
+		$this->assertFalse( $test );
+	}
+
+	public function test_contains__multiple_invalid( ) {
+		$test = \Util\Str\contains( '/path/to/a/folder', [ 'php', '.' ] );
+		$this->assertFalse( $test );
+	}
 }

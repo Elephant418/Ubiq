@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-bool \Util\String\i_ends_with( string $hay, mixed $needles );
+bool \Util\Str\i_ends_with( string $hay, mixed $needles );
 ```
 
 Checks if a string ends with a specific character/sequence. <br>

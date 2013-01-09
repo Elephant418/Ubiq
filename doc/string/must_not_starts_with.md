@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-void \Util\String\must_not_starts_with( string &$hay, string $needle );
+void \Util\Str\must_not_starts_with( string &$hay, string $needle );
 ```
 
 If a string starts with a specific character/sequence, the prefix is removed.

@@ -23,9 +23,7 @@ namespace Util\Str {
 
 	function i_starts_with( $hay, $needles ) {
 		\Util\Arr\must_be_array( $needles );
-		$needles = array_map( function( $a ) {
-			return strtolower( $a );
-		}, $needles );
+		$needles = \Util\Arr\map( $needles, 'strtolower' );
 		return \Util\Str\starts_with( strtolower( $hay ), $needles );
 	}
 
@@ -53,9 +51,7 @@ namespace Util\Str {
 
 	function i_ends_with( $hay, $needles ) {
 		\Util\Arr\must_be_array( $needles );
-		$needles = array_map( function( $a ) {
-			return strtolower( $a );
-		}, $needles );
+		$needles = \Util\Arr\map( $needles, 'strtolower' );
 		return \Util\Str\ends_with( strtolower( $hay ), $needles );
 	}
 
@@ -74,12 +70,20 @@ namespace Util\Str {
 
 
 	// CONTAINS FUNCTIONS
-	function contains( $hay, $needle ) {
-		return ( strpos( $hay, $needle ) !== false );
+	function contains( $hay, $needles ) {
+		\Util\Arr\must_be_array( $needles );
+		foreach( $needles as $needle ) {
+			if ( strpos( $hay, $needle ) !== FALSE ) {
+				return TRUE;
+			}
+		}
+		return FALSE;
 	}
 
 	function i_contains( $hay, $needle ) {
-		return \Util\Str\contains( strtolower( $hay ), strtolower( $needle ) );
+		\Util\Arr\must_be_array( $needles );
+		$needles = \Util\Arr\map( $needles, 'strtolower' );
+		return \Util\Str\contains( $hay, $needles );
 	}
 
 
@@ -205,6 +209,12 @@ namespace Util\Arr {
 			}
 		}
 		return TRUE;
+	}
+
+	function map( $array, $callable ) {
+		return array_map( function( $a ) use ( $callable ) {
+			return $callable( $a );
+		}, $array );
 	}
 
 	// Keep the order of each FIRST occurence 

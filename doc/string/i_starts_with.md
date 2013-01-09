@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-bool \Util\String\i_starts_with( string $hay, mixed $needles );
+bool \Util\Str\i_starts_with( string $hay, mixed $needles );
 ```
 
 Checks if a string starts with a specific character/sequence. <br>
