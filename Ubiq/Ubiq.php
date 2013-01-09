@@ -21,6 +21,26 @@ namespace Util\Str {
 		return FALSE;
 	}
 
+	function i_starts_with( $hay, $needles ) {
+		\Util\Arr\must_be_array( $needles );
+		$needles = array_map( function( $a ) {
+			return strtolower( $a );
+		}, $needles );
+		return \Util\Str\starts_with( strtolower( $hay ), $needles );
+	}
+
+	function must_starts_with( &$hay, $needle ) {
+		if ( ! \Util\Str\starts_with( $hay, $needle ) ) {
+			$hay = $needle . $hay;
+		}
+	}
+
+	function must_not_starts_with( &$hay, $needle ) {
+		if ( \Util\Str\starts_with( $hay, $needle ) ) {
+			$hay = substr( $hay, strlen( $needle ) );
+		}
+	}
+
 	function ends_with( $hay, $needles ) {
 		\Util\Arr\must_be_array( $needles );
 		foreach( $needles as $needle ) {
@@ -31,34 +51,22 @@ namespace Util\Str {
 		return FALSE;
 	}
 
-	function i_starts_with( $hay, $needle ) {
-		return \Util\String\starts_with( strtolower( $hay ), strtolower( $needle ) );
-	}
-
-	function i_ends_with( $hay, $needle ) {
-		return \Util\String\ends_with( strtolower( $hay ), strtolower( $needle ) );
-	}
-
-	function must_starts_with( &$hay, $needle ) {
-		if ( ! \Util\String\starts_with( $hay, $needle ) ) {
-			$hay = $needle . $hay;
-		}
+	function i_ends_with( $hay, $needles ) {
+		\Util\Arr\must_be_array( $needles );
+		$needles = array_map( function( $a ) {
+			return strtolower( $a );
+		}, $needles );
+		return \Util\Str\ends_with( strtolower( $hay ), $needles );
 	}
 
 	function must_ends_with( &$hay, $needle ) {
-		if ( ! \Util\String\ends_with( $hay, $needle ) ) {
+		if ( ! \Util\Str\ends_with( $hay, $needle ) ) {
 			$hay .= $needle;
 		}
 	}
 
-	function must_not_starts_with( &$hay, $needle ) {
-		if ( \Util\String\starts_with( $hay, $needle ) ) {
-			$hay = substr( $hay, strlen( $needle ) );
-		}
-	}
-
 	function must_not_ends_with( &$hay, $needle ) {
-		if ( \Util\String\ends_with( $hay, $needle ) ) {
+		if ( \Util\Str\ends_with( $hay, $needle ) ) {
 			$hay = substr( $hay, 0, -strlen( $needle ) );
 		}
 	}
@@ -71,14 +79,14 @@ namespace Util\Str {
 	}
 
 	function i_contains( $hay, $needle ) {
-		return \Util\String\contains( strtolower( $hay ), strtolower( $needle ) );
+		return \Util\Str\contains( strtolower( $hay ), strtolower( $needle ) );
 	}
 
 
 
 	// SUBSTRING FUNCTIONS
 	function cut_before( &$hay, $needles ) {
-		$return = \Util\String\substr_before( $hay, $needles );
+		$return = \Util\Str\substr_before( $hay, $needles );
 		$hay = substr( $hay, strlen( $return ) );
 		return $return;
 	}
@@ -87,7 +95,7 @@ namespace Util\Str {
 		must_be_array( $needles );
 		$return = $hay;
 		foreach( $needles as $needle ) {
-			if ( ! empty( $needle) && \Util\String\contains( $hay, $needle ) ) {
+			if ( ! empty( $needle) && \Util\Str\contains( $hay, $needle ) ) {
 				$cut = substr( $hay, 0, strpos( $hay, $needle ) );
 				if ( strlen( $cut ) < strlen ( $return ) ) {
 					$return = $cut;
@@ -99,7 +107,7 @@ namespace Util\Str {
 	}
 
 	function cut_before_last( &$hay, $needles ) {
-		$return = \Util\String\substr_before_last( $hay, $needles );
+		$return = \Util\Str\substr_before_last( $hay, $needles );
 		$hay = substr( $hay, strlen( $return ) );
 		return $return;
 	}
@@ -108,7 +116,7 @@ namespace Util\Str {
 		\Util\Arr\must_be_array( $needles );
 		$return = '';
 		foreach( $needles as $needle ) {
-			if ( ! empty( $needle ) && \Util\String\contains( $hay, $needle ) ) {
+			if ( ! empty( $needle ) && \Util\Str\contains( $hay, $needle ) ) {
 				$cut = substr( $hay, 0, strrpos( $hay, $needle ) );
 				if ( strlen( $cut ) > strlen ( $return ) ) {
 					$return = $cut;
@@ -120,7 +128,7 @@ namespace Util\Str {
 	}
 
 	function cut_after( &$hay, $needles ) {
-		$return = \Util\String\substr_after( $hay, $needles );
+		$return = \Util\Str\substr_after( $hay, $needles );
 		$hay = substr( $hay, 0, - strlen( $return ) );
 		return $return;
 	}
@@ -129,7 +137,7 @@ namespace Util\Str {
 		\Util\Arr\must_be_array( $needles );
 		$return = '';
 		foreach( $needles as $needle ) {
-			if ( ! empty( $needle) && \Util\String\contains( $hay, $needle ) ) {
+			if ( ! empty( $needle) && \Util\Str\contains( $hay, $needle ) ) {
 				$cut = substr( $hay, strpos( $hay, $needle ) + strlen( $needle ) );
 				if ( strlen( $cut ) > strlen ( $return ) ) {
 					$return = $cut;
@@ -140,7 +148,7 @@ namespace Util\Str {
 	}
 
 	function cut_after_last( &$hay, $needles ) {
-		$return = \Util\String\substr_after_last( $hay, $needles );
+		$return = \Util\Str\substr_after_last( $hay, $needles );
 		$hay = substr( $hay, 0, - strlen( $return ) );
 		return $return;
 	}
@@ -149,7 +157,7 @@ namespace Util\Str {
 		\Util\Arr\must_be_array( $needles );
 		$return = $hay;
 		foreach( $needles as $needle ) {
-			if ( ! empty( $needle) && \Util\String\contains( $hay, $needle ) ) {
+			if ( ! empty( $needle) && \Util\Str\contains( $hay, $needle ) ) {
 				$cut = substr( $hay, strrpos( $hay, $needle ) + strlen( $needle ) );
 				if ( strlen( $cut ) < strlen ( $return ) ) {
 					$return = $cut;
