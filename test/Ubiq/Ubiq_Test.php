@@ -76,30 +76,30 @@ class Ubiq_Test extends \PHPUnit_Framework_TestCase {
 
 	// MUST STARTS WITH
 	public function test_must_starts_with__valid( ) {
-		$assertion = 'Ubiq is so cool';
-		\Util\Str\must_starts_with( $assertion, 'Ubiq' );
-		$this->assertEquals( $assertion, 'Ubiq is so cool' );
+		$assertion = 'www.pixel418.com';
+		\Util\Str\must_starts_with( $assertion, 'http://' );
+		$this->assertEquals( $assertion, 'http://www.pixel418.com' );
 	}
 
 	public function test_must_starts_with__invalid( ) {
-		$assertion = ' is so cool';
-		\Util\Str\must_starts_with( $assertion, 'Ubiq' );
-		$this->assertEquals( $assertion, 'Ubiq is so cool' );
+		$assertion = 'http://www.pixel418.com';
+		\Util\Str\must_starts_with( $assertion, 'http://' );
+		$this->assertEquals( $assertion, 'http://www.pixel418.com' );
 	}
 
 
 
 	// MUST NOT STARTS WITH
 	public function test_must_not_starts_with__valid( ) {
-		$assertion = 'The Ubiq is so cool';
-		\Util\Str\must_not_starts_with( $assertion, 'The ' );
-		$this->assertEquals( $assertion, 'Ubiq is so cool' );
+		$assertion = 'http://www.pixel418.com';
+		\Util\Str\must_not_starts_with( $assertion, 'http://' );
+		$this->assertEquals( $assertion, 'www.pixel418.com' );
 	}
 
 	public function test_must_not_starts_with__invalid( ) {
-		$assertion = 'Ubiq is so cool';
-		\Util\Str\must_not_starts_with( $assertion, 'The ' );
-		$this->assertEquals( $assertion, 'Ubiq is so cool' );
+		$assertion = 'www.pixel418.com';
+		\Util\Str\must_not_starts_with( $assertion, 'http://' );
+		$this->assertEquals( $assertion, 'www.pixel418.com' );
 	}
 
 

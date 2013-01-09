@@ -54,17 +54,17 @@ Examples
 ### Example 1
 
 ```php
-$assertion = 'Ubiq is so cool';
-\Util\Str\starts_with( $assertion, 'Ubiq' );
+$assertion = 'www.pixel418.com';
+\Util\Str\starts_with( $assertion, 'http://' );
 echo $assertion;
 ```
-Returns 'Ubiq is so cool'.
+Returns 'http://www.pixel418.com'.
 
 ### Example 2
 
 ```php
-$assertion = ' is so cool';
-\Util\Str\starts_with( $assertion, 'Ubiq' );
+$assertion = 'http://www.pixel418.com';
+\Util\Str\starts_with( $assertion, 'http://' );
 echo $assertion;
 ```
-Returns 'Ubiq is so cool'.
+Returns 'http://www.pixel418.com'.

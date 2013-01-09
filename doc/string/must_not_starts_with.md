@@ -54,17 +54,17 @@ Examples
 ### Example 1
 
 ```php
-$assertion = 'The Ubiq is so cool';
-\Util\Str\must_not_starts_with( $assertion, 'The ' );
+$assertion = 'http://www.pixel418.com';
+\Util\Str\must_not_starts_with( $assertion, 'http://' );
 echo $assertion;
 ```
-Returns 'Ubiq is so cool'.
+Returns 'www.pixel418.com'.
 
 ### Example 2
 
 ```php
-$assertion = 'Ubiq is so cool';
-\Util\Str\must_not_starts_with( $assertion, 'The ' );
+$assertion = 'www.pixel418.com';
+\Util\Str\must_not_starts_with( $assertion, 'http://' );
 echo $assertion;
 ```
-Returns 'Ubiq is so cool'.
+Returns 'www.pixel418.com'.
