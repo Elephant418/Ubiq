@@ -86,7 +86,22 @@ class Ubiq_Test extends \PHPUnit_Framework_TestCase {
 		\Util\Str\must_starts_with( $assertion, 'Ubiq' );
 		$this->assertEquals( $assertion, 'Ubiq is so cool' );
 	}
-	
+
+
+
+	// MUST NOT STARTS WITH
+	public function test_must_not_starts_with__valid( ) {
+		$assertion = 'The Ubiq is so cool';
+		\Util\Str\must_not_starts_with( $assertion, 'The ' );
+		$this->assertEquals( $assertion, 'Ubiq is so cool' );
+	}
+
+	public function test_must_not_starts_with__invalid( ) {
+		$assertion = 'Ubiq is so cool';
+		\Util\Str\must_not_starts_with( $assertion, 'The ' );
+		$this->assertEquals( $assertion, 'Ubiq is so cool' );
+	}
+
 
 
 	// ENDS WITH
