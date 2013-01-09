@@ -23,7 +23,7 @@ namespace Util\Str {
 
 	function i_starts_with( $hay, $needles ) {
 		\Util\Arr\must_be_array( $needles );
-		$needles = \Util\Arr\map( $needles, 'strtolower' );
+		$needles = array_map( 'strtolower', $needles );
 		return \Util\Str\starts_with( strtolower( $hay ), $needles );
 	}
 
@@ -51,7 +51,7 @@ namespace Util\Str {
 
 	function i_ends_with( $hay, $needles ) {
 		\Util\Arr\must_be_array( $needles );
-		$needles = \Util\Arr\map( $needles, 'strtolower' );
+		$needles = array_map( 'strtolower', $needles );
 		return \Util\Str\ends_with( strtolower( $hay ), $needles );
 	}
 
@@ -82,7 +82,7 @@ namespace Util\Str {
 
 	function i_contains( $hay, $needles ) {
 		\Util\Arr\must_be_array( $needles );
-		$needles = \Util\Arr\map( $needles, 'strtolower' );
+		$needles = array_map( 'strtolower', $needles );
 		return \Util\Str\contains( $hay, $needles );
 	}
 
@@ -211,20 +211,14 @@ namespace Util\Arr {
 		return TRUE;
 	}
 
-	function map( $array, $callable ) {
-		return array_map( function( $a ) use ( $callable ) {
-			return $callable( $a );
-		}, $array );
-	}
-
 	// Keep the order of each FIRST occurence 
 	function merge_unique( $array1, $array2 ) {
-		return array_values( array_unique( array_merge( $array1, $array2 ) ) );
+		return array_values( array_unique( call_user_func_array( 'array_merge', func_get_args( ) ) ) );
 	}
 
 	// Keep the order of each LAST occurence 
 	function reverse_merge_unique( $array1, $array2 ) {
-		return array_reverse( array_values( array_unique( array_reverse( array_merge( $array1, $array2 ) ) ) ) );
+		return array_reverse( array_values( array_unique( array_reverse( call_user_func_array( 'array_merge', func_get_args( ) ) ) ) ) );
 	}
 }
 
@@ -241,8 +235,9 @@ namespace Util\Obj {
 		}
 	}
 
-	function get_attribute_names( $object ) {
-		return array_keys( get_object_vars( $object ) );
+	function get_attribute_names( $class ) {
+		\Util\Obj\must_be_class( $class );
+		return array_keys( get_class_vars( $class ) );
 	}
 
 	function get_namespace( $class ) {
