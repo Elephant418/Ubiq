@@ -96,7 +96,7 @@ namespace Util\Str {
 	}
 
 	function substr_before( $hay, $needles ) {
-		must_be_array( $needles );
+		\Util\Arr\must_be_array( $needles );
 		$return = $hay;
 		foreach( $needles as $needle ) {
 			if ( ! empty( $needle) && \Util\Str\contains( $hay, $needle ) ) {
