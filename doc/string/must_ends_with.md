@@ -1,4 +1,4 @@
-[Ubiq](../index.md) / [String](../index.md#string) / must_starts_with
+[Ubiq](../index.md) / [String](../index.md#string) / must_ends_with
 ======
 
 
@@ -6,10 +6,10 @@ Description
 -------- 
 
 ```php
-void \Util\String\must_starts_with( string &$hay, string $needle );
+void \Util\String\must_ends_with( string &$hay, string $needle );
 ```
 
-If a string does not start with a specific character/sequence, the string is prefixed.
+If a string does not end with a specific character/sequence, the string is sufixed.
 
 **Note**: The string is passed by reference.
 
@@ -54,17 +54,17 @@ Examples
 ### Example 1
 
 ```php
-$assertion = 'www.pixel418.com';
-\Util\Str\must_starts_with( $assertion, 'http://' );
+$assertion = 'http://www.pixel418.com';
+\Util\Str\must_ends_with( $assertion, '/' );
 echo $assertion;
 ```
-Returns 'http://www.pixel418.com'.
+Returns 'http://www.pixel418.com/'.
 
 ### Example 2
 
 ```php
-$assertion = 'http://www.pixel418.com';
-\Util\Str\must_starts_with( $assertion, 'http://' );
+$assertion = 'http://www.pixel418.com/';
+\Util\Str\must_ends_with( $assertion, '/' );
 echo $assertion;
 ```
-Returns 'http://www.pixel418.com'.
+Returns 'http://www.pixel418.com/'.

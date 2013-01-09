@@ -167,4 +167,19 @@ class Ubiq_Test extends \PHPUnit_Framework_TestCase {
 		$test = \Util\Str\i_ends_with( 'Ubiq is so cool', [ 'boring', 'classy' ] );
 		$this->assertFalse( $test );
 	}
+
+
+
+	// MUST ENDS WITH
+	public function test_must_ends_with__valid( ) {
+		$assertion = 'http://www.pixel418.com';
+		\Util\Str\must_ends_with( $assertion, '/' );
+		$this->assertEquals( $assertion, 'http://www.pixel418.com/' );
+	}
+
+	public function test_must_ends_with__invalid( ) {
+		$assertion = 'http://www.pixel418.com/';
+		\Util\Str\must_ends_with( $assertion, '/' );
+		$this->assertEquals( $assertion, 'http://www.pixel418.com/' );
+	}
 }
