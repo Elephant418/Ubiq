@@ -1,7 +1,7 @@
 Ubiq [![Build Status](https://secure.travis-ci.org/Pixel418/Ubiq.png)](http://travis-ci.org/Pixel418/Ubiq)
 ======
 
-Functions for readable treatment of string, array & object: [see the Ubiq documentation](https://github.com/Pixel418/Ubiq/blob/master/doc/index.md#ubiq-documentation)
+Functions for readable treatment of string, array & object: [see the documentation](https://github.com/Pixel418/Ubiq/blob/master/doc/index.md#readme)
 
 
 
