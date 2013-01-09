@@ -1,8 +1,10 @@
 <?php
 
-require_once( __DIR__ . '/Ubiq.php' );
+namespace Test\Ubiq;
 
-class Ubiq_Test extends PHPUnit_Framework_TestCase {
+require_once( dirname( dirname( __DIR__ ) ) . '/Ubiq/Ubiq.php' );
+
+class Ubiq_Test extends \PHPUnit_Framework_TestCase {
 
 	// STARTS WITH
 	public function test_starts_with__valid( ) {
