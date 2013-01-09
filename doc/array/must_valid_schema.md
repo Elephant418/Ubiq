@@ -1,4 +1,4 @@
-[Ubiq](../index.md) / [String](../index.md#array) / must_valid_schema
+[Ubiq](https://github.com/Pixel418/Ubiq#ubiq) / [Documentation](../index.md#documentation) / [String](../index.md#array) / must_valid_schema
 ======
 
 

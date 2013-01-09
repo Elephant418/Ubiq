@@ -1,6 +1,8 @@
 Ubiq [![Build Status](https://secure.travis-ci.org/Pixel418/Ubiq.png)](http://travis-ci.org/Pixel418/Ubiq)
 ======
-Functions for readable treatment of string, array & object.
+
+Functions for readable treatment of string, array & object: [see the Ubiq documentation](https://github.com/Pixel418/Ubiq/blob/master/doc/index.md#ubiq-documentation)
+
 
 
 Let's code
@@ -44,10 +46,14 @@ function get_namespace( $class ) {
 }
 ```
 
+
+
 License
 --------
 
 Staq is under [MIT License](http://opensource.org/licenses/MIT).
+
+
 
 Community
 --------

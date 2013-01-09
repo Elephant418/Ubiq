@@ -1,4 +1,4 @@
-[Ubiq](../index.md) / [String](../index.md#object) / must_be_class
+[Ubiq](https://github.com/Pixel418/Ubiq#ubiq) / [Documentation](../index.md#documentation) / [String](../index.md#object) / must_be_class
 ======
 
 

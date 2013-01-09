@@ -1,4 +1,4 @@
-[Ubiq](../index.md) / [String](../index.md#string) / substr_after_last
+[Ubiq](https://github.com/Pixel418/Ubiq#ubiq) / [Documentation](../index.md#documentation) / [String](../index.md#string) / substr_after_last
 ======
 
 

@@ -1,4 +1,4 @@
-Ubiq Documentation
+[Ubiq](https://github.com/Pixel418/Ubiq#ubiq) / Documentation
 ======
 
 

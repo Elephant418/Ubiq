@@ -1,4 +1,4 @@
-[Ubiq](../index.md) / [String](../index.md#array) / reverse_merge_unique
+[Ubiq](https://github.com/Pixel418/Ubiq#ubiq) / [Documentation](../index.md#documentation) / [String](../index.md#array) / reverse_merge_unique
 ======
 
 
