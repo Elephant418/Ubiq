@@ -41,7 +41,7 @@ Array
 * [must_be_array](./array/must_be_array.md#readme)
 * [must_valid_schema](./array/must_valid_schema.md#readme)
 * [merge_unique](./array/merge_unique.md#readme)
-* [reverse_merge_unique](./array/merge_unique.md#readme)
+* [reverse_merge_unique](./array/reverse_merge_unique.md#readme)
 
 
 
@@ -58,4 +58,4 @@ Object
 HTTP
 -------- 
 
-* [redirect](./object/redirect.md#readme)
+* [redirect](./http/redirect.md#readme)

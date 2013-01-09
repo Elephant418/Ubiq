@@ -13,12 +13,12 @@ Let's code
 ```php
 function get_namespace( $class ) {
 
-	// Allow to pass object or class as parameter
+	// Allow to pass an object or a class as parameter
 	if ( is_object( $class ) ) {
 		$class = get_class( $class );
 	}
 
-	// Allow to pass class with or without the first '\\'
+	// Allow to pass a class with or without the first '\'
 	if ( substr( $class, 0, 1 ) != '\\' ) {
 		$class = '\\' . $class;
 	}
