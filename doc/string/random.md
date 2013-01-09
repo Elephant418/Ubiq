@@ -1,4 +1,4 @@
-[Ubiq](https://github.com/Pixel418/Ubiq#ubiq) / [Documentation](../index.md#readme) / [String](../index.md#string) / random
+[Ubiq](https://github.com/Pixel418/Ubiq#readme) / [Documentation](../index.md#readme) / [String](../index.md#string) / random
 ======
 
 

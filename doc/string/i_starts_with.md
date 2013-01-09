@@ -1,4 +1,4 @@
-[Ubiq](https://github.com/Pixel418/Ubiq#ubiq) / [Documentation](../index.md#readme) / [String](../index.md#string) / i_starts_with
+[Ubiq](https://github.com/Pixel418/Ubiq#readme) / [Documentation](../index.md#readme) / [String](../index.md#string) / i_starts_with
 ======
 
 
