@@ -1,4 +1,4 @@
-[Ubiq](../index.md) / [String](../index.md#string) / ends_with
+[Ubiq](../index.md) / [String](../index.md#string) / i_ends_with
 ======
 
 
@@ -6,13 +6,13 @@ Description
 -------- 
 
 ```php
-bool \Util\String\ends_with( string $hay, mixed $needles );
+bool \Util\String\i_ends_with( string $hay, mixed $needles );
 ```
 
 Checks if a string ends with a specific character/sequence. <br>
 If several matches are given, checks if the string ends with at least one of them.
 
-**Note**: This function is case sensitive. See [i_ends_with](./i_ends_with.md).
+**Note**: This function is case insensitive. See [ends_with](./ends_with.md).
 
 
 
@@ -59,41 +59,41 @@ Examples
 ### Example 1
 
 ```php
-\Util\Str\ends_with( 'Ubiq is so cool', 'cool' );
+\Util\Str\i_ends_with( 'Ubiq is so cool', 'cool' );
 ```
 Returns TRUE.
 
 ### Example 2
 
 ```php
-\Util\Str\ends_with( 'Ubiq is so cool', 'Cool' );
+\Util\Str\i_ends_with( 'Ubiq is so cool', 'Cool' );
 ```
-Returns FALSE.
+Returns TRUE.
 
 ### Example 3
 
 ```php
-\Util\Str\ends_with( 'Ubiq is so cool', 'boring' );
+\Util\Str\i_ends_with( 'Ubiq is so cool', 'boring' );
 ```
 Returns FALSE.
 
 ### Example 4
 
 ```php
-\Util\Str\ends_with( 'Ubiq is so cool', [ 'cool', 'boring' ] );
+\Util\Str\i_ends_with( 'Ubiq is so cool', [ 'cool', 'boring' ] );
 ```
 Returns TRUE.
 
 ### Example 5
 
 ```php
-\Util\Str\ends_with( 'Ubiq is so cool', [ 'Cool', 'boring' ] );
+\Util\Str\i_ends_with( 'Ubiq is so cool', [ 'Cool', 'boring' ] );
 ```
-Returns FALSE.
+Returns TRUE.
 
 ### Example 6
 
 ```php
-\Util\Str\ends_with( 'Ubiq is so cool', [ 'boring', 'classy' ] );
+\Util\Str\i_ends_with( 'Ubiq is so cool', [ 'boring', 'classy' ] );
 ```
 Returns FALSE.

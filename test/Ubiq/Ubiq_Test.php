@@ -130,8 +130,41 @@ class Ubiq_Test extends \PHPUnit_Framework_TestCase {
 		$this->assertFalse( $test );
 	}
 
-	public function test_sends_with__multiple_invalid( ) {
+	public function test_ends_with__multiple_invalid( ) {
 		$test = \Util\Str\ends_with( 'Ubiq is so cool', [ 'boring', 'classy' ] );
+		$this->assertFalse( $test );
+	}
+
+
+
+	// I ENDS WITH
+	public function test_i_ends_with__valid( ) {
+		$test = \Util\Str\i_ends_with( 'Ubiq is so cool', 'cool' );
+		$this->assertTrue( $test );
+	}
+
+	public function test_i_ends_with__valid_sensitive( ) {
+		$test = \Util\Str\i_ends_with( 'Ubiq is so cool', 'Cool' );
+		$this->assertTrue( $test );
+	}
+
+	public function test_i_ends_with__invalid( ) {
+		$test = \Util\Str\i_ends_with( 'Ubiq is so cool', 'boring' );
+		$this->assertFalse( $test );
+	}
+
+	public function test_i_ends_with__multiple_valid( ) {
+		$test = \Util\Str\i_ends_with( 'Ubiq is so cool', [ 'cool', 'boring' ] );
+		$this->assertTrue( $test );
+	}
+
+	public function test_i_ends_with__multiple_valid_sensitive( ) {
+		$test = \Util\Str\i_ends_with( 'Ubiq is so cool', [ 'Cool', 'boring' ] );
+		$this->assertTrue( $test );
+	}
+
+	public function test_i_ends_with__multiple_invalid( ) {
+		$test = \Util\Str\i_ends_with( 'Ubiq is so cool', [ 'boring', 'classy' ] );
 		$this->assertFalse( $test );
 	}
 }
