@@ -15,56 +15,23 @@ If a string does not end with a specific character/sequence, the string is sufix
 
 
 
-Parameters
---------
-
-<table>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		<th>Required</th>
-	</tr>
-	<tr>
-		<td>$hay</td>
-		<td>string</td>
-		<td>the input string</td>
-		<td>Yes</td>
-	</tr>
-	<tr>
-		<td>$needle</td>
-		<td>string</td>
-		<td>the searched value</td>
-		<td>Yes</td>
-	</tr>
-</table>
-
-
-
-Returns
---------
-
-No value is returned. 
-
-
-
 Examples
 --------
 
 ### Example 1
 
 ```php
-$assertion = 'http://www.example.com';
-\Util\Str\must_ends_with( $assertion, '/' );
-echo $assertion;
+$url = 'http://www.example.com';
+\Util\Str\must_ends_with( $url, '/' );
+echo $url;
 ```
 Returns 'http://www.example.com/'.
 
 ### Example 2
 
 ```php
-$assertion = 'http://www.example.com/';
-\Util\Str\must_ends_with( $assertion, '/' );
-echo $assertion;
+$url = 'http://www.example.com/';
+\Util\Str\must_ends_with( $url, '/' );
+echo $url;
 ```
 Returns 'http://www.example.com/'.

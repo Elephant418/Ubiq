@@ -15,41 +15,6 @@ Merges the elements of one or more arrays together without duplicate values. <br
 
 
 
-Parameters
---------
-
-<table>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		<th>Required</th>
-	</tr>
-	<tr>
-		<td>$array1</td>
-		<td>array</td>
-		<td>An array to merge</td>
-		<td>Yes</td>
-	</tr>
-	<tr>
-		<td>$array2</td>
-		<td>array</td>
-		<td>An array to merge</td>
-		<td>No</td>
-	</tr>
-	<tr>
-		<td colspan="4">…</td>
-	</tr>
-</table>
-
-
-
-Returns
---------
-
-Returns the resulting array. 
-
-
 Examples
 --------
 

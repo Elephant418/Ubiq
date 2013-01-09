@@ -15,33 +15,6 @@ If the parameter is not an array, it is encapsulated to be an array.
 
 
 
-Parameters
---------
-
-<table>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		<th>Required</th>
-	</tr>
-	<tr>
-		<td>$array</td>
-		<td>mixed</td>
-		<td>the input that must be an array</td>
-		<td>Yes</td>
-	</tr>
-</table>
-
-
-
-Returns
---------
-
-No value is returned. 
-
-
-
 Examples
 --------
 

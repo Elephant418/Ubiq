@@ -288,6 +288,5 @@ class Ubiq_Test extends \PHPUnit_Framework_TestCase {
 	public function test_reverse_merge_unique__three( ) {
 		$test = \Util\Arr\reverse_merge_unique( [ 1, 2, 3 ], [ 2, 3, 4 ], [ 5, 2 ] );
 		$this->assertEquals( $test, [ 1, 3, 4, 5, 2 ] );
-		return $test;
 	}
 }
