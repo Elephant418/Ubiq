@@ -76,30 +76,30 @@ class Ubiq_Test extends \PHPUnit_Framework_TestCase {
 
 	// MUST STARTS WITH
 	public function test_must_starts_with__valid( ) {
-		$assertion = 'www.pixel418.com';
+		$assertion = 'www.example.com';
 		\Util\Str\must_starts_with( $assertion, 'http://' );
-		$this->assertEquals( $assertion, 'http://www.pixel418.com' );
+		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 
 	public function test_must_starts_with__invalid( ) {
-		$assertion = 'http://www.pixel418.com';
+		$assertion = 'http://www.example.com';
 		\Util\Str\must_starts_with( $assertion, 'http://' );
-		$this->assertEquals( $assertion, 'http://www.pixel418.com' );
+		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 
 
 
 	// MUST NOT STARTS WITH
 	public function test_must_not_starts_with__valid( ) {
-		$assertion = 'http://www.pixel418.com';
+		$assertion = 'http://www.example.com';
 		\Util\Str\must_not_starts_with( $assertion, 'http://' );
-		$this->assertEquals( $assertion, 'www.pixel418.com' );
+		$this->assertEquals( $assertion, 'www.example.com' );
 	}
 
 	public function test_must_not_starts_with__invalid( ) {
-		$assertion = 'www.pixel418.com';
+		$assertion = 'www.example.com';
 		\Util\Str\must_not_starts_with( $assertion, 'http://' );
-		$this->assertEquals( $assertion, 'www.pixel418.com' );
+		$this->assertEquals( $assertion, 'www.example.com' );
 	}
 
 
@@ -172,14 +172,29 @@ class Ubiq_Test extends \PHPUnit_Framework_TestCase {
 
 	// MUST ENDS WITH
 	public function test_must_ends_with__valid( ) {
-		$assertion = 'http://www.pixel418.com';
+		$assertion = 'http://www.example.com';
 		\Util\Str\must_ends_with( $assertion, '/' );
-		$this->assertEquals( $assertion, 'http://www.pixel418.com/' );
+		$this->assertEquals( $assertion, 'http://www.example.com/' );
 	}
 
 	public function test_must_ends_with__invalid( ) {
-		$assertion = 'http://www.pixel418.com/';
+		$assertion = 'http://www.example.com/';
 		\Util\Str\must_ends_with( $assertion, '/' );
-		$this->assertEquals( $assertion, 'http://www.pixel418.com/' );
+		$this->assertEquals( $assertion, 'http://www.example.com/' );
+	}
+
+
+
+	// MUST NOT ENDS WITH
+	public function test_must_not_ends_with__valid( ) {
+		$assertion = 'http://www.example.com';
+		\Util\Str\must_not_ends_with( $assertion, '/' );
+		$this->assertEquals( $assertion, 'http://www.example.com' );
+	}
+
+	public function test_must_not_ends_with__invalid( ) {
+		$assertion = 'http://www.example.com/';
+		\Util\Str\must_not_ends_with( $assertion, '/' );
+		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 }

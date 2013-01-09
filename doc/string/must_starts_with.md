@@ -54,17 +54,17 @@ Examples
 ### Example 1
 
 ```php
-$assertion = 'www.pixel418.com';
+$assertion = 'www.example.com';
 \Util\Str\must_starts_with( $assertion, 'http://' );
 echo $assertion;
 ```
-Returns 'http://www.pixel418.com'.
+Returns 'http://www.example.com'.
 
 ### Example 2
 
 ```php
-$assertion = 'http://www.pixel418.com';
+$assertion = 'http://www.example.com';
 \Util\Str\must_starts_with( $assertion, 'http://' );
 echo $assertion;
 ```
-Returns 'http://www.pixel418.com'.
+Returns 'http://www.example.com'.

@@ -1,4 +1,4 @@
-[Ubiq](../index.md) / [String](../index.md#string) / must_ends_with
+[Ubiq](../index.md) / [String](../index.md#string) / must_not_ends_with
 ======
 
 
@@ -6,10 +6,10 @@ Description
 -------- 
 
 ```php
-void \Util\String\must_ends_with( string &$hay, string $needle );
+void \Util\String\must_not_ends_with( string &$hay, string $needle );
 ```
 
-If a string does not end with a specific character/sequence, the string is sufixed.
+If a string ends with a specific character/sequence, the sufix is removed.
 
 **Note**: The string is passed by reference.
 
@@ -55,16 +55,16 @@ Examples
 
 ```php
 $assertion = 'http://www.example.com';
-\Util\Str\must_ends_with( $assertion, '/' );
+\Util\Str\must_not_ends_with( $assertion, '/' );
 echo $assertion;
 ```
-Returns 'http://www.example.com/'.
+Returns 'http://www.example.com'.
 
 ### Example 2
 
 ```php
 $assertion = 'http://www.example.com/';
-\Util\Str\must_ends_with( $assertion, '/' );
+\Util\Str\must_not_ends_with( $assertion, '/' );
 echo $assertion;
 ```
-Returns 'http://www.example.com/'.
+Returns 'http://www.example.com'.
