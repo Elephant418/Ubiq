@@ -230,4 +230,37 @@ class Ubiq_Test extends \PHPUnit_Framework_TestCase {
 		$test = \Util\Str\contains( '/path/to/a/folder', [ 'php', '.' ] );
 		$this->assertFalse( $test );
 	}
+
+
+
+	// I CONTAINS
+	public function test_i_contains__valid( ) {
+		$test = \Util\Str\i_contains( '/path/to/a/folder', '/to/' );
+		$this->assertTrue( $test );
+	}
+
+	public function test_i_contains__valid_sensitive( ) {
+		$test = \Util\Str\i_contains( '/path/to/a/folder', '/TO/' );
+		$this->assertTrue( $test );
+	}
+
+	public function test_i_contains__invalid( ) {
+		$test = \Util\Str\i_contains( '/path/to/a/folder', '.' );
+		$this->assertFalse( $test );
+	}
+
+	public function test_i_contains__multiple_valid( ) {
+		$test = \Util\Str\i_contains( '/path/to/a/folder', [ '/to/', '.' ] );
+		$this->assertTrue( $test );
+	}
+
+	public function test_i_contains__multiple_valid_sensitive( ) {
+		$test = \Util\Str\i_contains( '/path/to/a/folder', [ '/TO/', '.' ] );
+		$this->assertTrue( $test );
+	}
+
+	public function test_i_contains__multiple_invalid( ) {
+		$test = \Util\Str\i_contains( '/path/to/a/folder', [ 'php', '.' ] );
+		$this->assertFalse( $test );
+	}
 }

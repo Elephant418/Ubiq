@@ -80,7 +80,7 @@ namespace Util\Str {
 		return FALSE;
 	}
 
-	function i_contains( $hay, $needle ) {
+	function i_contains( $hay, $needles ) {
 		\Util\Arr\must_be_array( $needles );
 		$needles = \Util\Arr\map( $needles, 'strtolower' );
 		return \Util\Str\contains( $hay, $needles );
