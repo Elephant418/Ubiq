@@ -5,7 +5,9 @@
 Summary
 -------- 
 
-Checks if a string starts with a specific character/sequence.
+Checks if a string starts with a specific character/sequence. <br>
+If several matches are given, checks if the string starts with at least one of them. <br>
+This function is case sensitive.
 
 
 
@@ -42,7 +44,7 @@ Parameters
 	</tr>
 	<tr>
 		<td>array</td>
-		<td>the searched values with OR operator</td>
+		<td>the searched values</td>
 	</tr>
 </table>
 
@@ -85,4 +87,3 @@ Returns TRUE.
 \Util\Str\starts_with( 'Ubiq is so cool', [ 'Java', '.NET' ] );
 ```
 Returns FALSE.
-
