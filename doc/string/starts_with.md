@@ -4,12 +4,18 @@
 
 Summary
 -------- 
+
 Checks if a string starts with a specific character/sequence.
+
 
 
 Usage
 --------
+
+```php
 \Util\String|starts_with( $hay, $needles )
+```
+
 
 
 Parameters
@@ -41,9 +47,12 @@ Parameters
 </table>
 
 
+
 Returns
 --------
+
 TRUE if there is a match, FALSE otherwise.
+
 
 
 Examples
