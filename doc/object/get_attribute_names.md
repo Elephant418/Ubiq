@@ -9,7 +9,7 @@ Description
 array \UObject\get_attribute_names( mixed $class );
 ```
 
-Return the name of the public attributes of the passed class.
+Returns the name of the public attributes of the passed class.
 
 
 

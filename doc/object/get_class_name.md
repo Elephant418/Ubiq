@@ -9,7 +9,7 @@ Description
 string \UObject\get_class_name( mixed $class );
 ```
 
-Return the class name of passed class.
+Returns the class name of passed class.
 
 
 

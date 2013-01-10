@@ -9,7 +9,7 @@ Description
 string \UObject\get_namespace( mixed $class );
 ```
 
-Return the namespace of passed class.
+Returns the namespace of passed class.
 
 
 
