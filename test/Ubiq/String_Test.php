@@ -281,4 +281,18 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 	}
 
 
+
+	// SUBSTR BEFORE
+	public function test_substr_before__valid( ) {
+		$path = 'example.com/my/path';
+		$domain = \UString\substr_before( $path, '/' );
+		$this->assertEquals( $domain, 'example.com' );
+	}
+	public function test_substr_before__invalid( ) {
+		$path = '/my/path';
+		$domain = \UString\substr_before( $path, '/' );
+		$this->assertEquals( $domain, '' );
+	}
+
+
 }

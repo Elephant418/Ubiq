@@ -19,4 +19,16 @@ If several matches are given, the sequence that generate the shorter return is k
 Examples
 --------
 
-Todo.
+### Example 1
+
+```php
+\UString\substr_before( 'example.com/my/path', '/' );
+```
+Returns 'example.com'
+
+### Example 2
+
+```php
+\UString\substr_before( '/my/path', '/' );
+```
+Returns ''
