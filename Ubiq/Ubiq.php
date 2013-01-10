@@ -248,7 +248,7 @@ namespace UObject {
 
 	function must_be_class( &$object ) {
 		if ( is_object( $object ) ) {
-			$object = get_class( $object );
+			$object = '\\' . get_class( $object );
 		}
 	}
 
