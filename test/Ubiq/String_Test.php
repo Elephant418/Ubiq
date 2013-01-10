@@ -270,14 +270,14 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 	public function test_cut_before__valid( ) {
 		$original = 'example.com/my/path';
 		$cut = \UString\cut_before( $original, '/' );
-		$this->assertEquals( $original, '/my/path' );
 		$this->assertEquals( $cut, 'example.com' );
+		$this->assertEquals( $original, '/my/path' );
 	}
 	public function test_cut_before__invalid( ) {
 		$original = 'example.com';
 		$cut = \UString\cut_before( $original, '/' );
-		$this->assertEquals( $original, '' );
 		$this->assertEquals( $cut, 'example.com' );
+		$this->assertEquals( $original, '' );
 	}
 
 
@@ -300,14 +300,14 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 	public function test_cut_before_last__valid( ) {
 		$original = 'example.com/my/path/file.md';
 		$cut = \UString\cut_before_last( $original, '/' );
-		$this->assertEquals( $original, '/file.md' );
 		$this->assertEquals( $cut, 'example.com/my/path' );
+		$this->assertEquals( $original, '/file.md' );
 	}
 	public function test_cut_before_last__invalid( ) {
 		$original = 'example.com';
 		$cut = \UString\cut_before_last( $original, '/' );
-		$this->assertEquals( $original, 'example.com' );
 		$this->assertEquals( $cut, '' );
+		$this->assertEquals( $original, 'example.com' );
 	}
 
 
@@ -321,6 +321,36 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 	public function test_substr_before_last__invalid( ) {
 		$original = 'example.com';
 		$cut = \UString\substr_before_last( $original, '/' );
+		$this->assertEquals( $cut, '' );
+	}
+
+
+
+	// CUT AFTER
+	public function test_cut_after__valid( ) {
+		$original = 'example.com/my/path';
+		$cut = \UString\cut_after( $original, '/' );
+		$this->assertEquals( $original, 'example.com/' );
+		$this->assertEquals( $cut, 'my/path' );
+	}
+	public function test_cut_after__invalid( ) {
+		$original = 'example.com';
+		$cut = \UString\cut_after( $original, '/' );
+		$this->assertEquals( $original, 'example.com' );
+		$this->assertEquals( $cut, '' );
+	}
+
+
+
+	// SUBSTR AFTER
+	public function test_substr_after__valid( ) {
+		$original = 'example.com/my/path';
+		$cut = \UString\cut_after( $original, '/' );
+		$this->assertEquals( $cut, 'my/path' );
+	}
+	public function test_substr_after__invalid( ) {
+		$original = 'example.com';
+		$cut = \UString\cut_after( $original, '/' );
 		$this->assertEquals( $cut, '' );
 	}
 }

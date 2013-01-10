@@ -19,4 +19,16 @@ If several matches are given, the sequence that generate the larger return is ke
 Examples
 --------
 
-Todo.
+### Example 1
+
+```php
+\UString\cut_after( 'example.com/my/path', '/' );
+```
+Returns 'my/path'
+
+### Example 2
+
+```php
+$cut = \UString\cut_after( 'example.com', '/' );
+```
+Returns ''
