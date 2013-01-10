@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-bool \Util\Str\contains( string $hay, mixed $needles );
+bool \UString\contains( string $hay, mixed $needles );
 ```
 
 Checks if a string contains a specific character/sequence. <br>
@@ -24,41 +24,41 @@ Examples
 ### Example 1
 
 ```php
-\Util\Str\contains( '/path/to/a/folder', '/to/' );
+\UString\contains( '/path/to/a/folder', '/to/' );
 ```
 Returns TRUE.
 
 ### Example 2
 
 ```php
-\Util\Str\contains( '/path/to/a/folder', '/TO/' );
+\UString\contains( '/path/to/a/folder', '/TO/' );
 ```
 Returns FALSE.
 
 ### Example 3
 
 ```php
-\Util\Str\contains( '/path/to/a/folder', '.' );
+\UString\contains( '/path/to/a/folder', '.' );
 ```
 Returns FALSE.
 
 ### Example 4
 
 ```php
-\Util\Str\contains( '/path/to/a/folder', [ '/to/', '.' ] );
+\UString\contains( '/path/to/a/folder', [ '/to/', '.' ] );
 ```
 Returns TRUE.
 
 ### Example 5
 
 ```php
-\Util\Str\contains( '/path/to/a/folder', [ '/TO/', '.' ] );
+\UString\contains( '/path/to/a/folder', [ '/TO/', '.' ] );
 ```
 Returns FALSE.
 
 ### Example 46
 
 ```php
-\Util\Str\contains( '/path/to/a/folder', [ 'php', '.' ] );
+\UString\contains( '/path/to/a/folder', [ 'php', '.' ] );
 ```
 Returns FALSE.

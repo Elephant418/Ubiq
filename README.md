@@ -32,9 +32,9 @@ function get_namespace( $class ) {
 
 ```php
 function get_namespace( $class ) {
-	\Util\Obj\must_be_class( $class );
-	\Util\Str\must_starts_with( $class, '\\' );
-	return \Util\Str\substr_before_last( $class, '\\' );
+	\UObject\must_be_class( $class );
+	\UString\must_starts_with( $class, '\\' );
+	return \UString\substr_before_last( $class, '\\' );
 }
 ```
 
@@ -42,7 +42,7 @@ function get_namespace( $class ) {
 
 ```php
 function get_namespace( $class ) {
-	return \Util\Obj\get_namespace( $class );
+	return \UObject\get_namespace( $class );
 }
 ```
 

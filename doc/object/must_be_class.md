@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-void \Util\Obj\must_be_class( mixed &$class );
+void \UObject\must_be_class( mixed &$class );
 ```
 
 If the parameter is an object, returns its full class.

@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-bool \Util\Arr\must_valid_schema( array &$array, array $schema );
+bool \UArray\must_valid_schema( array &$array, array $schema );
 ```
 
 If the parameter is not an array, it is transformed to be conform.

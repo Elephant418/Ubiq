@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-string \Util\Str\random( int $length = 10, string $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' );
+string \UString\random( int $length = 10, string $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' );
 ```
 
 Return a generated string with specified length and specified character set.

@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-string \Util\Str\substr_after( string $hay, mixed $needles );
+string \UString\substr_after( string $hay, mixed $needles );
 ```
 
 Returns the portion of string from the first match of a specific character/sequence to the end. <br>

@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-string \Util\Str\substr_before( string $hay, mixed $needles );
+string \UString\substr_before( string $hay, mixed $needles );
 ```
 
 Returns the portion of string from the beginning to the first match of a specific character/sequence. <br>

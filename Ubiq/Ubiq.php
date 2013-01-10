@@ -6,13 +6,13 @@
 /*************************************************************************
   STRING METHODS                   
  *************************************************************************/
-namespace Util\Str {
+namespace UString {
 
 
 
 	// STARTS WITH & ENDS WITH FUNCTIONS
 	function starts_with( $hay, $needles ) {
-		\Util\Arr\must_be_array( $needles );
+		\UArray\must_be_array( $needles );
 		foreach( $needles as $needle ) {
 			if ( substr( $hay, 0, strlen( $needle ) ) == $needle ) {
 				return TRUE;
@@ -22,25 +22,25 @@ namespace Util\Str {
 	}
 
 	function i_starts_with( $hay, $needles ) {
-		\Util\Arr\must_be_array( $needles );
+		\UArray\must_be_array( $needles );
 		$needles = array_map( 'strtolower', $needles );
-		return \Util\Str\starts_with( strtolower( $hay ), $needles );
+		return \UString\starts_with( strtolower( $hay ), $needles );
 	}
 
 	function must_starts_with( &$hay, $needle ) {
-		if ( ! \Util\Str\starts_with( $hay, $needle ) ) {
+		if ( ! \UString\starts_with( $hay, $needle ) ) {
 			$hay = $needle . $hay;
 		}
 	}
 
 	function must_not_starts_with( &$hay, $needle ) {
-		if ( \Util\Str\starts_with( $hay, $needle ) ) {
+		if ( \UString\starts_with( $hay, $needle ) ) {
 			$hay = substr( $hay, strlen( $needle ) );
 		}
 	}
 
 	function ends_with( $hay, $needles ) {
-		\Util\Arr\must_be_array( $needles );
+		\UArray\must_be_array( $needles );
 		foreach( $needles as $needle ) {
 			if ( substr( $hay, -strlen( $needle ) ) == $needle ) {
 				return TRUE;
@@ -50,19 +50,19 @@ namespace Util\Str {
 	}
 
 	function i_ends_with( $hay, $needles ) {
-		\Util\Arr\must_be_array( $needles );
+		\UArray\must_be_array( $needles );
 		$needles = array_map( 'strtolower', $needles );
-		return \Util\Str\ends_with( strtolower( $hay ), $needles );
+		return \UString\ends_with( strtolower( $hay ), $needles );
 	}
 
 	function must_ends_with( &$hay, $needle ) {
-		if ( ! \Util\Str\ends_with( $hay, $needle ) ) {
+		if ( ! \UString\ends_with( $hay, $needle ) ) {
 			$hay .= $needle;
 		}
 	}
 
 	function must_not_ends_with( &$hay, $needle ) {
-		if ( \Util\Str\ends_with( $hay, $needle ) ) {
+		if ( \UString\ends_with( $hay, $needle ) ) {
 			$hay = substr( $hay, 0, -strlen( $needle ) );
 		}
 	}
@@ -71,7 +71,7 @@ namespace Util\Str {
 
 	// CONTAINS FUNCTIONS
 	function contains( $hay, $needles ) {
-		\Util\Arr\must_be_array( $needles );
+		\UArray\must_be_array( $needles );
 		foreach( $needles as $needle ) {
 			if ( strpos( $hay, $needle ) !== FALSE ) {
 				return TRUE;
@@ -81,25 +81,25 @@ namespace Util\Str {
 	}
 
 	function i_contains( $hay, $needles ) {
-		\Util\Arr\must_be_array( $needles );
+		\UArray\must_be_array( $needles );
 		$needles = array_map( 'strtolower', $needles );
-		return \Util\Str\contains( $hay, $needles );
+		return \UString\contains( $hay, $needles );
 	}
 
 
 
 	// SUBSTRING FUNCTIONS
 	function cut_before( &$hay, $needles ) {
-		$return = \Util\Str\substr_before( $hay, $needles );
+		$return = \UString\substr_before( $hay, $needles );
 		$hay = substr( $hay, strlen( $return ) );
 		return $return;
 	}
 
 	function substr_before( $hay, $needles ) {
-		\Util\Arr\must_be_array( $needles );
+		\UArray\must_be_array( $needles );
 		$return = $hay;
 		foreach( $needles as $needle ) {
-			if ( ! empty( $needle) && \Util\Str\contains( $hay, $needle ) ) {
+			if ( ! empty( $needle) && \UString\contains( $hay, $needle ) ) {
 				$cut = substr( $hay, 0, strpos( $hay, $needle ) );
 				if ( strlen( $cut ) < strlen ( $return ) ) {
 					$return = $cut;
@@ -111,16 +111,16 @@ namespace Util\Str {
 	}
 
 	function cut_before_last( &$hay, $needles ) {
-		$return = \Util\Str\substr_before_last( $hay, $needles );
+		$return = \UString\substr_before_last( $hay, $needles );
 		$hay = substr( $hay, strlen( $return ) );
 		return $return;
 	}
 
 	function substr_before_last( $hay, $needles ) {
-		\Util\Arr\must_be_array( $needles );
+		\UArray\must_be_array( $needles );
 		$return = '';
 		foreach( $needles as $needle ) {
-			if ( ! empty( $needle ) && \Util\Str\contains( $hay, $needle ) ) {
+			if ( ! empty( $needle ) && \UString\contains( $hay, $needle ) ) {
 				$cut = substr( $hay, 0, strrpos( $hay, $needle ) );
 				if ( strlen( $cut ) > strlen ( $return ) ) {
 					$return = $cut;
@@ -132,16 +132,16 @@ namespace Util\Str {
 	}
 
 	function cut_after( &$hay, $needles ) {
-		$return = \Util\Str\substr_after( $hay, $needles );
+		$return = \UString\substr_after( $hay, $needles );
 		$hay = substr( $hay, 0, - strlen( $return ) );
 		return $return;
 	}
 
 	function substr_after( $hay, $needles ) {
-		\Util\Arr\must_be_array( $needles );
+		\UArray\must_be_array( $needles );
 		$return = '';
 		foreach( $needles as $needle ) {
-			if ( ! empty( $needle) && \Util\Str\contains( $hay, $needle ) ) {
+			if ( ! empty( $needle) && \UString\contains( $hay, $needle ) ) {
 				$cut = substr( $hay, strpos( $hay, $needle ) + strlen( $needle ) );
 				if ( strlen( $cut ) > strlen ( $return ) ) {
 					$return = $cut;
@@ -152,16 +152,16 @@ namespace Util\Str {
 	}
 
 	function cut_after_last( &$hay, $needles ) {
-		$return = \Util\Str\substr_after_last( $hay, $needles );
+		$return = \UString\substr_after_last( $hay, $needles );
 		$hay = substr( $hay, 0, - strlen( $return ) );
 		return $return;
 	}
 
 	function substr_after_last( $hay, $needles ) {
-		\Util\Arr\must_be_array( $needles );
+		\UArray\must_be_array( $needles );
 		$return = $hay;
 		foreach( $needles as $needle ) {
-			if ( ! empty( $needle) && \Util\Str\contains( $hay, $needle ) ) {
+			if ( ! empty( $needle) && \UString\contains( $hay, $needle ) ) {
 				$cut = substr( $hay, strrpos( $hay, $needle ) + strlen( $needle ) );
 				if ( strlen( $cut ) < strlen ( $return ) ) {
 					$return = $cut;
@@ -205,7 +205,7 @@ namespace Util\Str {
 /*************************************************************************
   ARRAY METHODS                   
  *************************************************************************/
-namespace Util\Arr {
+namespace UArray {
 
 	function must_be_array( &$array ) {
 		if ( ! is_array( $array ) ) {
@@ -244,7 +244,7 @@ namespace Util\Arr {
 /*************************************************************************
   OBJECT METHODS                   
  *************************************************************************/
-namespace Util\Obj {
+namespace UObject {
 
 	function must_be_class( &$object ) {
 		if ( is_object( $object ) ) {
@@ -253,19 +253,19 @@ namespace Util\Obj {
 	}
 
 	function get_attribute_names( $class ) {
-		\Util\Obj\must_be_class( $class );
+		\UObject\must_be_class( $class );
 		return array_keys( get_class_vars( $class ) );
 	}
 
 	function get_namespace( $class ) {
-		\Util\Obj\must_be_class( $class );
-		\Util\Str\must_starts_with( $class, '\\' );
-		return \Util\Str\substr_before_last( $class, '\\' );
+		\UObject\must_be_class( $class );
+		\UString\must_starts_with( $class, '\\' );
+		return \UString\substr_before_last( $class, '\\' );
 	}
 
 	function get_class_name( $class ) {
-		\Util\Obj\must_be_class( $class );
-		\Util\Str\must_starts_with( $class, '\\' );
-		return \Util\Str\substr_after_last( $class, '\\' );
+		\UObject\must_be_class( $class );
+		\UString\must_starts_with( $class, '\\' );
+		return \UString\substr_after_last( $class, '\\' );
 	}
 }

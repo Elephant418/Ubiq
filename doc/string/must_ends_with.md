@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-void \Util\Str\must_ends_with( string &$hay, string $needle );
+void \UString\must_ends_with( string &$hay, string $needle );
 ```
 
 If a string does not end with a specific character/sequence, the string is sufixed.
@@ -22,7 +22,7 @@ Examples
 
 ```php
 $url = 'http://www.example.com';
-\Util\Str\must_ends_with( $url, '/' );
+\UString\must_ends_with( $url, '/' );
 echo $url;
 ```
 Returns 'http://www.example.com/'.
@@ -31,7 +31,7 @@ Returns 'http://www.example.com/'.
 
 ```php
 $url = 'http://www.example.com/';
-\Util\Str\must_ends_with( $url, '/' );
+\UString\must_ends_with( $url, '/' );
 echo $url;
 ```
 Returns 'http://www.example.com/'.

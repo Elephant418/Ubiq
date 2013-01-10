@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-void \Util\Arr\must_be_array( mixed &$array );
+void \UArray\must_be_array( mixed &$array );
 ```
 
 If the parameter is not an array, it is encapsulated to be an array.

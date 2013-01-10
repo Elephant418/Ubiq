@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-bool \Util\Str\starts_with( string $hay, mixed $needles );
+bool \UString\starts_with( string $hay, mixed $needles );
 ```
 
 Checks if a string starts with a specific character/sequence. <br>
@@ -24,41 +24,41 @@ Examples
 ### Example 1
 
 ```php
-\Util\Str\starts_with( 'Ubiq is so cool', 'Ubiq' );
+\UString\starts_with( 'Ubiq is so cool', 'Ubiq' );
 ```
 Returns TRUE.
 
 ### Example 2
 
 ```php
-\Util\Str\starts_with( 'Ubiq is so cool', 'ubiq' );
+\UString\starts_with( 'Ubiq is so cool', 'ubiq' );
 ```
 Returns FALSE.
 
 ### Example 3
 
 ```php
-\Util\Str\starts_with( 'Ubiq is so cool', 'Java' );
+\UString\starts_with( 'Ubiq is so cool', 'Java' );
 ```
 Returns FALSE.
 
 ### Example 4
 
 ```php
-\Util\Str\starts_with( 'Ubiq is so cool', [ 'Ubiq', 'Java' ] );
+\UString\starts_with( 'Ubiq is so cool', [ 'Ubiq', 'Java' ] );
 ```
 Returns TRUE.
 
 ### Example 5
 
 ```php
-\Util\Str\starts_with( 'Ubiq is so cool', [ 'ubiq', 'Java' ] );
+\UString\starts_with( 'Ubiq is so cool', [ 'ubiq', 'Java' ] );
 ```
 Returns FALSE.
 
 ### Example 6
 
 ```php
-\Util\Str\starts_with( 'Ubiq is so cool', [ 'Java', '.NET' ] );
+\UString\starts_with( 'Ubiq is so cool', [ 'Java', '.NET' ] );
 ```
 Returns FALSE.

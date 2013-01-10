@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-array \Util\Arr\merge_unique( array $array1 [, array $array2, [ … ] ] );
+array \UArray\merge_unique( array $array1 [, array $array2, [ … ] ] );
 ```
 
 Merges the elements of one or more arrays together without duplicate values. <br>

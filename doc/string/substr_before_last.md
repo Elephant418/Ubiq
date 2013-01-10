@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-string \Util\Str\substr_before_last( string $hay, mixed $needles );
+string \UString\substr_before_last( string $hay, mixed $needles );
 ```
 
 Returns the portion of string from the beginning to the last match of a specific character/sequence. <br>

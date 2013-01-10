@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-string \Util\Obj\get_namespace( mixed $class );
+string \UObject\get_namespace( mixed $class );
 ```
 
 Return the namespace of passed class.

@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-void \Util\Str\must_not_starts_with( string &$hay, string $needle );
+void \UString\must_not_starts_with( string &$hay, string $needle );
 ```
 
 If a string starts with a specific character/sequence, the prefix is removed.
@@ -22,7 +22,7 @@ Examples
 
 ```php
 $url = 'http://www.example.com';
-\Util\Str\must_not_starts_with( $url, 'http://' );
+\UString\must_not_starts_with( $url, 'http://' );
 echo $url;
 ```
 Returns 'www.example.com'.
@@ -31,7 +31,7 @@ Returns 'www.example.com'.
 
 ```php
 $url = 'www.example.com';
-\Util\Str\must_not_starts_with( $url, 'http://' );
+\UString\must_not_starts_with( $url, 'http://' );
 echo $url;
 ```
 Returns 'www.example.com'.
