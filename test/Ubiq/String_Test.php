@@ -383,4 +383,20 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 		$substr = \UString\substr_after_last( $original, '/' );
 		$this->assertEquals( $substr, 'example.com' );
 	}
+
+
+
+	// RANDOM
+	public function test_random__deafult( ) {
+		$test = \UString\random( );
+		$this->assertEquals( strlen( $test ), 10 );
+	}
+	public function test_random__length( ) {
+		$test = \UString\random( 16 );
+		$this->assertEquals( strlen( $test ), 16 );
+	}
+	public function test_random__charset( ) {
+		$test = \UString\random( 16, 'abc' );
+		$this->assertTrue( preg_match( '/[^abc]/', $test ) === 0 );
+	}
 }

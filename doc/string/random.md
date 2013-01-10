@@ -16,4 +16,27 @@ Return a generated string with specified length and specified character set.
 Examples
 --------
 
-Todo.
+### Example 1
+
+```php
+\UString\random( );
+```
+Returns (for example) 'pkuRO4KrWn'
+
+### Example 2
+
+```php
+\UString\random( 16 );
+```
+Returns (for example) 'pHh4WoE3itDZgSe0'
+
+### Example 3
+
+```php
+\UString\random( 16, 'abc' );
+```
+Returns (for example) 'baabbaacbcbcacba'
+
+
+
+
