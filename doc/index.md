@@ -34,8 +34,8 @@ String
 * [random](./string/random.md#readme)
 
 
-* [strip_accents](./string/strip_accents.md#readme)
-* [strip_special_chars](./string/strip_special_chars.md#readme)
+* [strip_accent](./string/strip_accent.md#readme)
+* [strip_special_char](./string/strip_special_char.md#readme)
 
 
 

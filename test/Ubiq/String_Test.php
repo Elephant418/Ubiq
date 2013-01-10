@@ -399,4 +399,12 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 		$test = \UString\random( 16, 'abc' );
 		$this->assertTrue( preg_match( '/[^abc]/', $test ) === 0 );
 	}
+
+
+
+	// STRIP ACCENT
+	public function test_strip_accent( ) {
+		$test = \UString\strip_accent( 'úûüýÿĀāĂăĄąĆć' );
+		$this->assertEquals( $test, 'uuuyyAaAaAaCc' );
+	}
 }
