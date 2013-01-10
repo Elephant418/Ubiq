@@ -18,4 +18,18 @@ If the parameter is an object, returns its full class.
 Examples
 --------
 
-Todo.
+### Example 1
+
+```php
+$class = New \Exception;
+\UObject\must_be_class( $class );
+```
+Returns '\Exception'
+
+### Example 2
+
+```php
+$class = '\\Exception';
+\UObject\must_be_class( $class );
+```
+Returns '\Exception'
