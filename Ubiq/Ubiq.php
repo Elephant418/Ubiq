@@ -246,26 +246,29 @@ namespace UArray {
  *************************************************************************/
 namespace UObject {
 
-	function must_be_class( &$object ) {
-		if ( is_object( $object ) ) {
-			$object = '\\' . get_class( $object );
+	function must_be_class( &$class ) {
+		if ( is_object( $class ) ) {
+			$class = '\\' . get_class( $class );
+		} else {
+			\UString\must_starts_with( $class, '\\' );
 		}
 	}
 
 	function get_attribute_names( $class ) {
 		\UObject\must_be_class( $class );
-		return array_keys( get_class_vars( $class ) );
+		if ( class_exists( $class ) ) {
+			return array_keys( get_class_vars( $class ) );
+		}
+		return FALSE;
 	}
 
 	function get_namespace( $class ) {
 		\UObject\must_be_class( $class );
-		\UString\must_starts_with( $class, '\\' );
 		return \UString\substr_before_last( $class, '\\' );
 	}
 
 	function get_class_name( $class ) {
 		\UObject\must_be_class( $class );
-		\UString\must_starts_with( $class, '\\' );
 		return \UString\substr_after_last( $class, '\\' );
 	}
 }

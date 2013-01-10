@@ -33,7 +33,6 @@ function get_namespace( $class ) {
 ```php
 function get_namespace( $class ) {
 	\UObject\must_be_class( $class );
-	\UString\must_starts_with( $class, '\\' );
 	return \UString\substr_before_last( $class, '\\' );
 }
 ```
