@@ -194,7 +194,7 @@ namespace UString {
 	function strip_special_char( $string, $characters = '-_a-zA-Z0-9', $replace = '-' ) {
 		$string = preg_replace( '/[^' . $characters . ']/s', $replace, $string );
 		if ( ! empty( $replace ) ) {
-			$string = preg_replace( '/[' . $replace . '+]/s', $replace, $string );
+			$string = preg_replace( '/[' . $replace . ']+/s', $replace, $string );
 		}
 		return $string;
 	}
