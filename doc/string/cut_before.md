@@ -19,4 +19,20 @@ If several matches are given, the sequence that generate the shorter cut is kept
 Examples
 --------
 
-Todo.
+### Example 1
+
+```php
+$path = 'example.com/my/path';
+$domain = \UString\cut_before( $path, '/' );
+echo $domain . ' - ' . $path;
+```
+Returns 'example.com - /my/path'
+
+### Example 2
+
+```php
+$path = '/my/path';
+$domain = \UString\cut_before( $path, '/' );
+echo $domain . ' - ' . $path;
+```
+Returns ' - /my/path'
