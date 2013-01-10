@@ -34,6 +34,10 @@ String
 * [random](./string/random.md#readme)
 
 
+* [strip_accents](./string/strip_accents.md#readme)
+* [strip_special_chars](./string/strip_special_chars.md#readme)
+
+
 
 Array
 -------- 
@@ -52,10 +56,3 @@ Object
 * [get_attribute_names](./object/get_attribute_names.md#readme)
 * [get_namespace](./object/get_namespace.md#readme)
 * [get_class_name](./object/get_class_name.md#readme)
-
-
-
-HTTP
--------- 
-
-* [redirect](./http/redirect.md#readme)
