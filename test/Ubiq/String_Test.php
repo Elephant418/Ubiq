@@ -407,4 +407,12 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 		$test = \UString\strip_accent( 'úûüýÿĀāĂăĄąĆć' );
 		$this->assertEquals( $test, 'uuuyyAaAaAaCc' );
 	}
+
+
+
+	// STRIP SPECIAL CHAR
+	public function test_strip_special_char( ) {
+		$test = \UString\strip_special_char( 'A page for $13' );
+		$this->assertEquals( $test, 'A-page-for-13' );
+	}
 }
