@@ -50,11 +50,21 @@ function get_namespace( $class ) {
 License
 --------
 
-Staq is under [MIT License](http://opensource.org/licenses/MIT).
+Ubiq is under [MIT License](http://opensource.org/licenses/MIT).
 
 
 
 Community
 --------
 
-Staq is created and maintained by [Thomas ZILLIOX](http://zilliox.me). <br>
+Ubiq is created and maintained by [Thomas ZILLIOX](http://zilliox.me). <br>
+
+### How to Contribute
+
+1. Fork the Ubiq repository
+2. Create a new branch for each feature or improvement
+3. Send a pull request from each feature branch to the **develop** branch
+
+If you don't know much about pull request, please read [the Github article](https://help.github.com/articles/using-pull-requests).
+
+All pull requests must follow this particular style guide and accompanied by passing [phpunit](https://github.com/sebastianbergmann/phpunit/) tests.
