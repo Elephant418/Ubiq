@@ -18,4 +18,18 @@ If the parameter is not an array, it is encapsulated to be an array.
 Examples
 --------
 
-Todo.
+### Example 1
+
+```php
+$array = 'a string';
+\UArray\must_be_array( $array );
+```
+Returns [ 'a string' ]
+
+### Example 2
+
+```php
+$array = [ 'a string' ];
+\UArray\must_be_array( $array );
+```
+Returns [ 'a string' ]

@@ -8,6 +8,21 @@ class Array_Test extends \PHPUnit_Framework_TestCase {
 
 
 
+	// MUST BE ARRAY
+	public function test_must_be_array__string( ) {
+		$array = 'a string';
+		\UArray\must_be_array( $array );
+		$this->assertEquals( $array, [ 'a string' ] );
+	}
+
+	public function test_must_be_array__array( ) {
+		$array = [ 'a string' ];
+		\UArray\must_be_array( $array );
+		$this->assertEquals( $array, [ 'a string' ] );
+	}
+
+
+
 	// MERGE UNIQUE
 	public function test_merge_unique__two( ) {
 		$test = \UArray\merge_unique( [ 1, 2, 3 ], [ 2, 3, 4 ] );
