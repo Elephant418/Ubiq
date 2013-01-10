@@ -29,6 +29,6 @@ Returns 'example.com'
 ### Example 2
 
 ```php
-\UString\substr_before( '/my/path', '/' );
+\UString\substr_before( 'example.com', '/' );
 ```
-Returns ''
+Returns 'example.com'

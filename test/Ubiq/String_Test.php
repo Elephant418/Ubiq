@@ -268,31 +268,59 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 	// CUT BEFORE
 	public function test_cut_before__valid( ) {
-		$path = 'example.com/my/path';
-		$domain = \UString\cut_before( $path, '/' );
-		$this->assertEquals( $path, '/my/path' );
-		$this->assertEquals( $domain, 'example.com' );
+		$original = 'example.com/my/path';
+		$cut = \UString\cut_before( $original, '/' );
+		$this->assertEquals( $original, '/my/path' );
+		$this->assertEquals( $cut, 'example.com' );
 	}
 	public function test_cut_before__invalid( ) {
-		$path = '/my/path';
-		$domain = \UString\cut_before( $path, '/' );
-		$this->assertEquals( $path, '/my/path' );
-		$this->assertEquals( $domain, '' );
+		$original = 'example.com';
+		$cut = \UString\cut_before( $original, '/' );
+		$this->assertEquals( $original, '' );
+		$this->assertEquals( $cut, 'example.com' );
 	}
 
 
 
 	// SUBSTR BEFORE
 	public function test_substr_before__valid( ) {
-		$path = 'example.com/my/path';
-		$domain = \UString\substr_before( $path, '/' );
-		$this->assertEquals( $domain, 'example.com' );
+		$original = 'example.com/my/path';
+		$substr = \UString\substr_before( $original, '/' );
+		$this->assertEquals( $substr, 'example.com' );
 	}
 	public function test_substr_before__invalid( ) {
-		$path = '/my/path';
-		$domain = \UString\substr_before( $path, '/' );
-		$this->assertEquals( $domain, '' );
+		$original = 'example.com';
+		$substr = \UString\substr_before( $original, '/' );
+		$this->assertEquals( $substr, 'example.com' );
 	}
 
 
+
+	// CUT BEFORE LAST
+	public function test_cut_before_last__valid( ) {
+		$original = 'example.com/my/path/file.md';
+		$cut = \UString\cut_before_last( $original, '/' );
+		$this->assertEquals( $original, '/file.md' );
+		$this->assertEquals( $cut, 'example.com/my/path' );
+	}
+	public function test_cut_before_last__invalid( ) {
+		$original = 'example.com';
+		$cut = \UString\cut_before_last( $original, '/' );
+		$this->assertEquals( $original, 'example.com' );
+		$this->assertEquals( $cut, '' );
+	}
+
+
+
+	// SUBSTR BEFORE LAST
+	public function test_substr_before_last__valid( ) {
+		$original = 'example.com/my/path/file.md';
+		$cut = \UString\substr_before_last( $original, '/' );
+		$this->assertEquals( $cut, 'example.com/my/path' );
+	}
+	public function test_substr_before_last__invalid( ) {
+		$original = 'example.com';
+		$cut = \UString\substr_before_last( $original, '/' );
+		$this->assertEquals( $cut, '' );
+	}
 }

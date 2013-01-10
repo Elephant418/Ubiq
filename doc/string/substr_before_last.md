@@ -19,4 +19,16 @@ If several matches are given, the sequence that generate the larger return is ke
 Examples
 --------
 
-Todo.
+### Example 1
+
+```php
+\UString\substr_before_last( 'example.com/my/path/file.md', '/' );
+```
+Returns 'example.com/my/path'
+
+### Example 2
+
+```php
+$cut = \UString\substr_before_last( 'example.com', '/' );
+```
+Returns ''

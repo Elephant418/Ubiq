@@ -19,4 +19,20 @@ If several matches are given, the sequence that generate the larger cut is kept.
 Examples
 --------
 
-Todo.
+### Example 1
+
+```php
+$original = 'example.com/my/path/file.md';
+$cut = \UString\cut_before_last( $original, '/' );
+echo $cut . ' + ' . $original;
+```
+Returns 'example.com/my/path + /file.md'
+
+### Example 2
+
+```php
+$original = 'example.com';
+$cut = \UString\cut_before_last( $original, '/' );
+echo $cut . ' + ' . $original;
+```
+Returns ' + example.com'

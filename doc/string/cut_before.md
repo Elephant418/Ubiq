@@ -22,17 +22,17 @@ Examples
 ### Example 1
 
 ```php
-$path = 'example.com/my/path';
-$domain = \UString\cut_before( $path, '/' );
-echo $domain . ' - ' . $path;
+$original = 'example.com/my/path';
+$cut = \UString\cut_before( $original, '/' );
+echo $cut . ' + ' . $original;
 ```
-Returns 'example.com - /my/path'
+Returns 'example.com + /my/path'
 
 ### Example 2
 
 ```php
-$path = '/my/path';
-$domain = \UString\cut_before( $path, '/' );
-echo $domain . ' - ' . $path;
+$original = 'example.com';
+$cut = \UString\cut_before( $original, '/' );
+echo $cut . ' + ' . $original;
 ```
-Returns ' - /my/path'
+Returns 'example.com + '
