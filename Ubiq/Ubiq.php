@@ -133,7 +133,7 @@ namespace UString {
 
 	function cut_after( &$hay, $needles ) {
 		$return = \UString\substr_after( $hay, $needles );
-		$hay = substr( $hay, 0, - strlen( $return ) );
+		$hay = substr( $hay, 0, strlen( $hay ) - strlen( $return ) );
 		return $return;
 	}
 
@@ -153,7 +153,7 @@ namespace UString {
 
 	function cut_after_last( &$hay, $needles ) {
 		$return = \UString\substr_after_last( $hay, $needles );
-		$hay = substr( $hay, 0, - strlen( $return ) );
+		$hay = substr( $hay, 0, strlen( $hay ) - strlen( $return ) );
 		return $return;
 	}
 
