@@ -16,4 +16,29 @@ Returns the class name of passed class.
 Examples
 --------
 
-Todo.
+### Example 1
+
+```php
+namespace Test\Ubiq {
+	class Example_Class { }
+}
+\UObject\get_class_name( new \Test\Ubiq\Example_Class );
+```
+Returns 'Example_Class'
+
+### Example 2
+
+```php
+namespace Test\Ubiq {
+	class Example_Class { }
+}
+\UObject\get_class_name( 'Test\\Ubiq\\Example_Class' );
+```
+Returns 'Example_Class'
+
+### Example 3
+
+```php
+\UObject\get_class_name( new \Exception );
+```
+Returns 'Exception'
