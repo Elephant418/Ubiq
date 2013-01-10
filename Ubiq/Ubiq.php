@@ -181,6 +181,23 @@ namespace Util\Str {
 		}
 		return $string;
 	}
+
+
+
+	// SPECIAL CHARACTERS
+	function strip_accents( $string ) {
+		$string = htmlentities( $string, ENT_COMPAT );
+		$string = preg_replace( '/&([a-zA-Z])(uml|acute|grave|circ|tilde);/', '$1', $string );
+		return html_entity_decode( $string );
+	}
+
+	function strip_special_chars( $string, $characters = '-_a-zA-Z0-9', $replace = '-' ) {
+		$string = preg_replace( '/[^' . $characters . ']/s', $replace, $string );
+		if ( ! empty( $replace ) ) {
+			$string = preg_replace( '/[' . $replace . '+]/s', $replace, $string );
+		}
+		return $string;
+	}
 }
 
 
@@ -264,5 +281,47 @@ namespace Util\Http {
 		header( 'HTTP/1.1 302 Moved Temporarily' );
 		header( 'Location: ' . $url );
 		die( );
+	}
+
+	function get_request_url( ) {
+		if ( ! \Util\Http\is_cli( ) ) {
+			$url  = 'http';
+			if ( \Util\Http\is_https( ) ) $url .= 's';
+			$url .= '://' . \Util\Http\get_request_domain( );
+			if ( \Util\Http\get_request_port( ) == 80 ) $url .= ':' . $_SERVER[ 'SERVER_PORT' ];
+			return $url . \Util\Http\get_request_uri( );
+		}
+	}
+
+	function get_request_uri( ) {
+		if ( isset( $_SERVER[ 'REQUEST_URI' ] ) ) {
+			return $_SERVER[ 'REQUEST_URI' ];
+		}
+		return FALSE;
+	}
+
+	function get_request_domain( ) {
+		if ( isset( $_SERVER[ 'SERVER_NAME' ] ) ) {
+			return $_SERVER[ 'SERVER_NAME' ];
+		}
+		return FALSE;
+	}
+
+	function get_request_port( ) {
+		if ( isset( $_SERVER[ 'SERVER_PORT' ] ) ) {
+			return $_SERVER[ 'SERVER_PORT' ];
+		}
+		return FALSE;
+	}
+
+	function is_https( ) {
+		return ( 
+			( isset( $_SERVER[ 'HTTPS' ] ) && $_SERVER[ 'HTTPS' ] == 'on'  ) ||
+			\Util\Http\get_request_port( ) == 443
+		);
+	}
+
+	function is_cli( ) {
+		return ( PHP_SAPI === 'cli' );
 	}
 }
