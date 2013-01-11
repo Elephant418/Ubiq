@@ -12,13 +12,13 @@ class Object_Test extends \PHPUnit_Framework_TestCase {
 	public function test_must_be_class__object( ) {
 		$class = New \Exception;
 		\UObject\must_be_class( $class );
-		$this->assertEquals( $class, '\\Exception' );
+		$this->assertEquals( $class, 'Exception' );
 	}
 
 	public function test_must_be_class__class( ) {
 		$class = '\\Exception';
 		\UObject\must_be_class( $class );
-		$this->assertEquals( $class, '\\Exception' );
+		$this->assertEquals( $class, 'Exception' );
 	}
 
 
@@ -38,12 +38,12 @@ class Object_Test extends \PHPUnit_Framework_TestCase {
 	// GET CLASS NAME
 	public function test_get_namespace__object( ) {
 		$namespace = \UObject\get_namespace( new Example_Class );
-		$this->assertEquals( $namespace, '\\' . __NAMESPACE__ );
+		$this->assertEquals( $namespace, __NAMESPACE__ );
 	}
 
 	public function test_get_namespace__class( ) {
 		$namespace = \UObject\get_namespace( __NAMESPACE__ . '\\Example_Class' );
-		$this->assertEquals( $namespace, '\\' . __NAMESPACE__ );
+		$this->assertEquals( $namespace, __NAMESPACE__ );
 	}
 
 	public function test_get_namespace__no_namespace( ) {

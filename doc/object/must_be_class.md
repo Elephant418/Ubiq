@@ -24,7 +24,7 @@ Examples
 $class = New \Exception;
 \UObject\must_be_class( $class );
 ```
-Returns '\Exception'
+Returns 'Exception'
 
 ### Example 2
 
@@ -32,4 +32,4 @@ Returns '\Exception'
 $class = '\\Exception';
 \UObject\must_be_class( $class );
 ```
-Returns '\Exception'
+Returns 'Exception'

@@ -256,9 +256,9 @@ namespace UObject {
 
 	function must_be_class( &$class ) {
 		if ( is_object( $class ) ) {
-			$class = '\\' . get_class( $class );
+			$class = get_class( $class );
 		} else {
-			\UString\must_starts_with( $class, '\\' );
+			\UString\must_not_starts_with( $class, '\\' );
 		}
 	}
 

@@ -24,7 +24,7 @@ namespace Test\Ubiq {
 }
 \UObject\get_namespace( new \Test\Ubiq\Example_Class );
 ```
-Returns '\Test\Ubiq'
+Returns 'Test\Ubiq'
 
 ### Example 2
 
@@ -34,7 +34,7 @@ namespace Test\Ubiq {
 }
 \UObject\get_namespace( 'Test\\Ubiq\\Example_Class' );
 ```
-Returns '\Test\Ubiq'
+Returns 'Test\Ubiq'
 
 ### Example 3
 

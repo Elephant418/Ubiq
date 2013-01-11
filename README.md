@@ -19,8 +19,8 @@ function get_namespace( $class ) {
 	}
 
 	// Allow to pass a class with or without the first '\'
-	if ( substr( $class, 0, 1 ) != '\\' ) {
-		$class = '\\' . $class;
+	if ( substr( $class, 0, 1 ) == '\\' ) {
+		$class = substr( $class, 1 );
 	}
 
 	// Remove the class name from the namespace
