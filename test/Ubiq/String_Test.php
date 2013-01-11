@@ -2,7 +2,7 @@
 
 namespace Test\Ubiq;
 
-require_once( dirname( dirname( __DIR__ ) ) . '/Ubiq/Ubiq.php' );
+require_once( dirname( dirname( __DIR__ ) ) . '/ubiq/Ubiq.php' );
 
 class String_Test extends \PHPUnit_Framework_TestCase {
 

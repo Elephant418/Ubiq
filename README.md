@@ -75,7 +75,7 @@ Ubiq can now be [downloaded via composer](http://getcomposer.org/doc/01-basic-us
 The last step is to include Ubiq in your PHP file :
 
 ```php
-require_once( './vendor/pixel418/ubiq/Ubiq/Ubiq.php' );
+require_once( './vendor/pixel418/ubiq/ubiq/Ubiq.php' );
 ```
 
 [top](#readme)
