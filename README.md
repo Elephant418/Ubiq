@@ -3,6 +3,8 @@ Ubiq [![Build Status](https://secure.travis-ci.org/Pixel418/Ubiq.png)](http://tr
 
 Functions for readable treatment of string, array & object: [see the documentation](https://github.com/Pixel418/Ubiq/blob/master/doc/index.md#readme)
 
+Ubiq is under the [MIT License](http://opensource.org/licenses/MIT).
+
 
 
 Let's code
@@ -47,10 +49,28 @@ function get_namespace( $class ) {
 
 
 
-License
+Install
 --------
 
-Ubiq is under [MIT License](http://opensource.org/licenses/MIT).
+If you don't have composer, you have to [install it](http://getcomposer.org/doc/01-basic-usage.md#installation).
+
+Add or complete your composer.json file like this :
+
+```json
+{
+    "require": {
+        "pixel418/ubiq": "0.1"
+    }
+}
+```
+
+Ubiq can now be [downloaded via composer](http://getcomposer.org/doc/01-basic-usage.md#installing-dependencies).
+
+The last step is to include Ubiq your PHP :
+
+```php
+require_once( './vendor/pixel418/ubiq/Ubiq/Ubiq.php' );
+```
 
 
 
