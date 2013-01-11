@@ -1,7 +1,13 @@
 Ubiq [![Build Status](https://secure.travis-ci.org/Pixel418/Ubiq.png)](http://travis-ci.org/Pixel418/Ubiq)
 ======
 
-Functions for readable treatment of string, array & object: [see the documentation](https://github.com/Pixel418/Ubiq/blob/master/doc/index.md#readme)
+Functions for readable treatment of string, array & object.
+
+1. [Documentation](https://github.com/Pixel418/Ubiq/blob/master/doc/index.md#readme)
+2. [Let's code](#lets-code)
+3. [How to Install](#how-to-install)
+4. [How to Contribute](#how-to-contribute)
+5. [Author & Community](#author--community)
 
 
 
@@ -45,6 +51,8 @@ function get_namespace( $class ) {
 }
 ```
 
+[top](#readme)
+
 
 
 How to Install
@@ -70,6 +78,8 @@ The last step is to include Ubiq in your PHP file :
 require_once( './vendor/pixel418/ubiq/Ubiq/Ubiq.php' );
 ```
 
+[top](#readme)
+
 
 
 How to Contribute
@@ -83,10 +93,14 @@ If you don't know much about pull request, you can read [the Github article](htt
 
 All pull requests must follow this particular [style guide](https://github.com/Pixel418/Style_Guide) and accompanied by passing [phpunit](https://github.com/sebastianbergmann/phpunit/) tests.
 
+[top](#readme)
 
 
-Miscellaneous
+
+Author & Community
 --------
 
 Ubiq is under the [MIT License](http://opensource.org/licenses/MIT).  
 It is created and maintained by [Thomas ZILLIOX](http://zilliox.me).
+
+[top](#readme)
