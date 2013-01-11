@@ -65,6 +65,6 @@ Ubiq is created and maintained by [Thomas ZILLIOX](http://zilliox.me). <br>
 2. Create a new branch for each feature or improvement
 3. Send a pull request from each feature branch to the **develop** branch
 
-If you don't know much about pull request, please read [the Github article](https://help.github.com/articles/using-pull-requests).
+If you don't know much about pull request, you can read [the Github article](https://help.github.com/articles/using-pull-requests).
 
 All pull requests must follow this particular [style guide](https://github.com/Pixel418/Style_Guide) and accompanied by passing [phpunit](https://github.com/sebastianbergmann/phpunit/) tests.
