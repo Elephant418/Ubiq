@@ -6,10 +6,10 @@ Description
 -------- 
 
 ```php
-string \UString\strip_special_char( string $input );
+string \UString\strip_special_char( string $input, string $characters = '-_a-zA-Z0-9', string $replace = '-' );
 ```
 
-Returns a string with the accents converted to common characters.
+Returns a string with the characters, which are not authorized, replaced by a another character.
 
 
 
@@ -22,3 +22,17 @@ Examples
 \UString\strip_accent( 'A page for $13' );
 ```
 Returns 'A-page-for-13'
+
+### Example 2
+
+```php
+\UString\strip_accent( 'A page for $13', 'aeiouyAEIOUY' );
+```
+Returns 'A-a-e-o'
+
+### Example 2
+
+```php
+\UString\strip_accent( 'A page for $13', 'a-zA-Z', '' );
+```
+Returns 'Apagefor'

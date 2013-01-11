@@ -411,8 +411,16 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 	// STRIP SPECIAL CHAR
-	public function test_strip_special_char( ) {
+	public function test_strip_special_char__default( ) {
 		$test = \UString\strip_special_char( 'A page for $13' );
 		$this->assertEquals( $test, 'A-page-for-13' );
+	}
+	public function test_strip_special_char__characters( ) {
+		$test = \UString\strip_special_char( 'A page for $13', 'aeiouyAEIOUY' );
+		$this->assertEquals( $test, 'A-a-e-o' );
+	}
+	public function test_strip_special_char__replace( ) {
+		$test = \UString\strip_special_char( 'A page for $13', 'a-zA-Z', '' );
+		$this->assertEquals( $test, 'Apagefor' );
 	}
 }
