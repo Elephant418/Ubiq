@@ -1,5 +1,5 @@
 {
-    "name": "Pixel418/Ubiq",
+    "name": "pixel418/ubiq",
     "type": "library",
     "description": "Functions for readable treatment of string, array & object",
     "keywords": [ "util", "string", "array" ],
