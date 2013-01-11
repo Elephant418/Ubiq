@@ -1,9 +1,9 @@
-Style Guide
+Ubiq PHP Style Guide
 ======
 
 
 
-Variable Declaration
+Variable Declarations
 ---------
 The variable declarations are better nicely spaced.  
 Prefer use single quotes (') rather than double quotes (") to avoid including a variable inadvertently.
@@ -33,7 +33,7 @@ while ( $a < 3 ) {
 
 
 
-Control Structures
+Loops and Conditions
 ---------
 Always use braces for your loops and conditions, even for one line instruction.  
 Notice that spaces, especially before and after the parentheses, helps distinguish conditions.
@@ -57,7 +57,7 @@ $var = my_function( $x, $y );
 
 
 
-Function Definition
+Function Definitions
 ---------
 The underscores are used as word separators in function names.  
 There is no space between the function name and the parentheses, and the params are nicely spaced.  
@@ -72,7 +72,7 @@ function my_function( $var1, $var2 = '' ) {
 
 
 
-Class Definition
+Class Definitions
 ---------
 The underscores are used as word separators in class names and a capital letter must start every word.  
 The braces are put at the end of the declaration line.
