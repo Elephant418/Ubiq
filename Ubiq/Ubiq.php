@@ -199,6 +199,8 @@ namespace UString {
 		$string = preg_replace( '/[^' . $characters . ']/s', $replace, $string );
 		if ( ! empty( $replace ) ) {
 			$string = preg_replace( '/[' . $replace . ']+/s', $replace, $string );
+			\UString\must_not_starts_with( $string, $replace );
+			\UString\must_not_ends_with( $string, $replace );
 		}
 		return $string;
 	}
