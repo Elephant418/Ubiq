@@ -51,7 +51,7 @@ function get_namespace( $class ) {
 }
 ```
 
-[top](#readme)
+[&uarr; top](#readme)
 
 
 
@@ -65,7 +65,7 @@ Add or complete the composer.json file at the root of your repository, like this
 ```json
 {
     "require": {
-        "pixel418/ubiq": "0.1.3"
+        "pixel418/ubiq": "0.1.4"
     }
 }
 ```
@@ -78,7 +78,7 @@ The last step is to include Ubiq in your PHP file :
 require_once( './vendor/pixel418/ubiq/ubiq/Ubiq.php' );
 ```
 
-[top](#readme)
+[&uarr; top](#readme)
 
 
 
@@ -93,7 +93,7 @@ If you don't know much about pull request, you can read [the Github article](htt
 
 All pull requests must follow this particular [style guide](https://github.com/Pixel418/Style_Guide) and accompanied by passing [phpunit](https://github.com/sebastianbergmann/phpunit/) tests.
 
-[top](#readme)
+[&uarr; top](#readme)
 
 
 
@@ -103,4 +103,4 @@ Author & Community
 Ubiq is under the [MIT License](http://opensource.org/licenses/MIT).  
 It is created and maintained by [Thomas ZILLIOX](http://zilliox.me).
 
-[top](#readme)
+[&uarr; top](#readme)

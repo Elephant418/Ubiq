@@ -75,30 +75,30 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 	// MUST STARTS WITH
-	public function test_must_starts_with__valid( ) {
+	public function test_must_start_with__valid( ) {
 		$assertion = 'www.example.com';
-		\UString\must_starts_with( $assertion, 'http://' );
+		\UString\must_start_with( $assertion, 'http://' );
 		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 
-	public function test_must_starts_with__invalid( ) {
+	public function test_must_start_with__invalid( ) {
 		$assertion = 'http://www.example.com';
-		\UString\must_starts_with( $assertion, 'http://' );
+		\UString\must_start_with( $assertion, 'http://' );
 		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 
 
 
 	// MUST NOT STARTS WITH
-	public function test_must_not_starts_with__valid( ) {
+	public function test_must_not_start_with__valid( ) {
 		$assertion = 'http://www.example.com';
-		\UString\must_not_starts_with( $assertion, 'http://' );
+		\UString\must_not_start_with( $assertion, 'http://' );
 		$this->assertEquals( $assertion, 'www.example.com' );
 	}
 
-	public function test_must_not_starts_with__invalid( ) {
+	public function test_must_not_start_with__invalid( ) {
 		$assertion = 'www.example.com';
-		\UString\must_not_starts_with( $assertion, 'http://' );
+		\UString\must_not_start_with( $assertion, 'http://' );
 		$this->assertEquals( $assertion, 'www.example.com' );
 	}
 
@@ -171,30 +171,30 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 	// MUST ENDS WITH
-	public function test_must_ends_with__valid( ) {
+	public function test_must_end_with__valid( ) {
 		$assertion = 'http://www.example.com';
-		\UString\must_ends_with( $assertion, '/' );
+		\UString\must_end_with( $assertion, '/' );
 		$this->assertEquals( $assertion, 'http://www.example.com/' );
 	}
 
-	public function test_must_ends_with__invalid( ) {
+	public function test_must_end_with__invalid( ) {
 		$assertion = 'http://www.example.com/';
-		\UString\must_ends_with( $assertion, '/' );
+		\UString\must_end_with( $assertion, '/' );
 		$this->assertEquals( $assertion, 'http://www.example.com/' );
 	}
 
 
 
 	// MUST NOT ENDS WITH
-	public function test_must_not_ends_with__valid( ) {
+	public function test_must_not_end_with__valid( ) {
 		$assertion = 'http://www.example.com';
-		\UString\must_not_ends_with( $assertion, '/' );
+		\UString\must_not_end_with( $assertion, '/' );
 		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 
-	public function test_must_not_ends_with__invalid( ) {
+	public function test_must_not_end_with__invalid( ) {
 		$assertion = 'http://www.example.com/';
-		\UString\must_not_ends_with( $assertion, '/' );
+		\UString\must_not_end_with( $assertion, '/' );
 		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 
@@ -410,6 +410,15 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 
+	// MUST HAVE NO ACCENT
+	public function test_must_have_no_accent( ) {
+		$test = 'úûüýÿĀāĂăĄąĆć';
+		\UString\must_have_no_accent( $test );
+		$this->assertEquals( $test, 'uuuyyAaAaAaCc' );
+	}
+
+
+
 	// STRIP SPECIAL CHAR
 	public function test_strip_special_char__default( ) {
 		$test = \UString\strip_special_char( 'A page for $13' );
@@ -421,6 +430,25 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 	}
 	public function test_strip_special_char__replace( ) {
 		$test = \UString\strip_special_char( 'A page for $13', 'a-zA-Z', '' );
+		$this->assertEquals( $test, 'Apagefor' );
+	}
+
+
+
+	// MUST HAVE NO SPECIAL CHAR
+	public function test_must_have_no_special_char__default( ) {
+		$test = 'A page for $13';
+		\UString\must_have_no_special_char( $test );
+		$this->assertEquals( $test, 'A-page-for-13' );
+	}
+	public function test_must_have_no_special_char__characters( ) {
+		$test = 'A page for $13';
+		\UString\must_have_no_special_char( $test, 'aeiouyAEIOUY' );
+		$this->assertEquals( $test, 'A-a-e-o' );
+	}
+	public function test_must_have_no_special_char__replace( ) {
+		$test = 'A page for $13';
+		\UString\must_have_no_special_char( $test, 'a-zA-Z', '' );
 		$this->assertEquals( $test, 'Apagefor' );
 	}
 }

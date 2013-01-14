@@ -7,14 +7,14 @@ String
 
 * [starts_with](./string/starts_with.md#readme)
 * [i_starts_with](./string/i_starts_with.md#readme)
-* [must_starts_with](./string/must_starts_with.md#readme)
-* [must_not_starts_with](./string/must_not_starts_with.md#readme)
+* [must_start_with](./string/must_start_with.md#readme)
+* [must_not_start_with](./string/must_not_start_with.md#readme)
 
 
 * [ends_with](./string/ends_with.md#readme)
 * [i_ends_with](./string/i_ends_with.md#readme)
-* [must_ends_with](./string/must_ends_with.md#readme)
-* [must_not_ends_with](./string/must_not_ends_with.md#readme)
+* [must_end_with](./string/must_end_with.md#readme)
+* [must_not_end_with](./string/must_not_end_with.md#readme)
 
 
 * [contains](./string/contains.md#readme)
@@ -35,7 +35,9 @@ String
 
 
 * [strip_accent](./string/strip_accent.md#readme)
-* [strip_special_char](./string/strip_special_char.md#readme)
+* [must_have_no_accent](./string/must_have_no_accent.md#readme)
+* [strip_special_char](./string/must_have_no_special_char.md#readme)
+* [must_have_no_special_char](./string/must_have_no_special_char.md#readme)
 
 
 
