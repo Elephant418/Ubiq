@@ -75,30 +75,30 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 	// MUST STARTS WITH
-	public function test_must_starts_with__valid( ) {
+	public function test_must_start_with__valid( ) {
 		$assertion = 'www.example.com';
-		\UString\must_starts_with( $assertion, 'http://' );
+		\UString\must_start_with( $assertion, 'http://' );
 		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 
-	public function test_must_starts_with__invalid( ) {
+	public function test_must_start_with__invalid( ) {
 		$assertion = 'http://www.example.com';
-		\UString\must_starts_with( $assertion, 'http://' );
+		\UString\must_start_with( $assertion, 'http://' );
 		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 
 
 
 	// MUST NOT STARTS WITH
-	public function test_must_not_starts_with__valid( ) {
+	public function test_must_not_start_with__valid( ) {
 		$assertion = 'http://www.example.com';
-		\UString\must_not_starts_with( $assertion, 'http://' );
+		\UString\must_not_start_with( $assertion, 'http://' );
 		$this->assertEquals( $assertion, 'www.example.com' );
 	}
 
-	public function test_must_not_starts_with__invalid( ) {
+	public function test_must_not_start_with__invalid( ) {
 		$assertion = 'www.example.com';
-		\UString\must_not_starts_with( $assertion, 'http://' );
+		\UString\must_not_start_with( $assertion, 'http://' );
 		$this->assertEquals( $assertion, 'www.example.com' );
 	}
 
@@ -171,30 +171,30 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 	// MUST ENDS WITH
-	public function test_must_ends_with__valid( ) {
+	public function test_must_end_with__valid( ) {
 		$assertion = 'http://www.example.com';
-		\UString\must_ends_with( $assertion, '/' );
+		\UString\must_end_with( $assertion, '/' );
 		$this->assertEquals( $assertion, 'http://www.example.com/' );
 	}
 
-	public function test_must_ends_with__invalid( ) {
+	public function test_must_end_with__invalid( ) {
 		$assertion = 'http://www.example.com/';
-		\UString\must_ends_with( $assertion, '/' );
+		\UString\must_end_with( $assertion, '/' );
 		$this->assertEquals( $assertion, 'http://www.example.com/' );
 	}
 
 
 
 	// MUST NOT ENDS WITH
-	public function test_must_not_ends_with__valid( ) {
+	public function test_must_not_end_with__valid( ) {
 		$assertion = 'http://www.example.com';
-		\UString\must_not_ends_with( $assertion, '/' );
+		\UString\must_not_end_with( $assertion, '/' );
 		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 
-	public function test_must_not_ends_with__invalid( ) {
+	public function test_must_not_end_with__invalid( ) {
 		$assertion = 'http://www.example.com/';
-		\UString\must_not_ends_with( $assertion, '/' );
+		\UString\must_not_end_with( $assertion, '/' );
 		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 

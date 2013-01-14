@@ -31,13 +31,13 @@ namespace UString {
 		return \UString\starts_with( strtolower( $hay ), $needles );
 	}
 
-	function must_starts_with( &$hay, $needle ) {
+	function must_start_with( &$hay, $needle ) {
 		if ( ! \UString\starts_with( $hay, $needle ) ) {
 			$hay = $needle . $hay;
 		}
 	}
 
-	function must_not_starts_with( &$hay, $needle ) {
+	function must_not_start_with( &$hay, $needle ) {
 		if ( \UString\starts_with( $hay, $needle ) ) {
 			$hay = substr( $hay, strlen( $needle ) );
 		}
@@ -59,13 +59,13 @@ namespace UString {
 		return \UString\ends_with( strtolower( $hay ), $needles );
 	}
 
-	function must_ends_with( &$hay, $needle ) {
+	function must_end_with( &$hay, $needle ) {
 		if ( ! \UString\ends_with( $hay, $needle ) ) {
 			$hay .= $needle;
 		}
 	}
 
-	function must_not_ends_with( &$hay, $needle ) {
+	function must_not_end_with( &$hay, $needle ) {
 		if ( \UString\ends_with( $hay, $needle ) ) {
 			$hay = substr( $hay, 0, -strlen( $needle ) );
 		}
@@ -199,8 +199,8 @@ namespace UString {
 		$string = preg_replace( '/[^' . $characters . ']/s', $replace, $string );
 		if ( ! empty( $replace ) ) {
 			$string = preg_replace( '/[' . $replace . ']+/s', $replace, $string );
-			\UString\must_not_starts_with( $string, $replace );
-			\UString\must_not_ends_with( $string, $replace );
+			\UString\must_not_start_with( $string, $replace );
+			\UString\must_not_end_with( $string, $replace );
 		}
 		return $string;
 	}
@@ -256,7 +256,7 @@ namespace UObject {
 		if ( is_object( $class ) ) {
 			$class = get_class( $class );
 		} else {
-			\UString\must_not_starts_with( $class, '\\' );
+			\UString\must_not_start_with( $class, '\\' );
 		}
 	}
 
