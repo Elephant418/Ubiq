@@ -38,7 +38,7 @@ namespace UString {
 	}
 
 	function must_not_start_with( &$hay, $needle ) {
-		if ( \UString\starts_with( $hay, $needle ) ) {
+		while ( \UString\starts_with( $hay, $needle ) ) {
 			$hay = substr( $hay, strlen( $needle ) );
 		}
 	}
@@ -66,7 +66,7 @@ namespace UString {
 	}
 
 	function must_not_end_with( &$hay, $needle ) {
-		if ( \UString\ends_with( $hay, $needle ) ) {
+		while ( \UString\ends_with( $hay, $needle ) ) {
 			$hay = substr( $hay, 0, -strlen( $needle ) );
 		}
 	}

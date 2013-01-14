@@ -35,3 +35,12 @@ $url = 'www.example.com';
 echo $url;
 ```
 Returns 'www.example.com'.
+
+### Example 3
+
+```php
+$url = 'http://http://www.example.com';
+\UString\must_not_start_with( $url, 'http://' );
+echo $url;
+```
+Returns 'www.example.com'.

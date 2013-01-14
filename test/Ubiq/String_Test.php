@@ -9,32 +9,32 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 	// STARTS WITH
-	public function test_starts_with__valid( ) {
+	public function test_starts_with__match( ) {
 		$test = \UString\starts_with( 'Ubiq is so cool', 'Ubiq' );
 		$this->assertTrue( $test );
 	}
 
-	public function test_starts_with__valid_sensitive( ) {
+	public function test_starts_with__match_sensitive( ) {
 		$test = \UString\starts_with( 'Ubiq is so cool', 'ubiq' );
 		$this->assertFalse( $test );
 	}
 
-	public function test_starts_with__invalid( ) {
+	public function test_starts_with__no_match( ) {
 		$test = \UString\starts_with( 'Ubiq is so cool', 'Java' );
 		$this->assertFalse( $test );
 	}
 
-	public function test_starts_with__multiple_valid( ) {
+	public function test_starts_with__multiple_match( ) {
 		$test = \UString\starts_with( 'Ubiq is so cool', [ 'Ubiq', 'Java' ] );
 		$this->assertTrue( $test );
 	}
 
-	public function test_starts_with__multiple_valid_sensitive( ) {
+	public function test_starts_with__multiple_match_sensitive( ) {
 		$test = \UString\starts_with( 'Ubiq is so cool', [ 'ubiq', 'Java' ] );
 		$this->assertFalse( $test );
 	}
 
-	public function test_starts_with__multiple_invalid( ) {
+	public function test_starts_with__multiple_no_match( ) {
 		$test = \UString\starts_with( 'Ubiq is so cool', [ 'Java', '.NET' ] );
 		$this->assertFalse( $test );
 	}
@@ -42,32 +42,32 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 	// I STARTS WITH
-	public function test_i_starts_with__valid( ) {
+	public function test_i_starts_with__match( ) {
 		$test = \UString\i_starts_with( 'Ubiq is so cool', 'Ubiq' );
 		$this->assertTrue( $test );
 	}
 
-	public function test_i_starts_with__valid_sensitive( ) {
+	public function test_i_starts_with__match_sensitive( ) {
 		$test = \UString\i_starts_with( 'Ubiq is so cool', 'ubiq' );
 		$this->assertTrue( $test );
 	}
 
-	public function test_i_starts_with__invalid( ) {
+	public function test_i_starts_with__no_match( ) {
 		$test = \UString\i_starts_with( 'Ubiq is so cool', 'Java' );
 		$this->assertFalse( $test );
 	}
 
-	public function test_i_starts_with__multiple_valid( ) {
+	public function test_i_starts_with__multiple_match( ) {
 		$test = \UString\i_starts_with( 'Ubiq is so cool', [ 'Ubiq', 'Java' ] );
 		$this->assertTrue( $test );
 	}
 
-	public function test_i_starts_with__multiple_valid_sensitive( ) {
+	public function test_i_starts_with__multiple_match_sensitive( ) {
 		$test = \UString\i_starts_with( 'Ubiq is so cool', [ 'ubiq', 'Java' ] );
 		$this->assertTrue( $test );
 	}
 
-	public function test_i_starts_with__multiple_invalid( ) {
+	public function test_i_starts_with__multiple_no_match( ) {
 		$test = \UString\i_starts_with( 'Ubiq is so cool', [ 'Java', '.NET' ] );
 		$this->assertFalse( $test );
 	}
@@ -75,13 +75,13 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 	// MUST STARTS WITH
-	public function test_must_start_with__valid( ) {
+	public function test_must_start_with__match( ) {
 		$assertion = 'www.example.com';
 		\UString\must_start_with( $assertion, 'http://' );
 		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 
-	public function test_must_start_with__invalid( ) {
+	public function test_must_start_with__no_match( ) {
 		$assertion = 'http://www.example.com';
 		\UString\must_start_with( $assertion, 'http://' );
 		$this->assertEquals( $assertion, 'http://www.example.com' );
@@ -90,14 +90,20 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 	// MUST NOT STARTS WITH
-	public function test_must_not_start_with__valid( ) {
+	public function test_must_not_start_with__match( ) {
 		$assertion = 'http://www.example.com';
 		\UString\must_not_start_with( $assertion, 'http://' );
 		$this->assertEquals( $assertion, 'www.example.com' );
 	}
 
-	public function test_must_not_start_with__invalid( ) {
+	public function test_must_not_start_with__no_match( ) {
 		$assertion = 'www.example.com';
+		\UString\must_not_start_with( $assertion, 'http://' );
+		$this->assertEquals( $assertion, 'www.example.com' );
+	}
+
+	public function test_must_not_start_with__double_match( ) {
+		$assertion = 'http://http://www.example.com';
 		\UString\must_not_start_with( $assertion, 'http://' );
 		$this->assertEquals( $assertion, 'www.example.com' );
 	}
@@ -105,32 +111,32 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 	// ENDS WITH
-	public function test_ends_with__valid( ) {
+	public function test_ends_with__match( ) {
 		$test = \UString\ends_with( 'Ubiq is so cool', 'cool' );
 		$this->assertTrue( $test );
 	}
 
-	public function test_ends_with__valid_sensitive( ) {
+	public function test_ends_with__match_sensitive( ) {
 		$test = \UString\ends_with( 'Ubiq is so cool', 'Cool' );
 		$this->assertFalse( $test );
 	}
 
-	public function test_ends_with__invalid( ) {
+	public function test_ends_with__no_match( ) {
 		$test = \UString\ends_with( 'Ubiq is so cool', 'boring' );
 		$this->assertFalse( $test );
 	}
 
-	public function test_ends_with__multiple_valid( ) {
+	public function test_ends_with__multiple_match( ) {
 		$test = \UString\ends_with( 'Ubiq is so cool', [ 'cool', 'boring' ] );
 		$this->assertTrue( $test );
 	}
 
-	public function test_ends_with__multiple_valid_sensitive( ) {
+	public function test_ends_with__multiple_match_sensitive( ) {
 		$test = \UString\ends_with( 'Ubiq is so cool', [ 'Cool', 'boring' ] );
 		$this->assertFalse( $test );
 	}
 
-	public function test_ends_with__multiple_invalid( ) {
+	public function test_ends_with__multiple_no_match( ) {
 		$test = \UString\ends_with( 'Ubiq is so cool', [ 'boring', 'classy' ] );
 		$this->assertFalse( $test );
 	}
@@ -138,32 +144,32 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 	// I ENDS WITH
-	public function test_i_ends_with__valid( ) {
+	public function test_i_ends_with__match( ) {
 		$test = \UString\i_ends_with( 'Ubiq is so cool', 'cool' );
 		$this->assertTrue( $test );
 	}
 
-	public function test_i_ends_with__valid_sensitive( ) {
+	public function test_i_ends_with__match_sensitive( ) {
 		$test = \UString\i_ends_with( 'Ubiq is so cool', 'Cool' );
 		$this->assertTrue( $test );
 	}
 
-	public function test_i_ends_with__invalid( ) {
+	public function test_i_ends_with__no_match( ) {
 		$test = \UString\i_ends_with( 'Ubiq is so cool', 'boring' );
 		$this->assertFalse( $test );
 	}
 
-	public function test_i_ends_with__multiple_valid( ) {
+	public function test_i_ends_with__multiple_match( ) {
 		$test = \UString\i_ends_with( 'Ubiq is so cool', [ 'cool', 'boring' ] );
 		$this->assertTrue( $test );
 	}
 
-	public function test_i_ends_with__multiple_valid_sensitive( ) {
+	public function test_i_ends_with__multiple_match_sensitive( ) {
 		$test = \UString\i_ends_with( 'Ubiq is so cool', [ 'Cool', 'boring' ] );
 		$this->assertTrue( $test );
 	}
 
-	public function test_i_ends_with__multiple_invalid( ) {
+	public function test_i_ends_with__multiple_no_match( ) {
 		$test = \UString\i_ends_with( 'Ubiq is so cool', [ 'boring', 'classy' ] );
 		$this->assertFalse( $test );
 	}
@@ -171,13 +177,13 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 	// MUST ENDS WITH
-	public function test_must_end_with__valid( ) {
+	public function test_must_end_with__match( ) {
 		$assertion = 'http://www.example.com';
 		\UString\must_end_with( $assertion, '/' );
 		$this->assertEquals( $assertion, 'http://www.example.com/' );
 	}
 
-	public function test_must_end_with__invalid( ) {
+	public function test_must_end_with__no_match( ) {
 		$assertion = 'http://www.example.com/';
 		\UString\must_end_with( $assertion, '/' );
 		$this->assertEquals( $assertion, 'http://www.example.com/' );
@@ -186,14 +192,20 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 	// MUST NOT ENDS WITH
-	public function test_must_not_end_with__valid( ) {
+	public function test_must_not_end_with__no_match( ) {
 		$assertion = 'http://www.example.com';
 		\UString\must_not_end_with( $assertion, '/' );
 		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 
-	public function test_must_not_end_with__invalid( ) {
+	public function test_must_not_end_with__macth( ) {
 		$assertion = 'http://www.example.com/';
+		\UString\must_not_end_with( $assertion, '/' );
+		$this->assertEquals( $assertion, 'http://www.example.com' );
+	}
+
+	public function test_must_not_end_with__double_match( ) {
+		$assertion = 'http://www.example.com///';
 		\UString\must_not_end_with( $assertion, '/' );
 		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
