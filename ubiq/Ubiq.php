@@ -3,7 +3,7 @@
 /* This file is part of the Ubiq project, which is under MIT license */
 
 namespace Ubiq {
-	const VERSION = '0.2.0-dev';
+	const VERSION = '0.1.4';
 }
 
 
