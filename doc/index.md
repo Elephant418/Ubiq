@@ -35,7 +35,9 @@ String
 
 
 * [strip_accent](./string/strip_accent.md#readme)
-* [strip_special_char](./string/strip_special_char.md#readme)
+* [must_have_no_accent](./string/must_have_no_accent.md#readme)
+* [strip_special_char](./string/must_have_no_special_char.md#readme)
+* [must_have_no_special_char](./string/must_have_no_special_char.md#readme)
 
 
 

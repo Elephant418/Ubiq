@@ -195,6 +195,10 @@ namespace UString {
 		return str_replace( $match, $replace, $string );
 	}
 
+	function must_have_no_accent( &$string ) {
+		$string = \UString\strip_accent( $string );
+	}
+
 	function strip_special_char( $string, $characters = '-_a-zA-Z0-9', $replace = '-' ) {
 		$string = preg_replace( '/[^' . $characters . ']/s', $replace, $string );
 		if ( ! empty( $replace ) ) {
@@ -203,6 +207,10 @@ namespace UString {
 			\UString\must_not_end_with( $string, $replace );
 		}
 		return $string;
+	}
+
+	function must_have_no_special_char( &$string, $characters = '-_a-zA-Z0-9', $replace = '-' ) {
+		$string = \UString\strip_special_char( $string, $characters, $replace );
 	}
 }
 
