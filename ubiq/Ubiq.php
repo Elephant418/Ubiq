@@ -2,7 +2,7 @@
 
 /* This file is part of the Ubiq project, which is under MIT license */
 
-namespace Ubiq {
+namespace Pixel418\Ubiq {
 	const VERSION = '0.1.5';
 }
 
