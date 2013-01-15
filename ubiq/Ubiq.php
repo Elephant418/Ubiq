@@ -259,7 +259,11 @@ namespace UArray {
 				$mixed = get_object_vars( $mixed );
 			}
 		} else if ( ! is_array( $mixed ) ) {
-			$mixed = [ $mixed ];
+			if ( empty( $mixed ) ) {
+				$mixed = [ ];
+			} else {
+				$mixed = [ $mixed ];
+			}
 		}
 		return $mixed;
 	}

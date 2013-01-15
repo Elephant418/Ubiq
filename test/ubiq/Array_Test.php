@@ -14,6 +14,16 @@ class Array_Test extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals( $array, [ 'a string' ] );
 	}
 
+	public function test_convert_to_array__string_empty( ) {
+		$array =\UArray\convert_to_array( '' );
+		$this->assertEquals( $array, [ ] );
+	}
+
+	public function test_convert_to_array__null( ) {
+		$array =\UArray\convert_to_array( NULL );
+		$this->assertEquals( $array, [ ] );
+	}
+
 	public function test_convert_to_array__array( ) {
 		$array = \UArray\convert_to_array( [ 'a string' ] );
 		$this->assertEquals( $array, [ 'a string' ] );
@@ -45,6 +55,18 @@ class Array_Test extends \PHPUnit_Framework_TestCase {
 		$array = 'a string';
 		\UArray\do_convert_to_array( $array );
 		$this->assertEquals( $array, [ 'a string' ] );
+	}
+
+	public function test_do_convert_to_array__string_empty( ) {
+		$array = '';
+		\UArray\do_convert_to_array( $array );
+		$this->assertEquals( $array, [ ] );
+	}
+
+	public function test_do_convert_to_array__null( ) {
+		$array = NULL;
+		\UArray\do_convert_to_array( $array );
+		$this->assertEquals( $array, [ ] );
 	}
 
 	public function test_do_convert_to_array__array( ) {
