@@ -44,9 +44,9 @@ namespace UString {
 
 	function not_start_with( $haystack, $needles ) {
 		\UArray\do_convert_to_array( $needles );
-		$needles = array_map( function( $a ) {
-			return preg_quote( $a, '/' );
-		}, $needles );
+		array_walk( $needles, function( &$a ) {
+			$a = preg_quote( $a, '/' );
+		} );
 		$pattern = '/^(' . implode( '|', $needles ) . ')+/';
 		$haystack = preg_replace( $pattern, '', $haystack );
 		return $haystack;
@@ -85,9 +85,9 @@ namespace UString {
 
 	function not_end_with( $haystack, $needles ) {
 		\UArray\do_convert_to_array( $needles );
-		$needles = array_map( function( $a ) {
-			return preg_quote( $a, '/' );
-		}, $needles );
+		array_walk( $needles, function( &$a ) {
+			$a = preg_quote( $a, '/' );
+		} );
 		$pattern = '/(' . implode( '|', $needles ) . ')+$/';
 		$haystack = preg_replace( $pattern, '', $haystack );
 		return $haystack;
