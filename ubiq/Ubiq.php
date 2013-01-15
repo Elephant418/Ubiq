@@ -43,8 +43,10 @@ namespace UString {
 	}
 
 	function not_start_with( $haystack, $needle ) {
-		while ( \UString\is_start_with( $haystack, $needle ) ) {
-			$haystack = substr( $haystack, strlen( $needle ) );
+		if ( !empty( $needle ) ) {
+			while ( \UString\is_start_with( $haystack, $needle ) ) {
+				$haystack = substr( $haystack, strlen( $needle ) );
+			}
 		}
 		return $haystack;
 	}
@@ -69,16 +71,28 @@ namespace UString {
 		return \UString\is_end_with( strtolower( $haystack ), $needles );
 	}
 
-	function do_end_with( &$haystack, $needle ) {
+	function end_with( $haystack, $needle ) {
 		if ( ! \UString\is_end_with( $haystack, $needle ) ) {
 			$haystack .= $needle;
 		}
+		return $haystack;
+	}
+
+	function do_end_with( &$haystack, $needle ) {
+		$haystack = \UString\end_with( $haystack, $needle );
+	}
+
+	function not_end_with( $haystack, $needle ) {
+		if ( !empty( $needle ) ) {
+			while ( \UString\is_end_with( $haystack, $needle ) ) {
+				$haystack = substr( $haystack, 0, -strlen( $needle ) );
+			}
+		}
+		return $haystack;
 	}
 
 	function do_not_end_with( &$haystack, $needle ) {
-		while ( \UString\is_end_with( $haystack, $needle ) ) {
-			$haystack = substr( $haystack, 0, -strlen( $needle ) );
-		}
+		$haystack = \UString\not_end_with( $haystack, $needle );
 	}
 
 

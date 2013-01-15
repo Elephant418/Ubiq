@@ -207,17 +207,48 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 
+	// END WITH
+	public function test_end_with__no_match( ) {
+		$assertion =\UString\end_with( 'http://www.example.com', '/' );
+		$this->assertEquals( $assertion, 'http://www.example.com/' );
+	}
+
+	public function test_end_with__match( ) {
+		$assertion =\UString\end_with( 'http://www.example.com/', '/' );
+		$this->assertEquals( $assertion, 'http://www.example.com/' );
+	}
+
+
+
 	// DO END WITH
-	public function test_do_end_with__match( ) {
+	public function test_do_end_with__no_match( ) {
 		$assertion = 'http://www.example.com';
 		\UString\do_end_with( $assertion, '/' );
 		$this->assertEquals( $assertion, 'http://www.example.com/' );
 	}
 
-	public function test_do_end_with__no_match( ) {
+	public function test_do_end_with__match( ) {
 		$assertion = 'http://www.example.com/';
 		\UString\do_end_with( $assertion, '/' );
 		$this->assertEquals( $assertion, 'http://www.example.com/' );
+	}
+
+
+
+	// NOT END WITH
+	public function test_not_end_with__no_match( ) {
+		$assertion = \UString\not_end_with( 'http://www.example.com', '/' );
+		$this->assertEquals( $assertion, 'http://www.example.com' );
+	}
+
+	public function test_not_end_with__macth( ) {
+		$assertion = \UString\not_end_with( 'http://www.example.com/', '/' );
+		$this->assertEquals( $assertion, 'http://www.example.com' );
+	}
+
+	public function test_not_end_with__double_match( ) {
+		$assertion = \UString\not_end_with( 'http://www.example.com///', '/' );
+		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 
 

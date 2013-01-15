@@ -18,7 +18,9 @@ String
 
 * [is_end_with](./string/is_end_with.md#readme)
 * [is_end_with_insensitive](./string/is_end_with_insensitive.md#readme)
+* [end_with](./string/end_with.md#readme)
 * [do_end_with](./string/do_end_with.md#readme)
+* [not_end_with](./string/not_end_with.md#readme)
 * [do_not_end_with](./string/do_not_end_with.md#readme)
 
 ### Has

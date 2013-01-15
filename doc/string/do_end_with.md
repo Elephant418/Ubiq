@@ -11,7 +11,7 @@ void \UString\do_end_with( string &$haystack, string $needle );
 
 If a string does not end with a specific character/sequence, the string is sufixed.
 
-**Note**: The string is passed by reference.
+**Note**: The string is passed by reference. See [end_with](./end_with.md#readme).
 
 
 

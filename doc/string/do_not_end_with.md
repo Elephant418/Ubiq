@@ -11,7 +11,7 @@ void \UString\do_not_end_with( string &$haystack, string $needle );
 
 If a string ends with a specific character/sequence, the sufix is removed.
 
-**Note**: The string is passed by reference.
+**Note**: The string is passed by reference. See [not_end_with](./not_end_with.md#readme).
 
 
 
