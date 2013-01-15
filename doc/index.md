@@ -5,21 +5,26 @@
 String
 -------- 
 
+### Start with
+
 * [is_start_with](./string/is_start_with.md#readme)
 * [is_start_with_insensitive](./string/is_start_with_insensitive.md#readme)
 * [must_start_with](./string/must_start_with.md#readme)
 * [must_not_start_with](./string/must_not_start_with.md#readme)
 
+### End with
 
 * [is_end_with](./string/is_end_with.md#readme)
 * [is_end_with_insensitive](./string/is_end_with_insensitive.md#readme)
 * [must_end_with](./string/must_end_with.md#readme)
 * [must_not_end_with](./string/must_not_end_with.md#readme)
 
+### Has
 
 * [has](./string/has.md#readme)
 * [has_insensitive](./string/has_insensitive.md#readme)
 
+### Substr
 
 * [cut_before](./string/cut_before.md#readme)
 * [substr_before](./string/substr_before.md#readme)
@@ -30,9 +35,11 @@ String
 * [cut_after_last](./string/cut_after_last.md#readme)
 * [substr_after_last](./string/substr_after_last.md#readme)
 
+### Random
 
 * [random](./string/random.md#readme)
 
+### Strip
 
 * [strip_accent](./string/strip_accent.md#readme)
 * [do_strip_accent](./string/do_strip_accent.md#readme)
