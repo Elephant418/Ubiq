@@ -21,6 +21,27 @@ class Array_Test extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals( $array, [ 'a string' ] );
 	}
 
+	public function test_must_be_array__object__stdclass( ) {
+		$array = new \StdClass( );
+		$array->entry = 'a string';
+		\UArray\must_be_array( $array );
+		$this->assertEquals( $array, [ 'entry' => 'a string' ] );
+	}
+
+	public function test_must_be_array__object__array_object( ) {
+		$array = new \ArrayObject( [ 'entry' => 'a string' ] );
+		\UArray\must_be_array( $array );
+		$this->assertEquals( $array, [ 'entry' => 'a string' ] );
+	}
+
+	public function test_must_be_array__object__exception( ) {
+		$array = new \Exception( );
+		$array->entry = 'a string';
+		\UArray\must_be_array( $array );
+		$this->assertEquals( $array, [ 'entry' => 'a string' ] );
+	}
+
+
 
 
 	// MUST VALID SCHEMA

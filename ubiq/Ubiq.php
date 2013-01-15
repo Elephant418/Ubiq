@@ -249,9 +249,17 @@ namespace UString {
  *************************************************************************/
 namespace UArray {
 
-	function must_be_array( &$array ) {
-		if ( ! is_array( $array ) ) {
-			$array = [ $array ];
+	function must_be_array( &$mixed ) {
+		if ( is_object( $mixed ) ) {
+			if ( is_a( $mixed, 'StdClass' ) ) {
+				$mixed = ( array ) $mixed;
+			} else if ( is_a( $mixed, 'ArrayObject' ) ) {
+				$mixed = $mixed->getArrayCopy( );
+			} else {
+				$mixed = get_object_vars( $mixed );
+			}
+		} else if ( ! is_array( $mixed ) ) {
+			$mixed = [ $mixed ];
 		}
 	}
 
