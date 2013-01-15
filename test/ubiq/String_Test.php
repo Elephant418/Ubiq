@@ -119,7 +119,7 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function test_not_start_with__multiple_match( ) {
-		$assertion = \UString\not_start_with( 'https://www.example.com', [ 'http://', 'https://' ] );
+		$assertion = \UString\not_start_with( 'https://http://www.example.com', [ 'file://', 'https://', 'http://' ] );
 		$this->assertEquals( $assertion, 'www.example.com' );
 	}
 
@@ -145,8 +145,8 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function test_do_not_start_with__multiple_match( ) {
-		$assertion = 'https://www.example.com';
-		\UString\do_not_start_with( $assertion, [ 'http://', 'https://' ] );
+		$assertion = 'https://http://www.example.com';
+		\UString\do_not_start_with( $assertion, [ 'file://', 'https://', 'http://' ] );
 		$this->assertEquals( $assertion, 'www.example.com' );
 	}
 

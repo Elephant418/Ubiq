@@ -42,6 +42,6 @@ Returns 'www.example.com'.
 ### Example 4
 
 ```php
-\UString\not_start_with( 'http://http://www.example.com', [ 'https://', 'http://' ] );
+\UString\not_start_with( 'http://https://www.example.com', [ 'file://', 'https://', 'http://' ] );
 ```
 Returns 'www.example.com'.

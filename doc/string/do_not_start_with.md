@@ -48,8 +48,8 @@ Returns 'www.example.com'.
 ### Example 4
 
 ```php
-$url = 'http://http://www.example.com';
-\UString\do_not_start_with( $url, [ 'https://', 'http://' ] );
+$url = 'http://https://www.example.com';
+\UString\do_not_start_with( $url, [ 'file://', 'https://', 'http://' ] );
 echo $url;
 ```
 Returns 'www.example.com'.
