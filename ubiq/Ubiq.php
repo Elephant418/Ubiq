@@ -94,85 +94,85 @@ namespace UString {
 
 	// SUBSTRING FUNCTIONS
 	function cut_before( &$hay, $needles ) {
-		$return = \UString\substr_before( $hay, $needles );
-		$hay = substr( $hay, strlen( $return ) );
-		return $return;
+		$result = \UString\substr_before( $hay, $needles );
+		$hay = substr( $hay, strlen( $result ) );
+		return $result;
 	}
 
 	function substr_before( $hay, $needles ) {
 		\UArray\must_be_array( $needles );
-		$return = $hay;
+		$result = $hay;
 		foreach( $needles as $needle ) {
 			if ( ! empty( $needle) && \UString\contains( $hay, $needle ) ) {
 				$cut = substr( $hay, 0, strpos( $hay, $needle ) );
-				if ( strlen( $cut ) < strlen ( $return ) ) {
-					$return = $cut;
+				if ( strlen( $cut ) < strlen ( $result ) ) {
+					$result = $cut;
 				}
 			}
 		}
-		$hay = substr( $hay, strlen( $return ) );
-		return $return;
+		$hay = substr( $hay, strlen( $result ) );
+		return $result;
 	}
 
 	function cut_before_last( &$hay, $needles ) {
-		$return = \UString\substr_before_last( $hay, $needles );
-		$hay = substr( $hay, strlen( $return ) );
-		return $return;
+		$result = \UString\substr_before_last( $hay, $needles );
+		$hay = substr( $hay, strlen( $result ) );
+		return $result;
 	}
 
 	function substr_before_last( $hay, $needles ) {
 		\UArray\must_be_array( $needles );
-		$return = '';
+		$result = '';
 		foreach( $needles as $needle ) {
 			if ( ! empty( $needle ) && \UString\contains( $hay, $needle ) ) {
 				$cut = substr( $hay, 0, strrpos( $hay, $needle ) );
-				if ( strlen( $cut ) > strlen ( $return ) ) {
-					$return = $cut;
+				if ( strlen( $cut ) > strlen ( $result ) ) {
+					$result = $cut;
 				}
 			}
 		}
-		$hay = substr( $hay, strlen( $return ) );
-		return $return;
+		$hay = substr( $hay, strlen( $result ) );
+		return $result;
 	}
 
 	function cut_after( &$hay, $needles ) {
-		$return = \UString\substr_after( $hay, $needles );
-		$hay = substr( $hay, 0, strlen( $hay ) - strlen( $return ) );
-		return $return;
+		$result = \UString\substr_after( $hay, $needles );
+		$hay = substr( $hay, 0, strlen( $hay ) - strlen( $result ) );
+		return $result;
 	}
 
 	function substr_after( $hay, $needles ) {
 		\UArray\must_be_array( $needles );
-		$return = '';
+		$result = '';
 		foreach( $needles as $needle ) {
 			if ( ! empty( $needle) && \UString\contains( $hay, $needle ) ) {
 				$cut = substr( $hay, strpos( $hay, $needle ) + strlen( $needle ) );
-				if ( strlen( $cut ) > strlen ( $return ) ) {
-					$return = $cut;
+				if ( strlen( $cut ) > strlen ( $result ) ) {
+					$result = $cut;
 				}
 			}
 		}
-		return $return;
+		return $result;
 	}
 
 	function cut_after_last( &$hay, $needles ) {
-		$return = \UString\substr_after_last( $hay, $needles );
-		$hay = substr( $hay, 0, strlen( $hay ) - strlen( $return ) );
-		return $return;
+		$result = \UString\substr_after_last( $hay, $needles );
+		$hay = substr( $hay, 0, strlen( $hay ) - strlen( $result ) );
+		return $result;
 	}
 
 	function substr_after_last( $hay, $needles ) {
 		\UArray\must_be_array( $needles );
-		$return = $hay;
+		$result = $hay;
 		foreach( $needles as $needle ) {
 			if ( ! empty( $needle) && \UString\contains( $hay, $needle ) ) {
 				$cut = substr( $hay, strrpos( $hay, $needle ) + strlen( $needle ) );
-				if ( strlen( $cut ) < strlen ( $return ) ) {
-					$return = $cut;
+				if ( strlen( $cut ) < strlen ( $result ) ) {
+					$result = $cut;
 				}
 			}
 		}
-		return $return;
+		return $result;
 	}
 
 
