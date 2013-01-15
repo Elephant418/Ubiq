@@ -3,7 +3,21 @@ Changelog for Ubiq
 
 
 
-0.2.0: ?
+0.2.2: 2013-01-15
+-------- 
+
+* Fix: Rename the source folder src
+
+
+
+0.2.1: 2013-01-15
+-------- 
+
+* Fix: empty values did not convert to an empty array
+
+
+
+0.2.0: 2013-01-15
 -------- 
 
  * Fix: Rename the starts_with function to is_start_with

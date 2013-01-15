@@ -65,7 +65,7 @@ Add or complete the composer.json file at the root of your repository, like this
 ```json
 {
     "require": {
-        "pixel418/ubiq": "0.2.1"
+        "pixel418/ubiq": "0.2.2"
     }
 }
 ```
@@ -75,7 +75,7 @@ Ubiq can now be [downloaded via composer](http://getcomposer.org/doc/01-basic-us
 The last step is to include Ubiq in your PHP file :
 
 ```php
-require_once( './vendor/pixel418/ubiq/ubiq/Ubiq.php' );
+require_once( './vendor/pixel418/ubiq/src/Ubiq.php' );
 ```
 
 [&uarr; top](#readme)
