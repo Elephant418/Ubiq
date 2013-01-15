@@ -6,6 +6,8 @@ Changelog for Ubiq
 0.2.0: ?
 -------- 
 
+ * New: Add start_with function
+ * New: Add not_start_with function
  * Fix: Rename the starts_with function to is_start_with
  * Fix: Rename the i_starts_with function to is_start_with_insensistive
  * Fix: Rename the must_start_with function to do_start_with

@@ -11,7 +11,7 @@ void \UString\do_not_start_with( string &$haystack, string $needle );
 
 If a string starts with a specific character/sequence, the prefix is removed.
 
-**Note**: The string is passed by reference.
+**Note**: The string is passed by reference. See [not_start_with](./not_start_with.md#readme).
 
 
 

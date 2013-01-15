@@ -74,17 +74,48 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 
+	// START WITH
+	public function test_start_with__no_match( ) {
+		$assertion = \UString\start_with( 'www.example.com', 'http://' );
+		$this->assertEquals( $assertion, 'http://www.example.com' );
+	}
+
+	public function test_start_with__match( ) {
+		$assertion = \UString\start_with( 'http://www.example.com', 'http://' );
+		$this->assertEquals( $assertion, 'http://www.example.com' );
+	}
+
+
+
 	// DO START WITH
-	public function test_do_start_with__match( ) {
+	public function test_do_start_with__no_match( ) {
 		$assertion = 'www.example.com';
 		\UString\do_start_with( $assertion, 'http://' );
 		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 
-	public function test_do_start_with__no_match( ) {
+	public function test_do_start_with__match( ) {
 		$assertion = 'http://www.example.com';
 		\UString\do_start_with( $assertion, 'http://' );
 		$this->assertEquals( $assertion, 'http://www.example.com' );
+	}
+
+
+
+	// NOT START WITH
+	public function test_not_start_with__match( ) {
+		$assertion =\UString\not_start_with( 'http://www.example.com', 'http://' );
+		$this->assertEquals( $assertion, 'www.example.com' );
+	}
+
+	public function test_not_start_with__no_match( ) {
+		$assertion =\UString\not_start_with( 'www.example.com', 'http://' );
+		$this->assertEquals( $assertion, 'www.example.com' );
+	}
+
+	public function test_not_start_with__double_match( ) {
+		$assertion =\UString\not_start_with( 'http://http://www.example.com', 'http://' );
+		$this->assertEquals( $assertion, 'www.example.com' );
 	}
 
 

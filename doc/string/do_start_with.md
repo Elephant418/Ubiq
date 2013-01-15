@@ -11,7 +11,7 @@ void \UString\do_start_with( string &$haystack, string $needle );
 
 If a string does not start with a specific character/sequence, the string is prefixed.
 
-**Note**: The string is passed by reference.
+**Note**: The string is passed by reference. See [start_with](./start_with.md#readme).
 
 
 

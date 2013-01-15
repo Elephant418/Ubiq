@@ -9,7 +9,9 @@ String
 
 * [is_start_with](./string/is_start_with.md#readme)
 * [is_start_with_insensitive](./string/is_start_with_insensitive.md#readme)
+* [start_with](./string/start_with.md#readme)
 * [do_start_with](./string/do_start_with.md#readme)
+* [not_start_with](./string/not_start_with.md#readme)
 * [do_not_start_with](./string/do_not_start_with.md#readme)
 
 ### End with

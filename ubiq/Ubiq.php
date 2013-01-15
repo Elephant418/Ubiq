@@ -31,16 +31,26 @@ namespace UString {
 		return \UString\is_start_with( strtolower( $haystack ), $needles );
 	}
 
-	function do_start_with( &$haystack, $needle ) {
+	function start_with( $haystack, $needle ) {
 		if ( ! \UString\is_start_with( $haystack, $needle ) ) {
 			$haystack = $needle . $haystack;
 		}
+		return $haystack;
 	}
 
-	function do_not_start_with( &$haystack, $needle ) {
+	function do_start_with( &$haystack, $needle ) {
+		$haystack = \UString\start_with( $haystack, $needle );
+	}
+
+	function not_start_with( $haystack, $needle ) {
 		while ( \UString\is_start_with( $haystack, $needle ) ) {
 			$haystack = substr( $haystack, strlen( $needle ) );
 		}
+		return $haystack;
+	}
+
+	function do_not_start_with( &$haystack, $needle ) {
+		$haystack = \UString\not_start_with( $haystack, $needle );
 	}
 
 	function is_end_with( $haystack, $needles ) {
