@@ -6,10 +6,10 @@ Description
 -------- 
 
 ```php
-string \UString\not_start_with( string $haystack, string $needle );
+string \UString\not_start_with( string $haystack, mixed $needles );
 ```
 
-If a string starts with a specific character/sequence, the prefix is removed.
+If a string starts with one or several specific character/sequence, the prefix is removed.
 
 **Note**: The input string is not modified. See [do_not_start_with](./do_not_start_with.md#readme).
 
@@ -36,5 +36,12 @@ Returns 'www.example.com'.
 
 ```php
 \UString\not_start_with( 'http://http://www.example.com', 'http://' );
+```
+Returns 'www.example.com'.
+
+### Example 4
+
+```php
+\UString\not_start_with( 'http://http://www.example.com', [ 'https://', 'http://' ] );
 ```
 Returns 'www.example.com'.

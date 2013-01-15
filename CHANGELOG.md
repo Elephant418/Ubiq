@@ -3,6 +3,14 @@ Changelog for Ubiq
 
 
 
+0.2.3: 2013-01-15
+-------- 
+
+* New: not_start_with and do_not_start_with can take sereval needles
+* New: not_end_with and do_not_end_with can take sereval needles
+
+
+
 0.2.2: 2013-01-15
 -------- 
 

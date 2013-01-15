@@ -104,17 +104,22 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 	// NOT START WITH
 	public function test_not_start_with__match( ) {
-		$assertion =\UString\not_start_with( 'http://www.example.com', 'http://' );
+		$assertion = \UString\not_start_with( 'http://www.example.com', 'http://' );
 		$this->assertEquals( $assertion, 'www.example.com' );
 	}
 
 	public function test_not_start_with__no_match( ) {
-		$assertion =\UString\not_start_with( 'www.example.com', 'http://' );
+		$assertion = \UString\not_start_with( 'www.example.com', 'http://' );
 		$this->assertEquals( $assertion, 'www.example.com' );
 	}
 
 	public function test_not_start_with__double_match( ) {
-		$assertion =\UString\not_start_with( 'http://http://www.example.com', 'http://' );
+		$assertion = \UString\not_start_with( 'http://http://www.example.com', 'http://' );
+		$this->assertEquals( $assertion, 'www.example.com' );
+	}
+
+	public function test_not_start_with__multiple_match( ) {
+		$assertion = \UString\not_start_with( 'https://www.example.com', [ 'http://', 'https://' ] );
 		$this->assertEquals( $assertion, 'www.example.com' );
 	}
 
@@ -136,6 +141,12 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 	public function test_do_not_start_with__double_match( ) {
 		$assertion = 'http://http://www.example.com';
 		\UString\do_not_start_with( $assertion, 'http://' );
+		$this->assertEquals( $assertion, 'www.example.com' );
+	}
+
+	public function test_do_not_start_with__multiple_match( ) {
+		$assertion = 'https://www.example.com';
+		\UString\do_not_start_with( $assertion, [ 'http://', 'https://' ] );
 		$this->assertEquals( $assertion, 'www.example.com' );
 	}
 
@@ -251,6 +262,11 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 
+	public function test_not_end_with__multiple_match( ) {
+		$assertion = \UString\not_end_with( 'http://www.example.com/\\/', [ '\\', '/' ] );
+		$this->assertEquals( $assertion, 'http://www.example.com' );
+	}
+
 
 
 	// DO NOT END WITH
@@ -269,6 +285,12 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 	public function test_do_not_end_with__double_match( ) {
 		$assertion = 'http://www.example.com///';
 		\UString\do_not_end_with( $assertion, '/' );
+		$this->assertEquals( $assertion, 'http://www.example.com' );
+	}
+
+	public function test_do_not_end_with__multiple_match( ) {
+		$assertion = 'http://www.example.com/\\/';
+		\UString\do_not_end_with( $assertion, [ '\\', '/' ] );
 		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 

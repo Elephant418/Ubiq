@@ -3,7 +3,7 @@
 /* This file is part of the Ubiq project, which is under MIT license */
 
 namespace Pixel418\Ubiq {
-	const VERSION = '0.2.2';
+	const VERSION = '0.2.3';
 }
 
 
@@ -42,17 +42,18 @@ namespace UString {
 		$haystack = \UString\start_with( $haystack, $needle );
 	}
 
-	function not_start_with( $haystack, $needle ) {
-		if ( !empty( $needle ) ) {
-			while ( \UString\is_start_with( $haystack, $needle ) ) {
-				$haystack = substr( $haystack, strlen( $needle ) );
-			}
-		}
+	function not_start_with( $haystack, $needles ) {
+		\UArray\do_convert_to_array( $needles );
+		$needles = array_map( function( $a ) {
+			return preg_quote( $a, '/' );
+		}, $needles );
+		$pattern = '/^(' . implode( '|', $needles ) . ')+/';
+		$haystack = preg_replace( $pattern, '', $haystack );
 		return $haystack;
 	}
 
-	function do_not_start_with( &$haystack, $needle ) {
-		$haystack = \UString\not_start_with( $haystack, $needle );
+	function do_not_start_with( &$haystack, $needles ) {
+		$haystack = \UString\not_start_with( $haystack, $needles );
 	}
 
 	function is_end_with( $haystack, $needles ) {
@@ -82,17 +83,18 @@ namespace UString {
 		$haystack = \UString\end_with( $haystack, $needle );
 	}
 
-	function not_end_with( $haystack, $needle ) {
-		if ( !empty( $needle ) ) {
-			while ( \UString\is_end_with( $haystack, $needle ) ) {
-				$haystack = substr( $haystack, 0, -strlen( $needle ) );
-			}
-		}
+	function not_end_with( $haystack, $needles ) {
+		\UArray\do_convert_to_array( $needles );
+		$needles = array_map( function( $a ) {
+			return preg_quote( $a, '/' );
+		}, $needles );
+		$pattern = '/(' . implode( '|', $needles ) . ')+$/';
+		$haystack = preg_replace( $pattern, '', $haystack );
 		return $haystack;
 	}
 
-	function do_not_end_with( &$haystack, $needle ) {
-		$haystack = \UString\not_end_with( $haystack, $needle );
+	function do_not_end_with( &$haystack, $needles ) {
+		$haystack = \UString\not_end_with( $haystack, $needles );
 	}
 
 

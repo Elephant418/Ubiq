@@ -6,10 +6,10 @@ Description
 -------- 
 
 ```php
-void \UString\do_not_end_with( string &$haystack, string $needle );
+void \UString\do_not_end_with( string &$haystack, mixed $needles );
 ```
 
-If a string ends with a specific character/sequence, the sufix is removed.
+If a string ends with one or several specific character/sequence, the sufix are removed.
 
 **Note**: The string is passed by reference. See [not_end_with](./not_end_with.md#readme).
 
@@ -41,6 +41,15 @@ Returns 'http://www.example.com'.
 ```php
 $url = 'http://www.example.com///';
 \UString\do_not_end_with( $url, '/' );
+echo $url;
+```
+Returns 'http://www.example.com'.
+
+### Example 4
+
+```php
+$url = 'http://www.example.com/\\/';
+\UString\do_not_end_with( $url, [ '\\', '/' ] );
 echo $url;
 ```
 Returns 'http://www.example.com'.
