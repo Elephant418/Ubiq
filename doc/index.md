@@ -55,7 +55,8 @@ String
 Array
 -------- 
 
-* [must_be_array](./array/must_be_array.md#readme)
+* [convert_to_array](./array/convert_to_array.md#readme)
+* [do_convert_to_array](./array/do_convert_to_array.md#readme)
 * [must_valid_schema](./array/must_valid_schema.md#readme)
 * [merge_unique](./array/merge_unique.md#readme)
 * [reverse_merge_unique](./array/reverse_merge_unique.md#readme)
@@ -65,7 +66,8 @@ Array
 Object
 -------- 
 
-* [must_be_class](./object/must_be_class.md#readme)
+* [convert_to_class](./object/convert_to_class.md#readme)
+* [do_convert_to_class](./object/do_convert_to_class.md#readme)
 * [get_attribute_names](./object/get_attribute_names.md#readme)
 * [get_namespace](./object/get_namespace.md#readme)
 * [get_class_name](./object/get_class_name.md#readme)

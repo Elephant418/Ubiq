@@ -16,7 +16,7 @@ namespace UString {
 
 	// STARTS WITH & ENDS WITH FUNCTIONS
 	function is_start_with( $haystack, $needles ) {
-		\UArray\must_be_array( $needles );
+		\UArray\do_convert_to_array( $needles );
 		foreach( $needles as $needle ) {
 			if ( substr( $haystack, 0, strlen( $needle ) ) == $needle ) {
 				return TRUE;
@@ -26,7 +26,7 @@ namespace UString {
 	}
 
 	function is_start_with_insensitive( $haystack, $needles ) {
-		\UArray\must_be_array( $needles );
+		\UArray\do_convert_to_array( $needles );
 		$needles = array_map( 'strtolower', $needles );
 		return \UString\is_start_with( strtolower( $haystack ), $needles );
 	}
@@ -56,7 +56,7 @@ namespace UString {
 	}
 
 	function is_end_with( $haystack, $needles ) {
-		\UArray\must_be_array( $needles );
+		\UArray\do_convert_to_array( $needles );
 		foreach( $needles as $needle ) {
 			if ( substr( $haystack, -strlen( $needle ) ) == $needle ) {
 				return TRUE;
@@ -66,7 +66,7 @@ namespace UString {
 	}
 
 	function is_end_with_insensitive( $haystack, $needles ) {
-		\UArray\must_be_array( $needles );
+		\UArray\do_convert_to_array( $needles );
 		$needles = array_map( 'strtolower', $needles );
 		return \UString\is_end_with( strtolower( $haystack ), $needles );
 	}
@@ -99,7 +99,7 @@ namespace UString {
 
 	// has FUNCTIONS
 	function has( $haystack, $needles ) {
-		\UArray\must_be_array( $needles );
+		\UArray\do_convert_to_array( $needles );
 		foreach( $needles as $needle ) {
 			if ( strpos( $haystack, $needle ) !== FALSE ) {
 				return TRUE;
@@ -109,7 +109,7 @@ namespace UString {
 	}
 
 	function has_insensitive( $haystack, $needles ) {
-		\UArray\must_be_array( $needles );
+		\UArray\do_convert_to_array( $needles );
 		$needles = array_map( 'strtolower', $needles );
 		return \UString\has( $haystack, $needles );
 	}
@@ -118,7 +118,7 @@ namespace UString {
 
 	// SUBSTRING FUNCTIONS
 	function substr_before( $haystack, $needles ) {
-		\UArray\must_be_array( $needles );
+		\UArray\do_convert_to_array( $needles );
 		$result = $haystack;
 		foreach( $needles as $needle ) {
 			if ( ! empty( $needle) && \UString\has( $haystack, $needle ) ) {
@@ -140,7 +140,7 @@ namespace UString {
 	}
 
 	function substr_before_last( $haystack, $needles ) {
-		\UArray\must_be_array( $needles );
+		\UArray\do_convert_to_array( $needles );
 		$result = '';
 		foreach( $needles as $needle ) {
 			if ( ! empty( $needle ) && \UString\has( $haystack, $needle ) ) {
@@ -162,7 +162,7 @@ namespace UString {
 	}
 
 	function substr_after( $haystack, $needles ) {
-		\UArray\must_be_array( $needles );
+		\UArray\do_convert_to_array( $needles );
 		$result = '';
 		foreach( $needles as $needle ) {
 			if ( ! empty( $needle) && \UString\has( $haystack, $needle ) ) {
@@ -183,7 +183,7 @@ namespace UString {
 	}
 
 	function substr_after_last( $haystack, $needles ) {
-		\UArray\must_be_array( $needles );
+		\UArray\do_convert_to_array( $needles );
 		$result = $haystack;
 		foreach( $needles as $needle ) {
 			if ( ! empty( $needle) && \UString\has( $haystack, $needle ) ) {
@@ -249,7 +249,7 @@ namespace UString {
  *************************************************************************/
 namespace UArray {
 
-	function must_be_array( &$mixed ) {
+	function convert_to_array( $mixed ) {
 		if ( is_object( $mixed ) ) {
 			if ( is_a( $mixed, 'StdClass' ) ) {
 				$mixed = ( array ) $mixed;
@@ -261,6 +261,11 @@ namespace UArray {
 		} else if ( ! is_array( $mixed ) ) {
 			$mixed = [ $mixed ];
 		}
+		return $mixed;
+	}
+
+	function do_convert_to_array( &$mixed ) {
+		$mixed = \UArray\convert_to_array( $mixed );
 	}
 
 	function must_valid_schema( &$array, $schema ) {
@@ -296,16 +301,21 @@ namespace UArray {
  *************************************************************************/
 namespace UObject {
 
-	function must_be_class( &$class ) {
-		if ( is_object( $class ) ) {
-			$class = get_class( $class );
+	function convert_to_class( $mixed ) {
+		if ( is_object( $mixed ) ) {
+			$mixed = get_class( $mixed );
 		} else {
-			\UString\do_not_start_with( $class, '\\' );
+			\UString\do_not_start_with( $mixed, '\\' );
 		}
+		return $mixed;
+	}
+
+	function do_convert_to_class( &$mixed ) {
+		$mixed = \UObject\convert_to_class( $mixed );
 	}
 
 	function get_attribute_names( $class ) {
-		\UObject\must_be_class( $class );
+		\UObject\do_convert_to_class( $class );
 		if ( class_exists( $class ) ) {
 			return array_keys( get_class_vars( $class ) );
 		}
@@ -313,12 +323,12 @@ namespace UObject {
 	}
 
 	function get_namespace( $class ) {
-		\UObject\must_be_class( $class );
+		\UObject\do_convert_to_class( $class );
 		return \UString\substr_before_last( $class, '\\' );
 	}
 
 	function get_class_name( $class ) {
-		\UObject\must_be_class( $class );
+		\UObject\do_convert_to_class( $class );
 		return \UString\substr_after_last( $class, '\\' );
 	}
 }

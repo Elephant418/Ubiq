@@ -8,16 +8,29 @@ class Object_Test extends \PHPUnit_Framework_TestCase {
 
 
 
-	// MUST BE CLASS
-	public function test_must_be_class__object( ) {
-		$class = New \Exception;
-		\UObject\must_be_class( $class );
+	// CONVERT TO CLASS
+	public function test_convert_to_class__object( ) {
+		$class = \UObject\convert_to_class( New \Exception );
 		$this->assertEquals( $class, 'Exception' );
 	}
 
-	public function test_must_be_class__class( ) {
+	public function test_convert_to_class__class( ) {
+		$class = \UObject\convert_to_class( '\\Exception' );
+		$this->assertEquals( $class, 'Exception' );
+	}
+
+
+
+	// DO CONVERT TO CLASS
+	public function test_do_convert_to_class__object( ) {
+		$class = New \Exception;
+		\UObject\do_convert_to_class( $class );
+		$this->assertEquals( $class, 'Exception' );
+	}
+
+	public function test_do_convert_to_class__class( ) {
 		$class = '\\Exception';
-		\UObject\must_be_class( $class );
+		\UObject\do_convert_to_class( $class );
 		$this->assertEquals( $class, 'Exception' );
 	}
 

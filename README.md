@@ -38,7 +38,7 @@ function get_namespace( $class ) {
 
 ```php
 function get_namespace( $class ) {
-	\UObject\must_be_class( $class );
+	\UObject\do_convert_to_class( $class );
 	return \UString\substr_before_last( $class, '\\' );
 }
 ```

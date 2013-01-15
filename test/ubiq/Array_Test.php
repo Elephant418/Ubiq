@@ -8,36 +8,68 @@ class Array_Test extends \PHPUnit_Framework_TestCase {
 
 
 
-	// MUST BE ARRAY
-	public function test_must_be_array__string( ) {
+	// CONVERT TO ARRAY
+	public function test_convert_to_array__string( ) {
+		$array = \UArray\convert_to_array( 'a string' );
+		$this->assertEquals( $array, [ 'a string' ] );
+	}
+
+	public function test_convert_to_array__array( ) {
+		$array = \UArray\convert_to_array( [ 'a string' ] );
+		$this->assertEquals( $array, [ 'a string' ] );
+	}
+
+	public function test_convert_to_array__object__stdclass( ) {
+		$mixed = new \StdClass( );
+		$mixed->entry = 'a string';
+		$array = \UArray\convert_to_array( $mixed );
+		$this->assertEquals( $array, [ 'entry' => 'a string' ] );
+	}
+
+	public function test_convert_to_array__object__array_object( ) {
+		$array = \UArray\convert_to_array( new \ArrayObject( [ 'entry' => 'a string' ] ) );
+		$this->assertEquals( $array, [ 'entry' => 'a string' ] );
+	}
+
+	public function test_convert_to_array__object__exception( ) {
+		$mixed = new \Exception( );
+		$mixed->entry = 'a string';
+		$array = \UArray\convert_to_array( $mixed );
+		$this->assertEquals( $array, [ 'entry' => 'a string' ] );
+	}
+
+
+
+	// DO CONVERT TO ARRAY
+	public function test_do_convert_to_array__string( ) {
 		$array = 'a string';
-		\UArray\must_be_array( $array );
+		\UArray\do_convert_to_array( $array );
 		$this->assertEquals( $array, [ 'a string' ] );
 	}
 
-	public function test_must_be_array__array( ) {
+	public function test_do_convert_to_array__array( ) {
 		$array = [ 'a string' ];
-		\UArray\must_be_array( $array );
+		\UArray\do_convert_to_array( $array );
 		$this->assertEquals( $array, [ 'a string' ] );
 	}
 
-	public function test_must_be_array__object__stdclass( ) {
+	public function test_do_convert_to_array__object__stdclass( ) {
 		$array = new \StdClass( );
 		$array->entry = 'a string';
-		\UArray\must_be_array( $array );
+		\UArray\do_convert_to_array( $array );
 		$this->assertEquals( $array, [ 'entry' => 'a string' ] );
 	}
 
-	public function test_must_be_array__object__array_object( ) {
+	public function test_do_convert_to_array__object__array_object( ) {
 		$array = new \ArrayObject( [ 'entry' => 'a string' ] );
-		\UArray\must_be_array( $array );
+		\UArray\do_convert_to_array( $array );
 		$this->assertEquals( $array, [ 'entry' => 'a string' ] );
 	}
 
-	public function test_must_be_array__object__exception( ) {
+	public function test_do_convert_to_array__object__exception( ) {
 		$array = new \Exception( );
 		$array->entry = 'a string';
-		\UArray\must_be_array( $array );
+		\UArray\do_convert_to_array( $array );
 		$this->assertEquals( $array, [ 'entry' => 'a string' ] );
 	}
 

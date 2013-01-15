@@ -6,16 +6,16 @@ Changelog for Ubiq
 0.2.0: ?
 -------- 
 
- * New: Add start_with function
- * New: Add not_start_with function
- * New: Add end_with function
- * New: Add not_end_with function
  * Fix: Rename the starts_with function to is_start_with
  * Fix: Rename the i_starts_with function to is_start_with_insensistive
  * Fix: Rename the must_start_with function to do_start_with
+ * New: Add start_with function
  * Fix: Rename the must_not_start_with function to do_not_start_with
+ * New: Add not_start_with function
  * Fix: Rename the ends_with function to is_end_with
+ * New: Add end_with function
  * Fix: Rename the i_ends_with function to is_end_with_insensistive
+ * New: Add not_end_with function
  * Fix: Rename the must_end_with function to do_end_with
  * Fix: Rename the must_not_end_with function to do_not_end_with
  * Fix: Rename the contains function to has
@@ -26,6 +26,10 @@ Changelog for Ubiq
  * Fix: Rename the cut_before_last function to do_substr_before_last & inversion between return and reference modification
  * Fix: Rename the cut_after function to do_substr_after & inversion between return and reference modification
  * Fix: Rename the cut_after_last function to do_substr_after_last & inversion between return and reference modification
+ * Fix: Rename the must_be_array to do_convert_to_array
+ * New: Add convert_to_array function
+ * Fix: Rename the must_be_class function to do_convert_to_class
+ * New: Add convert_to_class function
 
 
 
