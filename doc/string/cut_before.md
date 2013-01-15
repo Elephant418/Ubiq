@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-string \UString\cut_before( string &$hay, mixed $needles );
+string \UString\cut_before( string &$haystack, mixed $needles );
 ```
 
 Cut & returns a string from the beginning to the first match of a specific character/sequence. <br>

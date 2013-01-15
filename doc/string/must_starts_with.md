@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-void \UString\must_start_with( string &$hay, string $needle );
+void \UString\must_start_with( string &$haystack, string $needle );
 ```
 
 If a string does not start with a specific character/sequence, the string is prefixed.

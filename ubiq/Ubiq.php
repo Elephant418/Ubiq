@@ -15,138 +15,138 @@ namespace UString {
 
 
 	// STARTS WITH & ENDS WITH FUNCTIONS
-	function is_start_with( $hay, $needles ) {
+	function is_start_with( $haystack, $needles ) {
 		\UArray\must_be_array( $needles );
 		foreach( $needles as $needle ) {
-			if ( substr( $hay, 0, strlen( $needle ) ) == $needle ) {
+			if ( substr( $haystack, 0, strlen( $needle ) ) == $needle ) {
 				return TRUE;
 			}
 		}
 		return FALSE;
 	}
 
-	function is_start_with_insensitive( $hay, $needles ) {
+	function is_start_with_insensitive( $haystack, $needles ) {
 		\UArray\must_be_array( $needles );
 		$needles = array_map( 'strtolower', $needles );
-		return \UString\is_start_with( strtolower( $hay ), $needles );
+		return \UString\is_start_with( strtolower( $haystack ), $needles );
 	}
 
-	function must_start_with( &$hay, $needle ) {
-		if ( ! \UString\is_start_with( $hay, $needle ) ) {
-			$hay = $needle . $hay;
+	function must_start_with( &$haystack, $needle ) {
+		if ( ! \UString\is_start_with( $haystack, $needle ) ) {
+			$haystack = $needle . $haystack;
 		}
 	}
 
-	function must_not_start_with( &$hay, $needle ) {
-		while ( \UString\is_start_with( $hay, $needle ) ) {
-			$hay = substr( $hay, strlen( $needle ) );
+	function must_not_start_with( &$haystack, $needle ) {
+		while ( \UString\is_start_with( $haystack, $needle ) ) {
+			$haystack = substr( $haystack, strlen( $needle ) );
 		}
 	}
 
-	function is_end_with( $hay, $needles ) {
+	function is_end_with( $haystack, $needles ) {
 		\UArray\must_be_array( $needles );
 		foreach( $needles as $needle ) {
-			if ( substr( $hay, -strlen( $needle ) ) == $needle ) {
+			if ( substr( $haystack, -strlen( $needle ) ) == $needle ) {
 				return TRUE;
 			}
 		}
 		return FALSE;
 	}
 
-	function is_end_with_insensitive( $hay, $needles ) {
+	function is_end_with_insensitive( $haystack, $needles ) {
 		\UArray\must_be_array( $needles );
 		$needles = array_map( 'strtolower', $needles );
-		return \UString\is_end_with( strtolower( $hay ), $needles );
+		return \UString\is_end_with( strtolower( $haystack ), $needles );
 	}
 
-	function must_end_with( &$hay, $needle ) {
-		if ( ! \UString\is_end_with( $hay, $needle ) ) {
-			$hay .= $needle;
+	function must_end_with( &$haystack, $needle ) {
+		if ( ! \UString\is_end_with( $haystack, $needle ) ) {
+			$haystack .= $needle;
 		}
 	}
 
-	function must_not_end_with( &$hay, $needle ) {
-		while ( \UString\is_end_with( $hay, $needle ) ) {
-			$hay = substr( $hay, 0, -strlen( $needle ) );
+	function must_not_end_with( &$haystack, $needle ) {
+		while ( \UString\is_end_with( $haystack, $needle ) ) {
+			$haystack = substr( $haystack, 0, -strlen( $needle ) );
 		}
 	}
 
 
 
 	// CONTAINS FUNCTIONS
-	function contains( $hay, $needles ) {
+	function contains( $haystack, $needles ) {
 		\UArray\must_be_array( $needles );
 		foreach( $needles as $needle ) {
-			if ( strpos( $hay, $needle ) !== FALSE ) {
+			if ( strpos( $haystack, $needle ) !== FALSE ) {
 				return TRUE;
 			}
 		}
 		return FALSE;
 	}
 
-	function i_contains( $hay, $needles ) {
+	function i_contains( $haystack, $needles ) {
 		\UArray\must_be_array( $needles );
 		$needles = array_map( 'strtolower', $needles );
-		return \UString\contains( $hay, $needles );
+		return \UString\contains( $haystack, $needles );
 	}
 
 
 
 	// SUBSTRING FUNCTIONS
-	function cut_before( &$hay, $needles ) {
-		$result = \UString\substr_before( $hay, $needles );
-		$hay = substr( $hay, strlen( $result ) );
+	function cut_before( &$haystack, $needles ) {
+		$result = \UString\substr_before( $haystack, $needles );
+		$haystack = substr( $haystack, strlen( $result ) );
 		return $result;
 	}
 
-	function substr_before( $hay, $needles ) {
+	function substr_before( $haystack, $needles ) {
 		\UArray\must_be_array( $needles );
-		$result = $hay;
+		$result = $haystack;
 		foreach( $needles as $needle ) {
-			if ( ! empty( $needle) && \UString\contains( $hay, $needle ) ) {
-				$cut = substr( $hay, 0, strpos( $hay, $needle ) );
+			if ( ! empty( $needle) && \UString\contains( $haystack, $needle ) ) {
+				$cut = substr( $haystack, 0, strpos( $haystack, $needle ) );
 				if ( strlen( $cut ) < strlen ( $result ) ) {
 					$result = $cut;
 				}
 			}
 		}
-		$hay = substr( $hay, strlen( $result ) );
+		$haystack = substr( $haystack, strlen( $result ) );
 		return $result;
 	}
 
-	function cut_before_last( &$hay, $needles ) {
-		$result = \UString\substr_before_last( $hay, $needles );
-		$hay = substr( $hay, strlen( $result ) );
+	function cut_before_last( &$haystack, $needles ) {
+		$result = \UString\substr_before_last( $haystack, $needles );
+		$haystack = substr( $haystack, strlen( $result ) );
 		return $result;
 	}
 
-	function substr_before_last( $hay, $needles ) {
+	function substr_before_last( $haystack, $needles ) {
 		\UArray\must_be_array( $needles );
 		$result = '';
 		foreach( $needles as $needle ) {
-			if ( ! empty( $needle ) && \UString\contains( $hay, $needle ) ) {
-				$cut = substr( $hay, 0, strrpos( $hay, $needle ) );
+			if ( ! empty( $needle ) && \UString\contains( $haystack, $needle ) ) {
+				$cut = substr( $haystack, 0, strrpos( $haystack, $needle ) );
 				if ( strlen( $cut ) > strlen ( $result ) ) {
 					$result = $cut;
 				}
 			}
 		}
-		$hay = substr( $hay, strlen( $result ) );
+		$haystack = substr( $haystack, strlen( $result ) );
 		return $result;
 	}
 
-	function cut_after( &$hay, $needles ) {
-		$result = \UString\substr_after( $hay, $needles );
-		$hay = substr( $hay, 0, strlen( $hay ) - strlen( $result ) );
+	function cut_after( &$haystack, $needles ) {
+		$result = \UString\substr_after( $haystack, $needles );
+		$haystack = substr( $haystack, 0, strlen( $haystack ) - strlen( $result ) );
 		return $result;
 	}
 
-	function substr_after( $hay, $needles ) {
+	function substr_after( $haystack, $needles ) {
 		\UArray\must_be_array( $needles );
 		$result = '';
 		foreach( $needles as $needle ) {
-			if ( ! empty( $needle) && \UString\contains( $hay, $needle ) ) {
-				$cut = substr( $hay, strpos( $hay, $needle ) + strlen( $needle ) );
+			if ( ! empty( $needle) && \UString\contains( $haystack, $needle ) ) {
+				$cut = substr( $haystack, strpos( $haystack, $needle ) + strlen( $needle ) );
 				if ( strlen( $cut ) > strlen ( $result ) ) {
 					$result = $cut;
 				}
@@ -155,18 +155,18 @@ namespace UString {
 		return $result;
 	}
 
-	function cut_after_last( &$hay, $needles ) {
-		$result = \UString\substr_after_last( $hay, $needles );
-		$hay = substr( $hay, 0, strlen( $hay ) - strlen( $result ) );
+	function cut_after_last( &$haystack, $needles ) {
+		$result = \UString\substr_after_last( $haystack, $needles );
+		$haystack = substr( $haystack, 0, strlen( $haystack ) - strlen( $result ) );
 		return $result;
 	}
 
-	function substr_after_last( $hay, $needles ) {
+	function substr_after_last( $haystack, $needles ) {
 		\UArray\must_be_array( $needles );
-		$result = $hay;
+		$result = $haystack;
 		foreach( $needles as $needle ) {
-			if ( ! empty( $needle) && \UString\contains( $hay, $needle ) ) {
-				$cut = substr( $hay, strrpos( $hay, $needle ) + strlen( $needle ) );
+			if ( ! empty( $needle) && \UString\contains( $haystack, $needle ) ) {
+				$cut = substr( $haystack, strrpos( $haystack, $needle ) + strlen( $needle ) );
 				if ( strlen( $cut ) < strlen ( $result ) ) {
 					$result = $cut;
 				}

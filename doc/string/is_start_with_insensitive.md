@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-bool \UString\is_start_with_insensitive( string $hay, mixed $needles );
+bool \UString\is_start_with_insensitive( string $haystack, mixed $needles );
 ```
 
 Checks if a string starts with a specific character/sequence. <br>

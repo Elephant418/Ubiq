@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-bool \UString\is_end_with_insensitive( string $hay, mixed $needles );
+bool \UString\is_end_with_insensitive( string $haystack, mixed $needles );
 ```
 
 Checks if a string ends with a specific character/sequence. <br>

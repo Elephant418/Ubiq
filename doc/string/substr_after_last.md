@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-string \UString\substr_after_last( string $hay, mixed $needles );
+string \UString\substr_after_last( string $haystack, mixed $needles );
 ```
 
 Returns the portion of string from the last match of a specific character/sequence to the end. <br>

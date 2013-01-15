@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-void \UString\must_end_with( string &$hay, string $needle );
+void \UString\must_end_with( string &$haystack, string $needle );
 ```
 
 If a string does not end with a specific character/sequence, the string is sufixed.

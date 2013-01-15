@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-bool \UString\i_contains( string $hay, mixed $needles );
+bool \UString\i_contains( string $haystack, mixed $needles );
 ```
 
 Checks if a string contains a specific character/sequence. <br>

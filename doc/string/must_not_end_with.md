@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-void \UString\must_not_end_with( string &$hay, string $needle );
+void \UString\must_not_end_with( string &$haystack, string $needle );
 ```
 
 If a string ends with a specific character/sequence, the sufix is removed.
