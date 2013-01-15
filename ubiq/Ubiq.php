@@ -178,10 +178,10 @@ namespace UString {
 
 
 	// RANDOM FUNCTIONS
-	function random( $length = 10, $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' ) {
+	function random( $length = 10, $chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' ) {
 		$string = '';
 		for ( $i = 0; $i < $length; $i++ ) {
-			$string .= $characters[ mt_rand( 0, strlen( $characters ) - 1 ) ];
+			$string .= $chars[ mt_rand( 0, strlen( $chars ) - 1 ) ];
 		}
 		return $string;
 	}
@@ -199,8 +199,8 @@ namespace UString {
 		$string = \UString\strip_accent( $string );
 	}
 
-	function strip_special_char( $string, $characters = '-_a-zA-Z0-9', $replace = '-' ) {
-		$string = preg_replace( '/[^' . $characters . ']/s', $replace, $string );
+	function strip_special_char( $string, $chars = '-_a-zA-Z0-9', $replace = '-' ) {
+		$string = preg_replace( '/[^' . $chars . ']/s', $replace, $string );
 		if ( ! empty( $replace ) ) {
 			$string = preg_replace( '/[' . $replace . ']+/s', $replace, $string );
 			\UString\must_not_start_with( $string, $replace );
@@ -209,8 +209,8 @@ namespace UString {
 		return $string;
 	}
 
-	function must_have_no_special_char( &$string, $characters = '-_a-zA-Z0-9', $replace = '-' ) {
-		$string = \UString\strip_special_char( $string, $characters, $replace );
+	function must_have_no_special_char( &$string, $chars = '-_a-zA-Z0-9', $replace = '-' ) {
+		$string = \UString\strip_special_char( $string, $chars, $replace );
 	}
 }
 

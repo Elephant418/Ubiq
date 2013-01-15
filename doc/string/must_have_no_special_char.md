@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-void \UString\must_have_no_special_char( string &$input, string $characters = '-_a-zA-Z0-9', string $replace = '-' );
+void \UString\must_have_no_special_char( string &$input, string $chars = '-_a-zA-Z0-9', string $replace = '-' );
 ```
 
 The characters of the string, which are not authorized, are replaced.
