@@ -9,66 +9,66 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 	// STARTS WITH
-	public function test_starts_with__match( ) {
-		$test = \UString\starts_with( 'Ubiq is so cool', 'Ubiq' );
+	public function test_is_start_with__match( ) {
+		$test = \UString\is_start_with( 'Ubiq is so cool', 'Ubiq' );
 		$this->assertTrue( $test );
 	}
 
-	public function test_starts_with__match_sensitive( ) {
-		$test = \UString\starts_with( 'Ubiq is so cool', 'ubiq' );
+	public function test_is_start_with__match_sensitive( ) {
+		$test = \UString\is_start_with( 'Ubiq is so cool', 'ubiq' );
 		$this->assertFalse( $test );
 	}
 
-	public function test_starts_with__no_match( ) {
-		$test = \UString\starts_with( 'Ubiq is so cool', 'Java' );
+	public function test_is_start_with__no_match( ) {
+		$test = \UString\is_start_with( 'Ubiq is so cool', 'Java' );
 		$this->assertFalse( $test );
 	}
 
-	public function test_starts_with__multiple_match( ) {
-		$test = \UString\starts_with( 'Ubiq is so cool', [ 'Ubiq', 'Java' ] );
+	public function test_is_start_with__multiple_match( ) {
+		$test = \UString\is_start_with( 'Ubiq is so cool', [ 'Ubiq', 'Java' ] );
 		$this->assertTrue( $test );
 	}
 
-	public function test_starts_with__multiple_match_sensitive( ) {
-		$test = \UString\starts_with( 'Ubiq is so cool', [ 'ubiq', 'Java' ] );
+	public function test_is_start_with__multiple_match_sensitive( ) {
+		$test = \UString\is_start_with( 'Ubiq is so cool', [ 'ubiq', 'Java' ] );
 		$this->assertFalse( $test );
 	}
 
-	public function test_starts_with__multiple_no_match( ) {
-		$test = \UString\starts_with( 'Ubiq is so cool', [ 'Java', '.NET' ] );
+	public function test_is_start_with__multiple_no_match( ) {
+		$test = \UString\is_start_with( 'Ubiq is so cool', [ 'Java', '.NET' ] );
 		$this->assertFalse( $test );
 	}
 
 
 
 	// I STARTS WITH
-	public function test_i_starts_with__match( ) {
-		$test = \UString\i_starts_with( 'Ubiq is so cool', 'Ubiq' );
+	public function test_is_start_with_insensitive__match( ) {
+		$test = \UString\is_start_with_insensitive( 'Ubiq is so cool', 'Ubiq' );
 		$this->assertTrue( $test );
 	}
 
-	public function test_i_starts_with__match_sensitive( ) {
-		$test = \UString\i_starts_with( 'Ubiq is so cool', 'ubiq' );
+	public function test_is_start_with_insensitive__match_sensitive( ) {
+		$test = \UString\is_start_with_insensitive( 'Ubiq is so cool', 'ubiq' );
 		$this->assertTrue( $test );
 	}
 
-	public function test_i_starts_with__no_match( ) {
-		$test = \UString\i_starts_with( 'Ubiq is so cool', 'Java' );
+	public function test_is_start_with_insensitive__no_match( ) {
+		$test = \UString\is_start_with_insensitive( 'Ubiq is so cool', 'Java' );
 		$this->assertFalse( $test );
 	}
 
-	public function test_i_starts_with__multiple_match( ) {
-		$test = \UString\i_starts_with( 'Ubiq is so cool', [ 'Ubiq', 'Java' ] );
+	public function test_is_start_with_insensitive__multiple_match( ) {
+		$test = \UString\is_start_with_insensitive( 'Ubiq is so cool', [ 'Ubiq', 'Java' ] );
 		$this->assertTrue( $test );
 	}
 
-	public function test_i_starts_with__multiple_match_sensitive( ) {
-		$test = \UString\i_starts_with( 'Ubiq is so cool', [ 'ubiq', 'Java' ] );
+	public function test_is_start_with_insensitive__multiple_match_sensitive( ) {
+		$test = \UString\is_start_with_insensitive( 'Ubiq is so cool', [ 'ubiq', 'Java' ] );
 		$this->assertTrue( $test );
 	}
 
-	public function test_i_starts_with__multiple_no_match( ) {
-		$test = \UString\i_starts_with( 'Ubiq is so cool', [ 'Java', '.NET' ] );
+	public function test_is_start_with_insensitive__multiple_no_match( ) {
+		$test = \UString\is_start_with_insensitive( 'Ubiq is so cool', [ 'Java', '.NET' ] );
 		$this->assertFalse( $test );
 	}
 
@@ -111,66 +111,66 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 	// ENDS WITH
-	public function test_ends_with__match( ) {
-		$test = \UString\ends_with( 'Ubiq is so cool', 'cool' );
+	public function test_is_end_with__match( ) {
+		$test = \UString\is_end_with( 'Ubiq is so cool', 'cool' );
 		$this->assertTrue( $test );
 	}
 
-	public function test_ends_with__match_sensitive( ) {
-		$test = \UString\ends_with( 'Ubiq is so cool', 'Cool' );
+	public function test_is_end_with__match_sensitive( ) {
+		$test = \UString\is_end_with( 'Ubiq is so cool', 'Cool' );
 		$this->assertFalse( $test );
 	}
 
-	public function test_ends_with__no_match( ) {
-		$test = \UString\ends_with( 'Ubiq is so cool', 'boring' );
+	public function test_is_end_with__no_match( ) {
+		$test = \UString\is_end_with( 'Ubiq is so cool', 'boring' );
 		$this->assertFalse( $test );
 	}
 
-	public function test_ends_with__multiple_match( ) {
-		$test = \UString\ends_with( 'Ubiq is so cool', [ 'cool', 'boring' ] );
+	public function test_is_end_with__multiple_match( ) {
+		$test = \UString\is_end_with( 'Ubiq is so cool', [ 'cool', 'boring' ] );
 		$this->assertTrue( $test );
 	}
 
-	public function test_ends_with__multiple_match_sensitive( ) {
-		$test = \UString\ends_with( 'Ubiq is so cool', [ 'Cool', 'boring' ] );
+	public function test_is_end_with__multiple_match_sensitive( ) {
+		$test = \UString\is_end_with( 'Ubiq is so cool', [ 'Cool', 'boring' ] );
 		$this->assertFalse( $test );
 	}
 
-	public function test_ends_with__multiple_no_match( ) {
-		$test = \UString\ends_with( 'Ubiq is so cool', [ 'boring', 'classy' ] );
+	public function test_is_end_with__multiple_no_match( ) {
+		$test = \UString\is_end_with( 'Ubiq is so cool', [ 'boring', 'classy' ] );
 		$this->assertFalse( $test );
 	}
 
 
 
 	// I ENDS WITH
-	public function test_i_ends_with__match( ) {
-		$test = \UString\i_ends_with( 'Ubiq is so cool', 'cool' );
+	public function test_is_end_with_insensitive__match( ) {
+		$test = \UString\is_end_with_insensitive( 'Ubiq is so cool', 'cool' );
 		$this->assertTrue( $test );
 	}
 
-	public function test_i_ends_with__match_sensitive( ) {
-		$test = \UString\i_ends_with( 'Ubiq is so cool', 'Cool' );
+	public function test_is_end_with_insensitive__match_sensitive( ) {
+		$test = \UString\is_end_with_insensitive( 'Ubiq is so cool', 'Cool' );
 		$this->assertTrue( $test );
 	}
 
-	public function test_i_ends_with__no_match( ) {
-		$test = \UString\i_ends_with( 'Ubiq is so cool', 'boring' );
+	public function test_is_end_with_insensitive__no_match( ) {
+		$test = \UString\is_end_with_insensitive( 'Ubiq is so cool', 'boring' );
 		$this->assertFalse( $test );
 	}
 
-	public function test_i_ends_with__multiple_match( ) {
-		$test = \UString\i_ends_with( 'Ubiq is so cool', [ 'cool', 'boring' ] );
+	public function test_is_end_with_insensitive__multiple_match( ) {
+		$test = \UString\is_end_with_insensitive( 'Ubiq is so cool', [ 'cool', 'boring' ] );
 		$this->assertTrue( $test );
 	}
 
-	public function test_i_ends_with__multiple_match_sensitive( ) {
-		$test = \UString\i_ends_with( 'Ubiq is so cool', [ 'Cool', 'boring' ] );
+	public function test_is_end_with_insensitive__multiple_match_sensitive( ) {
+		$test = \UString\is_end_with_insensitive( 'Ubiq is so cool', [ 'Cool', 'boring' ] );
 		$this->assertTrue( $test );
 	}
 
-	public function test_i_ends_with__multiple_no_match( ) {
-		$test = \UString\i_ends_with( 'Ubiq is so cool', [ 'boring', 'classy' ] );
+	public function test_is_end_with_insensitive__multiple_no_match( ) {
+		$test = \UString\is_end_with_insensitive( 'Ubiq is so cool', [ 'boring', 'classy' ] );
 		$this->assertFalse( $test );
 	}
 

@@ -3,10 +3,13 @@ Changelog for Ubiq
 
 
 
-0.1.5: ?
+0.2.0: ?
 -------- 
 
- *
+ * Fix: Rename the starts_with function to is_start_with
+ * Fix: Rename the i_starts_with function to is_start_with_insensistive
+ * Fix: Rename the ends_with function to is_end_with
+ * Fix: Rename the i_ends_with function to is_end_with_insensistive
 
 
 

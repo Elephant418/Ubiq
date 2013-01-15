@@ -15,7 +15,7 @@ namespace UString {
 
 
 	// STARTS WITH & ENDS WITH FUNCTIONS
-	function starts_with( $hay, $needles ) {
+	function is_start_with( $hay, $needles ) {
 		\UArray\must_be_array( $needles );
 		foreach( $needles as $needle ) {
 			if ( substr( $hay, 0, strlen( $needle ) ) == $needle ) {
@@ -25,25 +25,25 @@ namespace UString {
 		return FALSE;
 	}
 
-	function i_starts_with( $hay, $needles ) {
+	function is_start_with_insensitive( $hay, $needles ) {
 		\UArray\must_be_array( $needles );
 		$needles = array_map( 'strtolower', $needles );
-		return \UString\starts_with( strtolower( $hay ), $needles );
+		return \UString\is_start_with( strtolower( $hay ), $needles );
 	}
 
 	function must_start_with( &$hay, $needle ) {
-		if ( ! \UString\starts_with( $hay, $needle ) ) {
+		if ( ! \UString\is_start_with( $hay, $needle ) ) {
 			$hay = $needle . $hay;
 		}
 	}
 
 	function must_not_start_with( &$hay, $needle ) {
-		while ( \UString\starts_with( $hay, $needle ) ) {
+		while ( \UString\is_start_with( $hay, $needle ) ) {
 			$hay = substr( $hay, strlen( $needle ) );
 		}
 	}
 
-	function ends_with( $hay, $needles ) {
+	function is_end_with( $hay, $needles ) {
 		\UArray\must_be_array( $needles );
 		foreach( $needles as $needle ) {
 			if ( substr( $hay, -strlen( $needle ) ) == $needle ) {
@@ -53,20 +53,20 @@ namespace UString {
 		return FALSE;
 	}
 
-	function i_ends_with( $hay, $needles ) {
+	function is_end_with_insensitive( $hay, $needles ) {
 		\UArray\must_be_array( $needles );
 		$needles = array_map( 'strtolower', $needles );
-		return \UString\ends_with( strtolower( $hay ), $needles );
+		return \UString\is_end_with( strtolower( $hay ), $needles );
 	}
 
 	function must_end_with( &$hay, $needle ) {
-		if ( ! \UString\ends_with( $hay, $needle ) ) {
+		if ( ! \UString\is_end_with( $hay, $needle ) ) {
 			$hay .= $needle;
 		}
 	}
 
 	function must_not_end_with( &$hay, $needle ) {
-		while ( \UString\ends_with( $hay, $needle ) ) {
+		while ( \UString\is_end_with( $hay, $needle ) ) {
 			$hay = substr( $hay, 0, -strlen( $needle ) );
 		}
 	}

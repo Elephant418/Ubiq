@@ -1,4 +1,4 @@
-[Ubiq](https://github.com/Pixel418/Ubiq#readme) / [Documentation](../index.md#readme) / [String](../index.md#string) / starts_with
+[Ubiq](https://github.com/Pixel418/Ubiq#readme) / [Documentation](../index.md#readme) / [String](../index.md#string) / is_start_with
 ======
 
 
@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-bool \UString\starts_with( string $hay, mixed $needles );
+bool \UString\is_start_with( string $hay, mixed $needles );
 ```
 
 Checks if a string starts with a specific character/sequence. <br>
@@ -14,7 +14,7 @@ If several matches are given, checks if the string starts with at least one of t
 
 Returns TRUE if there is a match, FALSE otherwise.
 
-**Note**: This function is case sensitive. See [i_starts_with](./i_starts_with.md#readme).
+**Note**: This function is case sensitive. See [is_start_with_insensitive](./is_start_with_insensitive.md#readme).
 
 
 
@@ -24,41 +24,41 @@ Examples
 ### Example 1
 
 ```php
-\UString\starts_with( 'Ubiq is so cool', 'Ubiq' );
+\UString\is_start_with( 'Ubiq is so cool', 'Ubiq' );
 ```
 Returns TRUE.
 
 ### Example 2
 
 ```php
-\UString\starts_with( 'Ubiq is so cool', 'ubiq' );
+\UString\is_start_with( 'Ubiq is so cool', 'ubiq' );
 ```
 Returns FALSE.
 
 ### Example 3
 
 ```php
-\UString\starts_with( 'Ubiq is so cool', 'Java' );
+\UString\is_start_with( 'Ubiq is so cool', 'Java' );
 ```
 Returns FALSE.
 
 ### Example 4
 
 ```php
-\UString\starts_with( 'Ubiq is so cool', [ 'Ubiq', 'Java' ] );
+\UString\is_start_with( 'Ubiq is so cool', [ 'Ubiq', 'Java' ] );
 ```
 Returns TRUE.
 
 ### Example 5
 
 ```php
-\UString\starts_with( 'Ubiq is so cool', [ 'ubiq', 'Java' ] );
+\UString\is_start_with( 'Ubiq is so cool', [ 'ubiq', 'Java' ] );
 ```
 Returns FALSE.
 
 ### Example 6
 
 ```php
-\UString\starts_with( 'Ubiq is so cool', [ 'Java', '.NET' ] );
+\UString\is_start_with( 'Ubiq is so cool', [ 'Java', '.NET' ] );
 ```
 Returns FALSE.
