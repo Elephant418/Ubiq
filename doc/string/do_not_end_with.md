@@ -1,4 +1,4 @@
-[Ubiq](https://github.com/Pixel418/Ubiq#readme) / [Documentation](../index.md#readme) / [String](../index.md#string) / must_not_end_with
+[Ubiq](https://github.com/Pixel418/Ubiq#readme) / [Documentation](../index.md#readme) / [String](../index.md#string) / do_not_end_with
 ======
 
 
@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-void \UString\must_not_end_with( string &$haystack, string $needle );
+void \UString\do_not_end_with( string &$haystack, string $needle );
 ```
 
 If a string ends with a specific character/sequence, the sufix is removed.
@@ -22,7 +22,7 @@ Examples
 
 ```php
 $url = 'http://www.example.com';
-\UString\must_not_end_with( $url, '/' );
+\UString\do_not_end_with( $url, '/' );
 echo $url;
 ```
 Returns 'http://www.example.com'.
@@ -31,7 +31,7 @@ Returns 'http://www.example.com'.
 
 ```php
 $url = 'http://www.example.com/';
-\UString\must_not_end_with( $url, '/' );
+\UString\do_not_end_with( $url, '/' );
 echo $url;
 ```
 Returns 'http://www.example.com'.
@@ -40,7 +40,7 @@ Returns 'http://www.example.com'.
 
 ```php
 $url = 'http://www.example.com///';
-\UString\must_not_end_with( $url, '/' );
+\UString\do_not_end_with( $url, '/' );
 echo $url;
 ```
 Returns 'http://www.example.com'.

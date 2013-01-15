@@ -31,13 +31,13 @@ namespace UString {
 		return \UString\is_start_with( strtolower( $haystack ), $needles );
 	}
 
-	function must_start_with( &$haystack, $needle ) {
+	function do_start_with( &$haystack, $needle ) {
 		if ( ! \UString\is_start_with( $haystack, $needle ) ) {
 			$haystack = $needle . $haystack;
 		}
 	}
 
-	function must_not_start_with( &$haystack, $needle ) {
+	function do_not_start_with( &$haystack, $needle ) {
 		while ( \UString\is_start_with( $haystack, $needle ) ) {
 			$haystack = substr( $haystack, strlen( $needle ) );
 		}
@@ -59,13 +59,13 @@ namespace UString {
 		return \UString\is_end_with( strtolower( $haystack ), $needles );
 	}
 
-	function must_end_with( &$haystack, $needle ) {
+	function do_end_with( &$haystack, $needle ) {
 		if ( ! \UString\is_end_with( $haystack, $needle ) ) {
 			$haystack .= $needle;
 		}
 	}
 
-	function must_not_end_with( &$haystack, $needle ) {
+	function do_not_end_with( &$haystack, $needle ) {
 		while ( \UString\is_end_with( $haystack, $needle ) ) {
 			$haystack = substr( $haystack, 0, -strlen( $needle ) );
 		}
@@ -203,8 +203,8 @@ namespace UString {
 		$string = preg_replace( '/[^' . $chars . ']/s', $replace, $string );
 		if ( ! empty( $replace ) ) {
 			$string = preg_replace( '/[' . $replace . ']+/s', $replace, $string );
-			\UString\must_not_start_with( $string, $replace );
-			\UString\must_not_end_with( $string, $replace );
+			\UString\do_not_start_with( $string, $replace );
+			\UString\do_not_end_with( $string, $replace );
 		}
 		return $string;
 	}
@@ -264,7 +264,7 @@ namespace UObject {
 		if ( is_object( $class ) ) {
 			$class = get_class( $class );
 		} else {
-			\UString\must_not_start_with( $class, '\\' );
+			\UString\do_not_start_with( $class, '\\' );
 		}
 	}
 

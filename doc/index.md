@@ -9,15 +9,15 @@ String
 
 * [is_start_with](./string/is_start_with.md#readme)
 * [is_start_with_insensitive](./string/is_start_with_insensitive.md#readme)
-* [must_start_with](./string/must_start_with.md#readme)
-* [must_not_start_with](./string/must_not_start_with.md#readme)
+* [do_start_with](./string/do_start_with.md#readme)
+* [do_not_start_with](./string/do_not_start_with.md#readme)
 
 ### End with
 
 * [is_end_with](./string/is_end_with.md#readme)
 * [is_end_with_insensitive](./string/is_end_with_insensitive.md#readme)
-* [must_end_with](./string/must_end_with.md#readme)
-* [must_not_end_with](./string/must_not_end_with.md#readme)
+* [do_end_with](./string/do_end_with.md#readme)
+* [do_not_end_with](./string/do_not_end_with.md#readme)
 
 ### Has
 

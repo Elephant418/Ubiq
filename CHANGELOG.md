@@ -8,8 +8,12 @@ Changelog for Ubiq
 
  * Fix: Rename the starts_with function to is_start_with
  * Fix: Rename the i_starts_with function to is_start_with_insensistive
+ * Fix: Rename the must_start_with function to do_start_with
+ * Fix: Rename the must_not_start_with function to do_not_start_with
  * Fix: Rename the ends_with function to is_end_with
  * Fix: Rename the i_ends_with function to is_end_with_insensistive
+ * Fix: Rename the must_end_with function to do_end_with
+ * Fix: Rename the must_not_end_with function to do_not_end_with
  * Fix: Rename the contains function to has
  * Fix: Rename the i_contains function to has_insensistive
  * Fix: Rename the must_have_no_accent function to do_strip_accent
@@ -22,7 +26,7 @@ Changelog for Ubiq
 
  * New: Add a must_have_no_accent function
  * New: Add a must_have_no_special_char function
- * Fix: Rename the must_starts_with function to must_start_with
+ * Fix: Rename the must_starts_with function to do_start_with
  * Fix: Rename the must_not_starts_with function to must_not_start_with
  * Fix: Rename the must_ends_with function to must_end_with
  * Fix: Rename the must_not_ends_with function to must_not_end_with

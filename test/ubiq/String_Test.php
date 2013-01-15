@@ -75,36 +75,36 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 	// MUST STARTS WITH
-	public function test_must_start_with__match( ) {
+	public function test_do_start_with__match( ) {
 		$assertion = 'www.example.com';
-		\UString\must_start_with( $assertion, 'http://' );
+		\UString\do_start_with( $assertion, 'http://' );
 		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 
-	public function test_must_start_with__no_match( ) {
+	public function test_do_start_with__no_match( ) {
 		$assertion = 'http://www.example.com';
-		\UString\must_start_with( $assertion, 'http://' );
+		\UString\do_start_with( $assertion, 'http://' );
 		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 
 
 
 	// MUST NOT STARTS WITH
-	public function test_must_not_start_with__match( ) {
+	public function test_do_not_start_with__match( ) {
 		$assertion = 'http://www.example.com';
-		\UString\must_not_start_with( $assertion, 'http://' );
+		\UString\do_not_start_with( $assertion, 'http://' );
 		$this->assertEquals( $assertion, 'www.example.com' );
 	}
 
-	public function test_must_not_start_with__no_match( ) {
+	public function test_do_not_start_with__no_match( ) {
 		$assertion = 'www.example.com';
-		\UString\must_not_start_with( $assertion, 'http://' );
+		\UString\do_not_start_with( $assertion, 'http://' );
 		$this->assertEquals( $assertion, 'www.example.com' );
 	}
 
-	public function test_must_not_start_with__double_match( ) {
+	public function test_do_not_start_with__double_match( ) {
 		$assertion = 'http://http://www.example.com';
-		\UString\must_not_start_with( $assertion, 'http://' );
+		\UString\do_not_start_with( $assertion, 'http://' );
 		$this->assertEquals( $assertion, 'www.example.com' );
 	}
 
@@ -177,36 +177,36 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 	// MUST ENDS WITH
-	public function test_must_end_with__match( ) {
+	public function test_do_end_with__match( ) {
 		$assertion = 'http://www.example.com';
-		\UString\must_end_with( $assertion, '/' );
+		\UString\do_end_with( $assertion, '/' );
 		$this->assertEquals( $assertion, 'http://www.example.com/' );
 	}
 
-	public function test_must_end_with__no_match( ) {
+	public function test_do_end_with__no_match( ) {
 		$assertion = 'http://www.example.com/';
-		\UString\must_end_with( $assertion, '/' );
+		\UString\do_end_with( $assertion, '/' );
 		$this->assertEquals( $assertion, 'http://www.example.com/' );
 	}
 
 
 
 	// MUST NOT ENDS WITH
-	public function test_must_not_end_with__no_match( ) {
+	public function test_do_not_end_with__no_match( ) {
 		$assertion = 'http://www.example.com';
-		\UString\must_not_end_with( $assertion, '/' );
+		\UString\do_not_end_with( $assertion, '/' );
 		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 
-	public function test_must_not_end_with__macth( ) {
+	public function test_do_not_end_with__macth( ) {
 		$assertion = 'http://www.example.com/';
-		\UString\must_not_end_with( $assertion, '/' );
+		\UString\do_not_end_with( $assertion, '/' );
 		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 
-	public function test_must_not_end_with__double_match( ) {
+	public function test_do_not_end_with__double_match( ) {
 		$assertion = 'http://www.example.com///';
-		\UString\must_not_end_with( $assertion, '/' );
+		\UString\do_not_end_with( $assertion, '/' );
 		$this->assertEquals( $assertion, 'http://www.example.com' );
 	}
 
