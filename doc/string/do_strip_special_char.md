@@ -1,4 +1,4 @@
-[Ubiq](https://github.com/Pixel418/Ubiq#readme) / [Documentation](../index.md#readme) / [String](../index.md#string) / must_have_no_special_char
+[Ubiq](https://github.com/Pixel418/Ubiq#readme) / [Documentation](../index.md#readme) / [String](../index.md#string) / do_strip_special_char
 ======
 
 
@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-void \UString\must_have_no_special_char( string &$input, string $chars = '-_a-zA-Z0-9', string $replace = '-' );
+void \UString\do_strip_special_char( string &$input, string $chars = '-_a-zA-Z0-9', string $replace = '-' );
 ```
 
 The characters of the string, which are not authorized, are replaced.
@@ -22,7 +22,7 @@ Examples
 
 ```php
 $test = 'A page for $13';
-\UString\must_have_no_special_char( $test );
+\UString\do_strip_special_char( $test );
 echo $test;
 ```
 Returns 'A-page-for-13'
@@ -31,7 +31,7 @@ Returns 'A-page-for-13'
 
 ```php
 $test = 'A page for $13';
-\UString\must_have_no_special_char( $test, 'aeiouyAEIOUY' );
+\UString\do_strip_special_char( $test, 'aeiouyAEIOUY' );
 echo $test;
 ```
 Returns 'A-a-e-o'
@@ -40,7 +40,7 @@ Returns 'A-a-e-o'
 
 ```php
 $test = 'A page for $13';
-\UString\must_have_no_special_char( $test, 'a-zA-Z', '' );
+\UString\do_strip_special_char( $test, 'a-zA-Z', '' );
 echo $test;
 ```
 Returns 'Apagefor'

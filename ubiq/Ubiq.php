@@ -195,7 +195,7 @@ namespace UString {
 		return str_replace( $match, $replace, $string );
 	}
 
-	function must_have_no_accent( &$string ) {
+	function do_strip_accent( &$string ) {
 		$string = \UString\strip_accent( $string );
 	}
 
@@ -209,7 +209,7 @@ namespace UString {
 		return $string;
 	}
 
-	function must_have_no_special_char( &$string, $chars = '-_a-zA-Z0-9', $replace = '-' ) {
+	function do_strip_special_char( &$string, $chars = '-_a-zA-Z0-9', $replace = '-' ) {
 		$string = \UString\strip_special_char( $string, $chars, $replace );
 	}
 }

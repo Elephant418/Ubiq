@@ -11,7 +11,7 @@ string \UString\strip_special_char( string $input, string $chars = '-_a-zA-Z0-9'
 
 Returns a string with the characters, which are not authorized, replaced.
 
-**Note**: The string is not modified. See [must_have_no_special_char](./must_have_no_special_char.md#readme).
+**Note**: The string is not modified. See [do_strip_special_char](./do_strip_special_char.md#readme).
 
 
 

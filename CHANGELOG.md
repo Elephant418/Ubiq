@@ -12,6 +12,8 @@ Changelog for Ubiq
  * Fix: Rename the i_ends_with function to is_end_with_insensistive
  * Fix: Rename the contains function to has
  * Fix: Rename the i_contains function to has_insensistive
+ * Fix: Rename the must_have_no_accent function to do_strip_accent
+ * Fix: Rename the must_have_no_special_char function to do_strip_special_char
 
 
 

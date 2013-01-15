@@ -423,9 +423,9 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 	// MUST HAVE NO ACCENT
-	public function test_must_have_no_accent( ) {
+	public function test_do_strip_accent( ) {
 		$test = 'úûüýÿĀāĂăĄąĆć';
-		\UString\must_have_no_accent( $test );
+		\UString\do_strip_accent( $test );
 		$this->assertEquals( $test, 'uuuyyAaAaAaCc' );
 	}
 
@@ -448,19 +448,19 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 	// MUST HAVE NO SPECIAL CHAR
-	public function test_must_have_no_special_char__default( ) {
+	public function test_do_strip_special_char__default( ) {
 		$test = 'A page for $13';
-		\UString\must_have_no_special_char( $test );
+		\UString\do_strip_special_char( $test );
 		$this->assertEquals( $test, 'A-page-for-13' );
 	}
-	public function test_must_have_no_special_char__characters( ) {
+	public function test_do_strip_special_char__characters( ) {
 		$test = 'A page for $13';
-		\UString\must_have_no_special_char( $test, 'aeiouyAEIOUY' );
+		\UString\do_strip_special_char( $test, 'aeiouyAEIOUY' );
 		$this->assertEquals( $test, 'A-a-e-o' );
 	}
-	public function test_must_have_no_special_char__replace( ) {
+	public function test_do_strip_special_char__replace( ) {
 		$test = 'A page for $13';
-		\UString\must_have_no_special_char( $test, 'a-zA-Z', '' );
+		\UString\do_strip_special_char( $test, 'a-zA-Z', '' );
 		$this->assertEquals( $test, 'Apagefor' );
 	}
 }

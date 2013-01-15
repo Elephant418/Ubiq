@@ -1,4 +1,4 @@
-[Ubiq](https://github.com/Pixel418/Ubiq#readme) / [Documentation](../index.md#readme) / [String](../index.md#string) / must_have_no_accent
+[Ubiq](https://github.com/Pixel418/Ubiq#readme) / [Documentation](../index.md#readme) / [String](../index.md#string) / do_strip_accent
 ======
 
 
@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-void \UString\must_have_no_accent( string &$input );
+void \UString\do_strip_accent( string &$input );
 ```
 
 The accents of the string are converted to common characters.
@@ -22,7 +22,7 @@ Examples
 
 ```php
 $test = 'úûüýÿĀāĂăĄąĆć';
-\UString\must_have_no_accent( $test );
+\UString\do_strip_accent( $test );
 echo $test;
 ```
 Returns 'uuuyyAaAaAaCc'
