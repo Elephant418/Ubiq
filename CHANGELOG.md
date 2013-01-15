@@ -30,6 +30,9 @@ Changelog for Ubiq
  * New: Add convert_to_array function
  * Fix: Rename the must_be_class function to do_convert_to_class
  * New: Add convert_to_class function
+ * Fix: Rename the must_be_valid_schema function to do_apply_schema
+ * New: Add apply_schema function
+ * New: Add is_match_schema function
 
 
 

@@ -57,7 +57,9 @@ Array
 
 * [convert_to_array](./array/convert_to_array.md#readme)
 * [do_convert_to_array](./array/do_convert_to_array.md#readme)
-* [must_valid_schema](./array/must_valid_schema.md#readme)
+* [is_match_schema](./array/is_match_schema.md#readme)
+* [apply_schema](./array/apply_schema.md#readme)
+* [do_apply_schema](./array/do_apply_schema.md#readme)
 * [merge_unique](./array/merge_unique.md#readme)
 * [reverse_merge_unique](./array/reverse_merge_unique.md#readme)
 

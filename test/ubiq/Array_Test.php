@@ -76,50 +76,142 @@ class Array_Test extends \PHPUnit_Framework_TestCase {
 
 
 
-	// MUST VALID SCHEMA
-	public function test_must_valid_schema__ko( ) {
+	// IS MATCH SCHEMA
+	public function test_is_match_schema__ko( ) {
 		$array  = [ ];
 		$schema = [ 'needed' ];
-		$test = \UArray\must_valid_schema( $array, $schema );
+		$test = \UArray\is_match_schema( $array, $schema );
 		$this->assertFalse( $test );
 	}
 
-	public function test_must_valid_schema__optional( ) {
+	public function test_is_match_schema__optional( ) {
 		$array  = [ ];
 		$schema = [ 'optional' => 3 ];
-		$test = \UArray\must_valid_schema( $array, $schema );
+		$test = \UArray\is_match_schema( $array, $schema );
+		$this->assertTrue( $test );
+	}
+
+	public function test_is_match_schema__extra( ) {
+		$array  = [ 'extra' => 4 ];
+		$schema = [ 'optional' => 3 ];
+		$test = \UArray\is_match_schema( $array, $schema );
+		$this->assertTrue( $test );
+	}
+
+	public function test_is_match_schema__needed( ) {
+		$array  = [ 'needed' => 1 ];
+		$schema = [ 'needed' ];
+		$test = \UArray\is_match_schema( $array, $schema );
+		$this->assertTrue( $test );
+	}
+
+	public function test_is_match_schema__needed_optional( ) {
+		$array  = [ 'needed' => 1, 'optional' => 2 ];
+		$schema = [ 'needed', 'optional' => 3 ];
+		$test = \UArray\is_match_schema( $array, $schema );
+		$this->assertTrue( $test );
+	}
+
+	public function test_is_match_schema__needed_optional_extra( ) {
+		$array  = [ 'needed' => 1, 'optional' => 2, 'extra' => 4 ];
+		$schema = [ 'needed', 'optional' => 3 ];
+		$test = \UArray\is_match_schema( $array, $schema );
+		$this->assertTrue( $test );
+	}
+
+
+
+
+	// APPLY VALID SCHEMA
+	public function test_apply_schema__ko( ) {
+		$array  = [ ];
+		$schema = [ 'needed' ];
+		$array = \UArray\apply_schema( $array, $schema );
+		$this->assertFalse( $array );
+	}
+
+	public function test_apply_schema__optional( ) {
+		$array  = [ ];
+		$schema = [ 'optional' => 3 ];
+		$array = \UArray\apply_schema( $array, $schema );
+		$this->assertEquals( $array, $schema );
+	}
+
+	public function test_apply_schema__extra( ) {
+		$array  = [ 'extra' => 4 ];
+		$schema = [ 'optional' => 3 ];
+		$array = \UArray\apply_schema( $array, $schema );
+		$this->assertEquals( $array, [ 'optional' => 3, 'extra' => 4 ] );
+	}
+
+	public function test_apply_schema__needed( ) {
+		$array  = [ 'needed' => 1 ];
+		$schema = [ 'needed' ];
+		$array = \UArray\apply_schema( $array, $schema );
+		$this->assertEquals( $array, [ 'needed' => 1 ] );
+	}
+
+	public function test_apply_schema__needed_optional( ) {
+		$array  = [ 'needed' => 1, 'optional' => 2 ];
+		$schema = [ 'needed', 'optional' => 3 ];
+		$array = \UArray\apply_schema( $array, $schema );
+		$this->assertEquals( $array, [ 'needed' => 1, 'optional' => 2 ] );
+	}
+
+	public function test_apply_schema__needed_optional_extra( ) {
+		$array  = [ 'needed' => 1, 'optional' => 2, 'extra' => 4 ];
+		$schema = [ 'needed', 'optional' => 3 ];
+		$array = \UArray\apply_schema( $array, $schema );
+		$this->assertEquals( $array, [ 'needed' => 1, 'optional' => 2, 'extra' => 4 ] );
+	}
+
+
+
+
+	// DO APPLY VALID SCHEMA
+	public function test_do_apply_schema__ko( ) {
+		$array  = [ ];
+		$schema = [ 'needed' ];
+		$test = \UArray\do_apply_schema( $array, $schema );
+		$this->assertFalse( $test );
+	}
+
+	public function test_do_apply_schema__optional( ) {
+		$array  = [ ];
+		$schema = [ 'optional' => 3 ];
+		$test = \UArray\do_apply_schema( $array, $schema );
 		$this->assertTrue( $test );
 		$this->assertEquals( $array, $schema );
 	}
 
-	public function test_must_valid_schema__extra( ) {
+	public function test_do_apply_schema__extra( ) {
 		$array  = [ 'extra' => 4 ];
 		$schema = [ 'optional' => 3 ];
-		$test = \UArray\must_valid_schema( $array, $schema );
+		$test = \UArray\do_apply_schema( $array, $schema );
 		$this->assertTrue( $test );
 		$this->assertEquals( $array, [ 'optional' => 3, 'extra' => 4 ] );
 	}
 
-	public function test_must_valid_schema__needed( ) {
+	public function test_do_apply_schema__needed( ) {
 		$array  = [ 'needed' => 1 ];
 		$schema = [ 'needed' ];
-		$test = \UArray\must_valid_schema( $array, $schema );
+		$test = \UArray\do_apply_schema( $array, $schema );
 		$this->assertTrue( $test );
 		$this->assertEquals( $array, [ 'needed' => 1 ] );
 	}
 
-	public function test_must_valid_schema__needed_optional( ) {
+	public function test_do_apply_schema__needed_optional( ) {
 		$array  = [ 'needed' => 1, 'optional' => 2 ];
 		$schema = [ 'needed', 'optional' => 3 ];
-		$test = \UArray\must_valid_schema( $array, $schema );
+		$test = \UArray\do_apply_schema( $array, $schema );
 		$this->assertTrue( $test );
 		$this->assertEquals( $array, [ 'needed' => 1, 'optional' => 2 ] );
 	}
 
-	public function test_must_valid_schema__needed_optional_extra( ) {
+	public function test_do_apply_schema__needed_optional_extra( ) {
 		$array  = [ 'needed' => 1, 'optional' => 2, 'extra' => 4 ];
 		$schema = [ 'needed', 'optional' => 3 ];
-		$test = \UArray\must_valid_schema( $array, $schema );
+		$test = \UArray\do_apply_schema( $array, $schema );
 		$this->assertTrue( $test );
 		$this->assertEquals( $array, [ 'needed' => 1, 'optional' => 2, 'extra' => 4 ] );
 	}

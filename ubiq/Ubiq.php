@@ -268,7 +268,18 @@ namespace UArray {
 		$mixed = \UArray\convert_to_array( $mixed );
 	}
 
-	function must_valid_schema( &$array, $schema ) {
+	function is_match_schema( $array, $schema ) {
+		foreach ( $schema as $key => $value ) {
+			if ( is_numeric( $key ) ) {
+				if ( ! isset( $array[ $value ] ) ) {
+					return FALSE;
+				}
+			}
+		}
+		return TRUE;
+	}
+
+	function apply_schema( $array, $schema ) {
 		foreach ( $schema as $key => $value ) {
 			if ( is_numeric( $key ) ) {
 				if ( ! isset( $array[ $value ] ) ) {
@@ -280,7 +291,15 @@ namespace UArray {
 				}
 			}
 		}
-		return TRUE;
+		return $array;
+	}
+
+	function do_apply_schema( &$array, $schema ) {
+		$result = \UArray\apply_schema( $array, $schema );
+		if ( $result !== FALSE ) {
+			$array = $result;
+		}
+		return ( $result !== FALSE );
 	}
 
 	// Keep the order of each FIRST occurence 
