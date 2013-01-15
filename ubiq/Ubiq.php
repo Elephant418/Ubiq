@@ -73,8 +73,8 @@ namespace UString {
 
 
 
-	// CONTAINS FUNCTIONS
-	function contains( $haystack, $needles ) {
+	// has FUNCTIONS
+	function has( $haystack, $needles ) {
 		\UArray\must_be_array( $needles );
 		foreach( $needles as $needle ) {
 			if ( strpos( $haystack, $needle ) !== FALSE ) {
@@ -84,10 +84,10 @@ namespace UString {
 		return FALSE;
 	}
 
-	function i_contains( $haystack, $needles ) {
+	function has_insensitive( $haystack, $needles ) {
 		\UArray\must_be_array( $needles );
 		$needles = array_map( 'strtolower', $needles );
-		return \UString\contains( $haystack, $needles );
+		return \UString\has( $haystack, $needles );
 	}
 
 
@@ -103,7 +103,7 @@ namespace UString {
 		\UArray\must_be_array( $needles );
 		$result = $haystack;
 		foreach( $needles as $needle ) {
-			if ( ! empty( $needle) && \UString\contains( $haystack, $needle ) ) {
+			if ( ! empty( $needle) && \UString\has( $haystack, $needle ) ) {
 				$cut = substr( $haystack, 0, strpos( $haystack, $needle ) );
 				if ( strlen( $cut ) < strlen ( $result ) ) {
 					$result = $cut;
@@ -124,7 +124,7 @@ namespace UString {
 		\UArray\must_be_array( $needles );
 		$result = '';
 		foreach( $needles as $needle ) {
-			if ( ! empty( $needle ) && \UString\contains( $haystack, $needle ) ) {
+			if ( ! empty( $needle ) && \UString\has( $haystack, $needle ) ) {
 				$cut = substr( $haystack, 0, strrpos( $haystack, $needle ) );
 				if ( strlen( $cut ) > strlen ( $result ) ) {
 					$result = $cut;
@@ -145,7 +145,7 @@ namespace UString {
 		\UArray\must_be_array( $needles );
 		$result = '';
 		foreach( $needles as $needle ) {
-			if ( ! empty( $needle) && \UString\contains( $haystack, $needle ) ) {
+			if ( ! empty( $needle) && \UString\has( $haystack, $needle ) ) {
 				$cut = substr( $haystack, strpos( $haystack, $needle ) + strlen( $needle ) );
 				if ( strlen( $cut ) > strlen ( $result ) ) {
 					$result = $cut;
@@ -165,7 +165,7 @@ namespace UString {
 		\UArray\must_be_array( $needles );
 		$result = $haystack;
 		foreach( $needles as $needle ) {
-			if ( ! empty( $needle) && \UString\contains( $haystack, $needle ) ) {
+			if ( ! empty( $needle) && \UString\has( $haystack, $needle ) ) {
 				$cut = substr( $haystack, strrpos( $haystack, $needle ) + strlen( $needle ) );
 				if ( strlen( $cut ) < strlen ( $result ) ) {
 					$result = $cut;

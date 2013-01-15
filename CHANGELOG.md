@@ -10,6 +10,8 @@ Changelog for Ubiq
  * Fix: Rename the i_starts_with function to is_start_with_insensistive
  * Fix: Rename the ends_with function to is_end_with
  * Fix: Rename the i_ends_with function to is_end_with_insensistive
+ * Fix: Rename the contains function to has
+ * Fix: Rename the i_contains function to has_insensistive
 
 
 

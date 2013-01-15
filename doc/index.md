@@ -17,8 +17,8 @@ String
 * [must_not_end_with](./string/must_not_end_with.md#readme)
 
 
-* [contains](./string/contains.md#readme)
-* [i_contains](./string/i_contains.md#readme)
+* [has](./string/has.md#readme)
+* [has_insensitive](./string/has_insensitive.md#readme)
 
 
 * [cut_before](./string/cut_before.md#readme)

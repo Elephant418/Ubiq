@@ -212,67 +212,67 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 
-	// CONTAINS
-	public function test_contains__valid( ) {
-		$test = \UString\contains( '/path/to/a/folder', '/to/' );
+	// has
+	public function test_has__valid( ) {
+		$test = \UString\has( '/path/to/a/folder', '/to/' );
 		$this->assertTrue( $test );
 	}
 
-	public function test_contains__valid_sensitive( ) {
-		$test = \UString\contains( '/path/to/a/folder', '/TO/' );
+	public function test_has__valid_sensitive( ) {
+		$test = \UString\has( '/path/to/a/folder', '/TO/' );
 		$this->assertFalse( $test );
 	}
 
-	public function test_contains__invalid( ) {
-		$test = \UString\contains( '/path/to/a/folder', '.' );
+	public function test_has__invalid( ) {
+		$test = \UString\has( '/path/to/a/folder', '.' );
 		$this->assertFalse( $test );
 	}
 
-	public function test_contains__multiple_valid( ) {
-		$test = \UString\contains( '/path/to/a/folder', [ '/to/', '.' ] );
+	public function test_has__multiple_valid( ) {
+		$test = \UString\has( '/path/to/a/folder', [ '/to/', '.' ] );
 		$this->assertTrue( $test );
 	}
 
-	public function test_contains__multiple_valid_sensitive( ) {
-		$test = \UString\contains( '/path/to/a/folder', [ '/TO/', '.' ] );
+	public function test_has__multiple_valid_sensitive( ) {
+		$test = \UString\has( '/path/to/a/folder', [ '/TO/', '.' ] );
 		$this->assertFalse( $test );
 	}
 
-	public function test_contains__multiple_invalid( ) {
-		$test = \UString\contains( '/path/to/a/folder', [ 'php', '.' ] );
+	public function test_has__multiple_invalid( ) {
+		$test = \UString\has( '/path/to/a/folder', [ 'php', '.' ] );
 		$this->assertFalse( $test );
 	}
 
 
 
-	// I CONTAINS
-	public function test_i_contains__valid( ) {
-		$test = \UString\i_contains( '/path/to/a/folder', '/to/' );
+	// I has
+	public function test_has_insensitive__valid( ) {
+		$test = \UString\has_insensitive( '/path/to/a/folder', '/to/' );
 		$this->assertTrue( $test );
 	}
 
-	public function test_i_contains__valid_sensitive( ) {
-		$test = \UString\i_contains( '/path/to/a/folder', '/TO/' );
+	public function test_has_insensitive__valid_sensitive( ) {
+		$test = \UString\has_insensitive( '/path/to/a/folder', '/TO/' );
 		$this->assertTrue( $test );
 	}
 
-	public function test_i_contains__invalid( ) {
-		$test = \UString\i_contains( '/path/to/a/folder', '.' );
+	public function test_has_insensitive__invalid( ) {
+		$test = \UString\has_insensitive( '/path/to/a/folder', '.' );
 		$this->assertFalse( $test );
 	}
 
-	public function test_i_contains__multiple_valid( ) {
-		$test = \UString\i_contains( '/path/to/a/folder', [ '/to/', '.' ] );
+	public function test_has_insensitive__multiple_valid( ) {
+		$test = \UString\has_insensitive( '/path/to/a/folder', [ '/to/', '.' ] );
 		$this->assertTrue( $test );
 	}
 
-	public function test_i_contains__multiple_valid_sensitive( ) {
-		$test = \UString\i_contains( '/path/to/a/folder', [ '/TO/', '.' ] );
+	public function test_has_insensitive__multiple_valid_sensitive( ) {
+		$test = \UString\has_insensitive( '/path/to/a/folder', [ '/TO/', '.' ] );
 		$this->assertTrue( $test );
 	}
 
-	public function test_i_contains__multiple_invalid( ) {
-		$test = \UString\i_contains( '/path/to/a/folder', [ 'php', '.' ] );
+	public function test_has_insensitive__multiple_invalid( ) {
+		$test = \UString\has_insensitive( '/path/to/a/folder', [ 'php', '.' ] );
 		$this->assertFalse( $test );
 	}
 
