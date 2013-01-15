@@ -8,6 +8,8 @@ Changelog for Ubiq
 
  * New: Add start_with function
  * New: Add not_start_with function
+ * New: Add end_with function
+ * New: Add not_end_with function
  * Fix: Rename the starts_with function to is_start_with
  * Fix: Rename the i_starts_with function to is_start_with_insensistive
  * Fix: Rename the must_start_with function to do_start_with
@@ -20,6 +22,10 @@ Changelog for Ubiq
  * Fix: Rename the i_contains function to has_insensistive
  * Fix: Rename the must_have_no_accent function to do_strip_accent
  * Fix: Rename the must_have_no_special_char function to do_strip_special_char
+ * Fix: Rename the cut_before function to do_substr_before & inversion between return and reference modification
+ * Fix: Rename the cut_before_last function to do_substr_before_last & inversion between return and reference modification
+ * Fix: Rename the cut_after function to do_substr_after & inversion between return and reference modification
+ * Fix: Rename the cut_after_last function to do_substr_after_last & inversion between return and reference modification
 
 
 

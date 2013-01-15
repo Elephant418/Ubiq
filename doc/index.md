@@ -30,13 +30,13 @@ String
 
 ### Substr
 
-* [cut_before](./string/cut_before.md#readme)
+* [do_substr_before](./string/do_substr_before.md#readme)
 * [substr_before](./string/substr_before.md#readme)
-* [cut_before_last](./string/cut_before_last.md#readme)
+* [do_substr_before_last](./string/do_substr_before_last.md#readme)
 * [substr_before_last](./string/substr_before_last.md#readme)
-* [cut_after](./string/cut_after.md#readme)
+* [do_substr_after](./string/do_substr_after.md#readme)
 * [substr_after](./string/substr_after.md#readme)
-* [cut_after_last](./string/cut_after_last.md#readme)
+* [do_substr_after_last](./string/do_substr_after_last.md#readme)
 * [substr_after_last](./string/substr_after_last.md#readme)
 
 ### Random

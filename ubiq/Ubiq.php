@@ -117,12 +117,6 @@ namespace UString {
 
 
 	// SUBSTRING FUNCTIONS
-	function cut_before( &$haystack, $needles ) {
-		$result = \UString\substr_before( $haystack, $needles );
-		$haystack = substr( $haystack, strlen( $result ) );
-		return $result;
-	}
-
 	function substr_before( $haystack, $needles ) {
 		\UArray\must_be_array( $needles );
 		$result = $haystack;
@@ -138,10 +132,11 @@ namespace UString {
 		return $result;
 	}
 
-	function cut_before_last( &$haystack, $needles ) {
-		$result = \UString\substr_before_last( $haystack, $needles );
-		$haystack = substr( $haystack, strlen( $result ) );
-		return $result;
+	function do_substr_before( &$haystack, $needles ) {
+		$substr = \UString\substr_before( $haystack, $needles );
+		$pop = substr( $haystack, strlen( $substr ) );
+		$haystack = $substr;
+		return $pop;
 	}
 
 	function substr_before_last( $haystack, $needles ) {
@@ -159,10 +154,11 @@ namespace UString {
 		return $result;
 	}
 
-	function cut_after( &$haystack, $needles ) {
-		$result = \UString\substr_after( $haystack, $needles );
-		$haystack = substr( $haystack, 0, strlen( $haystack ) - strlen( $result ) );
-		return $result;
+	function do_substr_before_last( &$haystack, $needles ) {
+		$substr = \UString\substr_before_last( $haystack, $needles );
+		$pop = substr( $haystack, strlen( $substr ) );
+		$haystack = $substr;
+		return $pop;
 	}
 
 	function substr_after( $haystack, $needles ) {
@@ -179,10 +175,11 @@ namespace UString {
 		return $result;
 	}
 
-	function cut_after_last( &$haystack, $needles ) {
-		$result = \UString\substr_after_last( $haystack, $needles );
-		$haystack = substr( $haystack, 0, strlen( $haystack ) - strlen( $result ) );
-		return $result;
+	function do_substr_after( &$haystack, $needles ) {
+		$substr = \UString\substr_after( $haystack, $needles );
+		$pop = substr( $haystack, 0, strlen( $haystack ) - strlen( $substr ) );
+		$haystack = $substr;
+		return $pop;
 	}
 
 	function substr_after_last( $haystack, $needles ) {
@@ -197,6 +194,13 @@ namespace UString {
 			}
 		}
 		return $result;
+	}
+
+	function do_substr_after_last( &$haystack, $needles ) {
+		$substr = \UString\substr_after_last( $haystack, $needles );
+		$pop = substr( $haystack, 0, strlen( $haystack ) - strlen( $substr ) );
+		$haystack = $substr;
+		return $pop;
 	}
 
 

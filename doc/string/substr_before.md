@@ -12,7 +12,7 @@ string \UString\substr_before( string $haystack, mixed $needles );
 Returns the portion of string from the beginning to the first match of a specific character/sequence. <br>
 If several matches are given, the sequence that generate the shorter return is kept.
 
-**Note**: The string is not modified. See [cut_before](./cut_before.md#readme).
+**Note**: The string is not modified. See [do_substr_before](./do_substr_before.md#readme).
 
 
 

@@ -275,32 +275,32 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 	// HAS
-	public function test_has__valid( ) {
+	public function test_has__match( ) {
 		$test = \UString\has( '/path/to/a/folder', '/to/' );
 		$this->assertTrue( $test );
 	}
 
-	public function test_has__valid_sensitive( ) {
+	public function test_has__match_sensitive( ) {
 		$test = \UString\has( '/path/to/a/folder', '/TO/' );
 		$this->assertFalse( $test );
 	}
 
-	public function test_has__invalid( ) {
+	public function test_has__no_match( ) {
 		$test = \UString\has( '/path/to/a/folder', '.' );
 		$this->assertFalse( $test );
 	}
 
-	public function test_has__multiple_valid( ) {
+	public function test_has__multiple_match( ) {
 		$test = \UString\has( '/path/to/a/folder', [ '/to/', '.' ] );
 		$this->assertTrue( $test );
 	}
 
-	public function test_has__multiple_valid_sensitive( ) {
+	public function test_has__multiple_match_sensitive( ) {
 		$test = \UString\has( '/path/to/a/folder', [ '/TO/', '.' ] );
 		$this->assertFalse( $test );
 	}
 
-	public function test_has__multiple_invalid( ) {
+	public function test_has__multiple_no_match( ) {
 		$test = \UString\has( '/path/to/a/folder', [ 'php', '.' ] );
 		$this->assertFalse( $test );
 	}
@@ -308,154 +308,146 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 	// HAS INSENSITIVE
-	public function test_has_insensitive__valid( ) {
+	public function test_has_insensitive__match( ) {
 		$test = \UString\has_insensitive( '/path/to/a/folder', '/to/' );
 		$this->assertTrue( $test );
 	}
 
-	public function test_has_insensitive__valid_sensitive( ) {
+	public function test_has_insensitive__match_sensitive( ) {
 		$test = \UString\has_insensitive( '/path/to/a/folder', '/TO/' );
 		$this->assertTrue( $test );
 	}
 
-	public function test_has_insensitive__invalid( ) {
+	public function test_has_insensitive__no_match( ) {
 		$test = \UString\has_insensitive( '/path/to/a/folder', '.' );
 		$this->assertFalse( $test );
 	}
 
-	public function test_has_insensitive__multiple_valid( ) {
+	public function test_has_insensitive__multiple_match( ) {
 		$test = \UString\has_insensitive( '/path/to/a/folder', [ '/to/', '.' ] );
 		$this->assertTrue( $test );
 	}
 
-	public function test_has_insensitive__multiple_valid_sensitive( ) {
+	public function test_has_insensitive__multiple_match_sensitive( ) {
 		$test = \UString\has_insensitive( '/path/to/a/folder', [ '/TO/', '.' ] );
 		$this->assertTrue( $test );
 	}
 
-	public function test_has_insensitive__multiple_invalid( ) {
+	public function test_has_insensitive__multiple_no_match( ) {
 		$test = \UString\has_insensitive( '/path/to/a/folder', [ 'php', '.' ] );
 		$this->assertFalse( $test );
 	}
 
 
 
-	// CUT BEFORE
-	public function test_cut_before__valid( ) {
-		$original = 'example.com/my/path';
-		$cut = \UString\cut_before( $original, '/' );
-		$this->assertEquals( $cut, 'example.com' );
-		$this->assertEquals( $original, '/my/path' );
-	}
-	public function test_cut_before__invalid( ) {
-		$original = 'example.com';
-		$cut = \UString\cut_before( $original, '/' );
-		$this->assertEquals( $cut, 'example.com' );
-		$this->assertEquals( $original, '' );
-	}
-
-
-
 	// SUBSTR BEFORE
-	public function test_substr_before__valid( ) {
+	public function test_substr_before__match( ) {
+		$substr = \UString\substr_before( 'example.com/my/path', '/' );
+		$this->assertEquals( $substr, 'example.com' );
+	}
+	public function test_substr_before__no_match( ) {
+		$substr = \UString\substr_before( 'example.com', '/' );
+		$this->assertEquals( $substr, 'example.com' );
+	}
+
+
+
+	// DO SUBSTR BEFORE
+	public function test_do_substr_before__match( ) {
 		$original = 'example.com/my/path';
-		$substr = \UString\substr_before( $original, '/' );
-		$this->assertEquals( $substr, 'example.com' );
-	}
-	public function test_substr_before__invalid( ) {
-		$original = 'example.com';
-		$substr = \UString\substr_before( $original, '/' );
-		$this->assertEquals( $substr, 'example.com' );
-	}
-
-
-
-	// CUT BEFORE LAST
-	public function test_cut_before_last__valid( ) {
-		$original = 'example.com/my/path/file.md';
-		$cut = \UString\cut_before_last( $original, '/' );
-		$this->assertEquals( $cut, 'example.com/my/path' );
-		$this->assertEquals( $original, '/file.md' );
-	}
-	public function test_cut_before_last__invalid( ) {
-		$original = 'example.com';
-		$cut = \UString\cut_before_last( $original, '/' );
-		$this->assertEquals( $cut, '' );
+		$pop = \UString\do_substr_before( $original, '/' );
 		$this->assertEquals( $original, 'example.com' );
+		$this->assertEquals( $pop, '/my/path' );
+	}
+	public function test_do_substr_before__no_match( ) {
+		$original = 'example.com';
+		$pop = \UString\do_substr_before( $original, '/' );
+		$this->assertEquals( $original, 'example.com' );
+		$this->assertEquals( $pop, '' );
 	}
 
 
 
 	// SUBSTR BEFORE LAST
-	public function test_substr_before_last__valid( ) {
-		$original = 'example.com/my/path/file.md';
-		$substr = \UString\substr_before_last( $original, '/' );
+	public function test_substr_before_last__match( ) {
+		$substr = \UString\substr_before_last( 'example.com/my/path/file.md', '/' );
 		$this->assertEquals( $substr, 'example.com/my/path' );
 	}
-	public function test_substr_before_last__invalid( ) {
-		$original = 'example.com';
-		$substr = \UString\substr_before_last( $original, '/' );
+	public function test_substr_before_last__no_match( ) {
+		$substr = \UString\substr_before_last( 'example.com', '/' );
 		$this->assertEquals( $substr, '' );
 	}
 
 
 
-	// CUT AFTER
-	public function test_cut_after__valid( ) {
-		$original = 'example.com/my/path';
-		$cut = \UString\cut_after( $original, '/' );
-		$this->assertEquals( $original, 'example.com/' );
-		$this->assertEquals( $cut, 'my/path' );
+	// DO SUBSTR BEFORE LAST
+	public function test_do_substr_before_last__match( ) {
+		$original = 'example.com/my/path/file.md';
+		$pop = \UString\do_substr_before_last( $original, '/' );
+		$this->assertEquals( $original, 'example.com/my/path' );
+		$this->assertEquals( $pop, '/file.md' );
 	}
-	public function test_cut_after__invalid( ) {
+	public function test_do_substr_before_last__no_match( ) {
 		$original = 'example.com';
-		$cut = \UString\cut_after( $original, '/' );
-		$this->assertEquals( $original, 'example.com' );
-		$this->assertEquals( $cut, '' );
+		$pop = \UString\do_substr_before_last( $original, '/' );
+		$this->assertEquals( $original, '' );
+		$this->assertEquals( $pop, 'example.com' );
 	}
 
 
 
 	// SUBSTR AFTER
-	public function test_substr_after__valid( ) {
-		$original = 'example.com/my/path';
-		$substr = \UString\cut_after( $original, '/' );
+	public function test_substr_after__match( ) {
+		$substr = \UString\substr_after( 'example.com/my/path', '/' );
 		$this->assertEquals( $substr, 'my/path' );
 	}
-	public function test_substr_after__invalid( ) {
-		$original = 'example.com';
-		$substr = \UString\cut_after( $original, '/' );
+	public function test_substr_after__no_match( ) {
+		$substr = \UString\substr_after( 'example.com', '/' );
 		$this->assertEquals( $substr, '' );
 	}
 
 
 
-	// CUT AFTER LAST
-	public function test_cut_after_last__valid( ) {
+	// DO SUBSTR AFTER
+	public function test_do_substr_after__match( ) {
 		$original = 'example.com/my/path';
-		$cut = \UString\cut_after_last( $original, '/' );
-		$this->assertEquals( $original, 'example.com/my/' );
-		$this->assertEquals( $cut, 'path' );
+		$pop = \UString\do_substr_after( $original, '/' );
+		$this->assertEquals( $original, 'my/path' );
+		$this->assertEquals( $pop, 'example.com/' );
 	}
-	public function test_cut_after_last__invalid( ) {
+	public function test_do_substr_after__no_match( ) {
 		$original = 'example.com';
-		$cut = \UString\cut_after_last( $original, '/' );
+		$pop = \UString\do_substr_after( $original, '/' );
 		$this->assertEquals( $original, '' );
-		$this->assertEquals( $cut, 'example.com' );
+		$this->assertEquals( $pop, 'example.com' );
 	}
 
 
 
 	// SUBSTR AFTER LAST
-	public function test_substr_after_last__valid( ) {
-		$original = 'example.com/my/path';
-		$substr = \UString\substr_after_last( $original, '/' );
+	public function test_substr_after_last__match( ) {
+		$substr = \UString\substr_after_last( 'example.com/my/path', '/' );
 		$this->assertEquals( $substr, 'path' );
 	}
-	public function test_substr_after_last__invalid( ) {
-		$original = 'example.com';
-		$substr = \UString\substr_after_last( $original, '/' );
+	public function test_substr_after_last__no_match( ) {
+		$substr = \UString\substr_after_last( 'example.com', '/' );
 		$this->assertEquals( $substr, 'example.com' );
+	}
+
+
+
+	// DO SUBSTR AFTER LAST
+	public function test_do_substr_after_last__match( ) {
+		$original = 'example.com/my/path';
+		$pop = \UString\do_substr_after_last( $original, '/' );
+		$this->assertEquals( $original, 'path' );
+		$this->assertEquals( $pop, 'example.com/my/' );
+	}
+	public function test_do_substr_after_last__no_match( ) {
+		$original = 'example.com';
+		$pop = \UString\do_substr_after_last( $original, '/' );
+		$this->assertEquals( $original, 'example.com' );
+		$this->assertEquals( $pop, '' );
 	}
 
 
