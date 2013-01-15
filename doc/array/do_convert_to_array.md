@@ -35,3 +35,12 @@ $array = [ 'a string' ];
 print_r( $array );
 ```
 Returns [ 'a string' ]
+
+### Example 3
+
+```php
+$array = NULL;
+\UArray\do_convert_to_array( $array );
+print_r( $array );
+```
+Returns [ ]

@@ -31,3 +31,10 @@ Returns [ 'a string' ]
 \UArray\convert_to_array( [ 'a string' ] );
 ```
 Returns [ 'a string' ]
+
+### Example 3
+
+```php
+\UArray\convert_to_array( NULL );
+```
+Returns [ ]
