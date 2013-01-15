@@ -8,7 +8,7 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 
-	// STARTS WITH
+	// IS START WITH
 	public function test_is_start_with__match( ) {
 		$test = \UString\is_start_with( 'Ubiq is so cool', 'Ubiq' );
 		$this->assertTrue( $test );
@@ -41,7 +41,7 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 
-	// I STARTS WITH
+	// IS START WITH INSENSITIVE
 	public function test_is_start_with_insensitive__match( ) {
 		$test = \UString\is_start_with_insensitive( 'Ubiq is so cool', 'Ubiq' );
 		$this->assertTrue( $test );
@@ -74,7 +74,7 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 
-	// MUST STARTS WITH
+	// DO START WITH
 	public function test_do_start_with__match( ) {
 		$assertion = 'www.example.com';
 		\UString\do_start_with( $assertion, 'http://' );
@@ -89,7 +89,7 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 
-	// MUST NOT STARTS WITH
+	// DO NOT START WITH
 	public function test_do_not_start_with__match( ) {
 		$assertion = 'http://www.example.com';
 		\UString\do_not_start_with( $assertion, 'http://' );
@@ -110,7 +110,7 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 
-	// ENDS WITH
+	// IS END WITH
 	public function test_is_end_with__match( ) {
 		$test = \UString\is_end_with( 'Ubiq is so cool', 'cool' );
 		$this->assertTrue( $test );
@@ -143,7 +143,7 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 
-	// I ENDS WITH
+	// IS END WITH INSENSITIVE
 	public function test_is_end_with_insensitive__match( ) {
 		$test = \UString\is_end_with_insensitive( 'Ubiq is so cool', 'cool' );
 		$this->assertTrue( $test );
@@ -176,7 +176,7 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 
-	// MUST ENDS WITH
+	// DO END WITH
 	public function test_do_end_with__match( ) {
 		$assertion = 'http://www.example.com';
 		\UString\do_end_with( $assertion, '/' );
@@ -191,7 +191,7 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 
-	// MUST NOT ENDS WITH
+	// DO NOT END WITH
 	public function test_do_not_end_with__no_match( ) {
 		$assertion = 'http://www.example.com';
 		\UString\do_not_end_with( $assertion, '/' );
@@ -212,7 +212,7 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 
-	// has
+	// HAS
 	public function test_has__valid( ) {
 		$test = \UString\has( '/path/to/a/folder', '/to/' );
 		$this->assertTrue( $test );
@@ -245,7 +245,7 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 
-	// I has
+	// HAS INSENSITIVE
 	public function test_has_insensitive__valid( ) {
 		$test = \UString\has_insensitive( '/path/to/a/folder', '/to/' );
 		$this->assertTrue( $test );
@@ -422,7 +422,7 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 
-	// MUST HAVE NO ACCENT
+	// DO STRIP ACCENT
 	public function test_do_strip_accent( ) {
 		$test = 'úûüýÿĀāĂăĄąĆć';
 		\UString\do_strip_accent( $test );
@@ -447,7 +447,7 @@ class String_Test extends \PHPUnit_Framework_TestCase {
 
 
 
-	// MUST HAVE NO SPECIAL CHAR
+	// DO STRIP SPECIAL CHAR
 	public function test_do_strip_special_char__default( ) {
 		$test = 'A page for $13';
 		\UString\do_strip_special_char( $test );
