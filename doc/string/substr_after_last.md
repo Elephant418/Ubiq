@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-string \UString\substr_after_last( string $haystack, mixed $needles );
+string \UString::substr_after_last( string $haystack, mixed $needles );
 ```
 
 Returns the portion of string from the last match of a specific character/sequence to the end. <br>
@@ -22,13 +22,13 @@ Examples
 ### Example 1
 
 ```php
-\UString\substr_after( 'example.com/my/path', '/' );
+\UString::substr_after( 'example.com/my/path', '/' );
 ```
 Returns 'path'
 
 ### Example 2
 
 ```php
-\UString\substr_after( 'example.com', '/' );
+\UString::substr_after( 'example.com', '/' );
 ```
 Returns 'example.com'

@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-bool \UString\has( string $haystack, mixed $needles );
+bool \UString::has( string $haystack, mixed $needles );
 ```
 
 Checks if a string contains a specific character/sequence. <br>
@@ -24,41 +24,41 @@ Examples
 ### Example 1
 
 ```php
-\UString\has( '/path/to/a/folder', '/to/' );
+\UString::has( '/path/to/a/folder', '/to/' );
 ```
 Returns TRUE.
 
 ### Example 2
 
 ```php
-\UString\has( '/path/to/a/folder', '/TO/' );
+\UString::has( '/path/to/a/folder', '/TO/' );
 ```
 Returns FALSE.
 
 ### Example 3
 
 ```php
-\UString\has( '/path/to/a/folder', '.' );
+\UString::has( '/path/to/a/folder', '.' );
 ```
 Returns FALSE.
 
 ### Example 4
 
 ```php
-\UString\has( '/path/to/a/folder', [ '/to/', '.' ] );
+\UString::has( '/path/to/a/folder', [ '/to/', '.' ] );
 ```
 Returns TRUE.
 
 ### Example 5
 
 ```php
-\UString\has( '/path/to/a/folder', [ '/TO/', '.' ] );
+\UString::has( '/path/to/a/folder', [ '/TO/', '.' ] );
 ```
 Returns FALSE.
 
 ### Example 46
 
 ```php
-\UString\has( '/path/to/a/folder', [ 'php', '.' ] );
+\UString::has( '/path/to/a/folder', [ 'php', '.' ] );
 ```
 Returns FALSE.

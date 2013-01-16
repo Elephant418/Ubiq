@@ -38,8 +38,8 @@ function get_namespace( $class ) {
 
 ```php
 function get_namespace( $class ) {
-	\UObject\do_convert_to_class( $class );
-	return \UString\substr_before_last( $class, '\\' );
+	\UObject::do_convert_to_class( $class );
+	return \UString::substr_before_last( $class, '\\' );
 }
 ```
 
@@ -47,7 +47,7 @@ function get_namespace( $class ) {
 
 ```php
 function get_namespace( $class ) {
-	return \UObject\get_namespace( $class );
+	return \UObject::get_namespace( $class );
 }
 ```
 
@@ -65,17 +65,17 @@ Add or complete the composer.json file at the root of your repository, like this
 ```json
 {
     "require": {
-        "pixel418/ubiq": "0.2.3"
+        "pixel418/ubiq": "0.3.0"
     }
 }
 ```
 
 Ubiq can now be [downloaded via composer](http://getcomposer.org/doc/01-basic-usage.md#installing-dependencies).
 
-The last step is to include Ubiq in your PHP file :
+To use it, you just have to load the composer autoloader :
 
 ```php
-require_once( './vendor/pixel418/ubiq/src/Ubiq.php' );
+require_once( './vendor/autoload.php' );
 ```
 
 [&uarr; top](#readme)

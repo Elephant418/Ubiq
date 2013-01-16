@@ -3,6 +3,13 @@ Changelog for Ubiq
 
 
 
+0.3.0: 2013-01-16
+-------- 
+
+* New: The functions are mutated to static methods to enable composer autoload
+
+
+
 0.2.3: 2013-01-15
 -------- 
 

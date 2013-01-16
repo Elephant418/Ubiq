@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-bool \UString\has_insensitive( string $haystack, mixed $needles );
+bool \UString::has_insensitive( string $haystack, mixed $needles );
 ```
 
 Checks if a string contains a specific character/sequence. <br>
@@ -24,41 +24,41 @@ Examples
 ### Example 1
 
 ```php
-\UString\has_insensitive( '/path/to/a/folder', '/to/' );
+\UString::has_insensitive( '/path/to/a/folder', '/to/' );
 ```
 Returns TRUE.
 
 ### Example 2
 
 ```php
-\UString\has_insensitive( '/path/to/a/folder', '/TO/' );
+\UString::has_insensitive( '/path/to/a/folder', '/TO/' );
 ```
 Returns TRUE.
 
 ### Example 3
 
 ```php
-\UString\has_insensitive( '/path/to/a/folder', '.' );
+\UString::has_insensitive( '/path/to/a/folder', '.' );
 ```
 Returns FALSE.
 
 ### Example 4
 
 ```php
-\UString\has_insensitive( '/path/to/a/folder', [ '/to/', '.' ] );
+\UString::has_insensitive( '/path/to/a/folder', [ '/to/', '.' ] );
 ```
 Returns TRUE.
 
 ### Example 5
 
 ```php
-\UString\has_insensitive( '/path/to/a/folder', [ '/TO/', '.' ] );
+\UString::has_insensitive( '/path/to/a/folder', [ '/TO/', '.' ] );
 ```
 Returns TRUE.
 
 ### Example 46
 
 ```php
-\UString\has_insensitive( '/path/to/a/folder', [ 'php', '.' ] );
+\UString::has_insensitive( '/path/to/a/folder', [ 'php', '.' ] );
 ```
 Returns FALSE.

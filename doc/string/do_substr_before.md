@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-string \UString\do_substr_before( string &$haystack, mixed $needles );
+string \UString::do_substr_before( string &$haystack, mixed $needles );
 ```
 
 Reduce the input string from the beginning to the first match of a specific character/sequence. <br>
@@ -23,7 +23,7 @@ Examples
 
 ```php
 $original = 'example.com/my/path';
-$pop = \UString\do_substr_before( $original, '/' );
+$pop = \UString::do_substr_before( $original, '/' );
 echo $original . ' + ' . $pop;
 ```
 Returns 'example.com + /my/path'
@@ -32,7 +32,7 @@ Returns 'example.com + /my/path'
 
 ```php
 $original = 'example.com';
-$pop = \UString\do_substr_before( $original, '/' );
+$pop = \UString::do_substr_before( $original, '/' );
 echo $original . ' + ' . $pop;
 ```
 Returns 'example.com + '

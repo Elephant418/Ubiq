@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-bool \UArray\do_apply_schema( array &$array, array $schema );
+bool \UArray::do_apply_schema( array &$array, array $schema );
 ```
 
 Modifies the array by applying the passed schema : add optional entries that are not in the array.
@@ -24,7 +24,7 @@ Examples
 
 ```php
 $array = [ ];
-\UArray\do_apply_schema( $array, [ 'needed' ] );
+\UArray::do_apply_schema( $array, [ 'needed' ] );
 ```
 Returns FALSE
 
@@ -32,7 +32,7 @@ Returns FALSE
 
 ```php
 $array = [ ];
-\UArray\do_apply_schema( $array, [ 'optional' => 3 ] );
+\UArray::do_apply_schema( $array, [ 'optional' => 3 ] );
 ```
 Returns TRUE;
 $array value is [ 'optional' => 3 ]
@@ -41,7 +41,7 @@ $array value is [ 'optional' => 3 ]
 
 ```php
 $array = [ 'extra' => 4 ];
-\UArray\do_apply_schema( $array, [ 'optional' => 3 ] );
+\UArray::do_apply_schema( $array, [ 'optional' => 3 ] );
 ```
 Returns TRUE;
 $array value is [ 'optional' => 3, 'extra' => 4 ]
@@ -50,7 +50,7 @@ $array value is [ 'optional' => 3, 'extra' => 4 ]
 
 ```php
 $array = [ 'needed' => 1 ];
-\UArray\do_apply_schema( $array, [ 'needed' ] );
+\UArray::do_apply_schema( $array, [ 'needed' ] );
 ```
 Returns TRUE;
 $array value is [ 'needed' => 1 ]
@@ -59,7 +59,7 @@ $array value is [ 'needed' => 1 ]
 
 ```php
 $array = [ 'needed' => 1, 'optional' => 2 ];
-\UArray\do_apply_schema( $array, [ 'needed', 'optional' => 3 ] );
+\UArray::do_apply_schema( $array, [ 'needed', 'optional' => 3 ] );
 ```
 Returns TRUE;
 $array value is [ 'needed' => 1, 'optional' => 2 ]
@@ -68,7 +68,7 @@ $array value is [ 'needed' => 1, 'optional' => 2 ]
 
 ```php
 $array = [ 'needed' => 1, 'optional' => 2, 'extra' => 4 ];
-\UArray\do_apply_schema( $array, [ 'needed', 'optional' => 3 ] );
+\UArray::do_apply_schema( $array, [ 'needed', 'optional' => 3 ] );
 ```
 Returns TRUE;
 $array value is [ 'needed' => 1, 'optional' => 2, 'extra' => 4 ]

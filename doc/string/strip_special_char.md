@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-string \UString\strip_special_char( string $input, string $chars = '-_a-zA-Z0-9', string $replace = '-' );
+string \UString::strip_special_char( string $input, string $chars = '-_a-zA-Z0-9', string $replace = '-' );
 ```
 
 Returns a string with the characters, which are not authorized, replaced.
@@ -21,20 +21,20 @@ Examples
 ### Example 1
 
 ```php
-\UString\strip_accent( 'A page for $13' );
+\UString::strip_accent( 'A page for $13' );
 ```
 Returns 'A-page-for-13'
 
 ### Example 2
 
 ```php
-\UString\strip_accent( 'A page for $13', 'aeiouyAEIOUY' );
+\UString::strip_accent( 'A page for $13', 'aeiouyAEIOUY' );
 ```
 Returns 'A-a-e-o'
 
 ### Example 2
 
 ```php
-\UString\strip_accent( 'A page for $13', 'a-zA-Z', '' );
+\UString::strip_accent( 'A page for $13', 'a-zA-Z', '' );
 ```
 Returns 'Apagefor'

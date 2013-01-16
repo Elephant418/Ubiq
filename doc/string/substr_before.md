@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-string \UString\substr_before( string $haystack, mixed $needles );
+string \UString::substr_before( string $haystack, mixed $needles );
 ```
 
 Returns the portion of string from the beginning to the first match of a specific character/sequence. <br>
@@ -22,13 +22,13 @@ Examples
 ### Example 1
 
 ```php
-\UString\substr_before( 'example.com/my/path', '/' );
+\UString::substr_before( 'example.com/my/path', '/' );
 ```
 Returns 'example.com'
 
 ### Example 2
 
 ```php
-\UString\substr_before( 'example.com', '/' );
+\UString::substr_before( 'example.com', '/' );
 ```
 Returns 'example.com'

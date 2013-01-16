@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-void \UString\do_strip_accent( string &$input );
+void \UString::do_strip_accent( string &$input );
 ```
 
 The accents of the string are converted to common characters.
@@ -22,7 +22,7 @@ Examples
 
 ```php
 $test = 'úûüýÿĀāĂăĄąĆć';
-\UString\do_strip_accent( $test );
+\UString::do_strip_accent( $test );
 echo $test;
 ```
 Returns 'uuuyyAaAaAaCc'

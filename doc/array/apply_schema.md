@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-mixed \UArray\apply_schema( array $array, array $schema );
+mixed \UArray::apply_schema( array $array, array $schema );
 ```
 
 Returns the array applied the passed schema : add optional entries that are not in the array.
@@ -23,41 +23,41 @@ Examples
 ### Example 1
 
 ```php
-\UArray\apply_schema( [ ], [ 'needed' ] );
+\UArray::apply_schema( [ ], [ 'needed' ] );
 ```
 Returns FALSE
 
 ### Example 2
 
 ```php
-\UArray\apply_schema( [ ], [ 'optional' => 3 ] );
+\UArray::apply_schema( [ ], [ 'optional' => 3 ] );
 ```
 Returns [ 'optional' => 3 ]
 
 ### Example 3
 
 ```php
-\UArray\apply_schema( [ 'extra' => 4 ], [ 'optional' => 3 ] );
+\UArray::apply_schema( [ 'extra' => 4 ], [ 'optional' => 3 ] );
 ```
 Returns [ 'optional' => 3, 'extra' => 4 ]
 
 ### Example 4
 
 ```php
-\UArray\apply_schema( [ 'needed' => 1 ], [ 'needed' ] );
+\UArray::apply_schema( [ 'needed' => 1 ], [ 'needed' ] );
 ```
 Returns [ 'needed' => 1 ]
 
 ### Example 5
 
 ```php
-\UArray\apply_schema( [ 'needed' => 1, 'optional' => 2 ], [ 'needed', 'optional' => 3 ] );
+\UArray::apply_schema( [ 'needed' => 1, 'optional' => 2 ], [ 'needed', 'optional' => 3 ] );
 ```
 Returns [ 'needed' => 1, 'optional' => 2 ]
 
 ### Example 6
 
 ```php
-\UArray\apply_schema( [ 'needed' => 1, 'optional' => 2, 'extra' => 4 ], [ 'needed', 'optional' => 3 ] );
+\UArray::apply_schema( [ 'needed' => 1, 'optional' => 2, 'extra' => 4 ], [ 'needed', 'optional' => 3 ] );
 ```
 Returns [ 'needed' => 1, 'optional' => 2, 'extra' => 4 ]

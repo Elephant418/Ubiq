@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-void \UString\do_not_end_with( string &$haystack, mixed $needles );
+void \UString::do_not_end_with( string &$haystack, mixed $needles );
 ```
 
 If a string ends with one or several specific character/sequence, the sufix are removed.
@@ -22,7 +22,7 @@ Examples
 
 ```php
 $url = 'http://www.example.com';
-\UString\do_not_end_with( $url, '/' );
+\UString::do_not_end_with( $url, '/' );
 echo $url;
 ```
 Returns 'http://www.example.com'.
@@ -31,7 +31,7 @@ Returns 'http://www.example.com'.
 
 ```php
 $url = 'http://www.example.com/';
-\UString\do_not_end_with( $url, '/' );
+\UString::do_not_end_with( $url, '/' );
 echo $url;
 ```
 Returns 'http://www.example.com'.
@@ -40,7 +40,7 @@ Returns 'http://www.example.com'.
 
 ```php
 $url = 'http://www.example.com///';
-\UString\do_not_end_with( $url, '/' );
+\UString::do_not_end_with( $url, '/' );
 echo $url;
 ```
 Returns 'http://www.example.com'.
@@ -49,7 +49,7 @@ Returns 'http://www.example.com'.
 
 ```php
 $url = 'http://www.example.com/\\/';
-\UString\do_not_end_with( $url, [ '\\', '/' ] );
+\UString::do_not_end_with( $url, [ '\\', '/' ] );
 echo $url;
 ```
 Returns 'http://www.example.com'.

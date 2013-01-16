@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-void \UObject\do_convert_to_class( mixed &$class );
+void \UObject::do_convert_to_class( mixed &$class );
 ```
 
 If the parameter is an object, returns its full class.
@@ -22,7 +22,7 @@ Examples
 
 ```php
 $class = new \Exception;
-\UObject\do_convert_to_class( $class );
+\UObject::do_convert_to_class( $class );
 echo $class;
 ```
 Returns 'Exception'
@@ -31,7 +31,7 @@ Returns 'Exception'
 
 ```php
 $class = '\\Exception';
-\UObject\do_convert_to_class( $class );
+\UObject::do_convert_to_class( $class );
 echo $class;
 ```
 Returns 'Exception'
