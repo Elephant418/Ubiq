@@ -3,6 +3,13 @@ Changelog for Ubiq
 
 
 
+0.3.1: 2013-01-16
+-------- 
+
+* Fix: Allow autoload of the constant \Pixel418\Ubiq::VERSION
+
+
+
 0.3.0: 2013-01-16
 -------- 
 
