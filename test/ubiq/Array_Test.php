@@ -4,7 +4,7 @@ namespace Test\Ubiq;
 
 require_once( dirname( dirname( __DIR__ ) ) . '/vendor/autoload.php' );
 
-echo 'Ubiq ' . \Pixel418\Ubiq::VERSION . ' ';
+echo 'Ubiq ' . \Pixel418\Ubiq::VERSION . ' tested with ';
 
 class Array_Test extends \PHPUnit_Framework_TestCase {
 
