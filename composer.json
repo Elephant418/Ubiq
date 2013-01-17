@@ -22,7 +22,8 @@
             "src/UObject.php"
         ],
         "psr-0": {
-            "Pixel418\\Ubiq": "src/"
+            "Pixel418\\Ubiq": "src/",
+            "Test\\Pixel418\\Ubiq": "test/"
         }
     }
 }

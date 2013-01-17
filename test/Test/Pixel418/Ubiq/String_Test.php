@@ -1,8 +1,8 @@
 <?php
 
-namespace Test\Ubiq;
+namespace Test\Pixel418\Ubiq;
 
-require_once( dirname( dirname( __DIR__ ) ) . '/vendor/autoload.php' );
+require_once( __DIR__ . '/../../../../vendor/autoload.php' );
 
 class String_Test extends \PHPUnit_Framework_TestCase {
 
