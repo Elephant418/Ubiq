@@ -12,7 +12,7 @@ class UString {
 	public static function is_start_with( $haystack, $needles ) {
 		\UArray::do_convert_to_array( $needles );
 		foreach( $needles as $needle ) {
-			if ( substr( $haystack, 0, strlen( $needle ) ) == $needle ) {
+			if ( substr( $haystack, 0, strlen( $needle ) ) === $needle ) {
 				return TRUE;
 			}
 		}
@@ -53,7 +53,7 @@ class UString {
 	public static function is_end_with( $haystack, $needles ) {
 		\UArray::do_convert_to_array( $needles );
 		foreach( $needles as $needle ) {
-			if ( substr( $haystack, -strlen( $needle ) ) == $needle ) {
+			if ( substr( $haystack, -strlen( $needle ) ) === $needle ) {
 				return TRUE;
 			}
 		}
