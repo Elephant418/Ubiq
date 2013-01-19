@@ -74,6 +74,66 @@ class UArray {
 
 
 	/*************************************************************************
+	  OFFSET METHODS
+	 *************************************************************************/
+	public static function get_offset_index( $array, $index ) {
+		$array = array_keys( $array );
+		array_walk( $array, function( &$a ) { 
+			$a .= 'unbug'; 
+		} );
+		$index .= 'unbug'; 
+		return array_search( $index, $array );
+	}
+
+
+
+	/*************************************************************************
+	  REMOVING METHODS
+	 *************************************************************************/
+	public static function remove_index( $array, $indexes ) {
+		\UArray::do_convert_to_array( $indexes );
+		$removed_keys = [ ];
+		foreach( $indexes as $index ) {
+			if ( is_numeric( $index ) ) {
+				$gap = 0;
+				foreach ( $removed_keys as $removed_key ) {
+					if ( $removed_key < $index ) {
+						$gap++;
+					}
+				}
+				$key = $index - $gap;
+				if ( array_key_exists( $key, $array ) ) {
+					$offset = \UArray::get_offset_index( $array, $key );
+					array_splice( $array, $offset, 1 );
+					$removed_keys[ ] = $index;
+				}
+			} else {
+				unset( $array[ $index ] );
+			}
+		}
+		return $array;
+	}
+
+	public static function do_remove_index( &$array, $indexes ) {
+		$array = \UArray::remove_index( $array, $indexes );
+	}
+
+	public static function remove_value( $array, $values ) {
+		\UArray::do_convert_to_array( $values );
+		$indexes = [ ];
+		foreach( $values as $value ) {
+			$indexes = array_merge( $indexes, array_keys( $array, $value ) );
+		}
+		return \UArray::remove_index( $array, $indexes );
+	}
+
+	public static function do_remove_value( &$array, $values ) {
+		$array = \UArray::remove_value( $array, $values );
+	}
+
+
+
+	/*************************************************************************
 	  MERGE METHODS
 	 *************************************************************************/
 	// Keep the order of each FIRST occurence 
