@@ -5,5 +5,5 @@
 namespace Pixel418;
 
 class Ubiq {
-	const VERSION = '0.3.1';
+	const VERSION = '0.3.2';
 }

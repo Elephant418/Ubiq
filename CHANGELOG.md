@@ -3,6 +3,14 @@ Changelog for Ubiq
 
 
 
+0.3.2: 2013-01-19
+-------- 
+
+* New: Add remove_index & do_remove_index method
+* New: Add remove_value & do_remove_value method
+
+
+
 0.3.1: 2013-01-16
 -------- 
 
