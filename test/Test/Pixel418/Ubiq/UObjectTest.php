@@ -4,7 +4,7 @@ namespace Test\Pixel418\Ubiq;
 
 require_once( __DIR__ . '/../../../../vendor/autoload.php' );
 
-class Object_Test extends \PHPUnit_Framework_TestCase {
+class UObjectTest extends \PHPUnit_Framework_TestCase {
 
 
 

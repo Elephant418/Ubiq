@@ -6,7 +6,7 @@ require_once( __DIR__ . '/../../../../vendor/autoload.php' );
 
 echo 'Ubiq ' . \Pixel418\Ubiq::VERSION . ' tested with ';
 
-class Array_Test extends \PHPUnit_Framework_TestCase {
+class UArrayTest extends \PHPUnit_Framework_TestCase {
 
 
 
