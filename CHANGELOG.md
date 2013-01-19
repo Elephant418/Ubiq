@@ -3,6 +3,14 @@ Changelog for Ubiq
 
 
 
+0.3.3: ?
+-------- 
+
+* Fix: New get_offset_index implementation
+* Fix: Always use strict comparison
+
+
+
 0.3.2: 2013-01-19
 -------- 
 
