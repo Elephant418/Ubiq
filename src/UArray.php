@@ -77,12 +77,7 @@ class UArray {
 	  OFFSET METHODS
 	 *************************************************************************/
 	public static function get_offset_index( $array, $index ) {
-		$array = array_keys( $array );
-		array_walk( $array, function( &$a ) { 
-			$a .= 'unbug'; 
-		} );
-		$index .= 'unbug'; 
-		return array_search( $index, $array );
+		return array_search( $index, array_keys( $array ), TRUE );
 	}
 
 
