@@ -2,7 +2,7 @@
 
 /* This file is part of the Ubiq project, which is under MIT license */
 
-class UString {
+abstract class UString {
 
 
 

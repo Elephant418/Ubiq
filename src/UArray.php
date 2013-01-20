@@ -2,7 +2,7 @@
 
 /* This file is part of the Ubiq project, which is under MIT license */
 
-class UArray {
+abstract class UArray {
 
 
 
@@ -132,12 +132,12 @@ class UArray {
 	  MERGE METHODS
 	 *************************************************************************/
 	// Keep the order of each FIRST occurence 
-	public static function merge_unique( $array1, $array2 ) {
+	public static function merge_unique( $array1 ) {
 		return array_values( array_unique( call_user_func_array( 'array_merge', func_get_args( ) ) ) );
 	}
 
 	// Keep the order of each LAST occurence 
-	public static function reverse_merge_unique( $array1, $array2 ) {
+	public static function reverse_merge_unique( $array1 ) {
 		return array_reverse( array_values( array_unique( array_reverse( call_user_func_array( 'array_merge', func_get_args( ) ) ) ) ) );
 	}
 }
