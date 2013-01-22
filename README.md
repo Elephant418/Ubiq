@@ -6,7 +6,7 @@ Functions for readable treatment of string, array & object. There
 1. [Let's code](#lets-code)    
 1.1 [Readable](#readable)  
 1.2 [Adaptive](#adaptive)  
-2.3 [Normalized](#normalized)
+1.3 [Normalized](#normalized)
 2. [Documentation](https://github.com/Pixel418/Ubiq/blob/master/doc/index.md#readme)  
 2.1 [String manipulation](https://github.com/Pixel418/Ubiq/blob/master/doc/index.md#string)  
 2.2 [Array manipulation](https://github.com/Pixel418/Ubiq/blob/master/doc/index.md#array)  
@@ -61,7 +61,7 @@ $string = 'example.com/my/path';
 
 ### Normalized
 
-Ubiq has consistent api and normalized.
+Ubiq has consistent and normalized api.
 
 ```php
 $string = 'my/path';
