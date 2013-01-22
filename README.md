@@ -1,7 +1,7 @@
 Ubiq [![Build Status](https://secure.travis-ci.org/Pixel418/Ubiq.png)](http://travis-ci.org/Pixel418/Ubiq)
 ======
 
-Functions for readable treatment of string, array & object. There
+Functions for readable treatment of string, array & object.
 
 1. [Let's code](#lets-code)    
 1.1 [Readable](#readable)  
