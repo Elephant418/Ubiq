@@ -1,10 +1,16 @@
 Ubiq [![Build Status](https://secure.travis-ci.org/Pixel418/Ubiq.png)](http://travis-ci.org/Pixel418/Ubiq)
 ======
 
-Functions for readable treatment of string, array & object.
+Functions for readable treatment of string, array & object. There
 
-1. [Documentation](https://github.com/Pixel418/Ubiq/blob/master/doc/index.md#readme)
-2. [Let's code](#lets-code)
+1. [Let's code](#lets-code)    
+1.1 [Readable](#readable)  
+1.2 [Adaptive](#adaptive)  
+2.3 [Normalized](#normalized)
+2. [Documentation](https://github.com/Pixel418/Ubiq/blob/master/doc/index.md#readme)  
+2.1 [String manipulation](https://github.com/Pixel418/Ubiq/blob/master/doc/index.md#string)  
+2.2 [Array manipulation](https://github.com/Pixel418/Ubiq/blob/master/doc/index.md#array)  
+2.3 [Object manipulation](https://github.com/Pixel418/Ubiq/blob/master/doc/index.md#object)
 3. [How to Install](#how-to-install)
 4. [How to Contribute](#how-to-contribute)
 5. [Author & Community](#author--community)
@@ -14,41 +20,65 @@ Functions for readable treatment of string, array & object.
 Let's code
 -------- 
 
-### An example without Ubiq 
+### Readable
+
+With Ubiq, your string treatments are fully readable.
 
 ```php
-function get_namespace( $class ) {
-
-	// Allow to pass an object or a class as parameter
-	if ( is_object( $class ) ) {
-		$class = get_class( $class );
-	}
-
-	// Allow to pass a class with or without the first '\'
-	if ( substr( $class, 0, 1 ) === '\\' ) {
-		$class = substr( $class, 1 );
-	}
-
-	// Remove the class name from the namespace
-	return substr( $class, 0, strrpos( $class, '\\' ) );
-}
+$string = 'example.com/my/path';
+\UString::substr_before( $string, '/' );
+// Returns 'example.com'
+// Instead of usual implementation: substr( $string, 0, strpos( $string, '/' ) );
 ```
 
-### The same example with Ubiq 
+[&uarr; top](#readme)
+
+
+
+### Adaptive
+
+The Ubiq tries to be kind and let you use it in different ways.
 
 ```php
-function get_namespace( $class ) {
-	\UObject::do_convert_to_class( $class );
-	return \UString::substr_before_last( $class, '\\' );
-}
+$string = 'example.com/my/path';
+\UString::substr_before( $string, '/' );
+// Returns 'example.com'
 ```
 
-### Or even better
+```php
+\UString::substr_before( $string, [ '/', '.' ] );
+// Returns 'example'
+```
 
 ```php
-function get_namespace( $class ) {
-	return \UObject::get_namespace( $class );
-}
+\UString::substr_before_last( $string, [ '/', '.' ] );
+// Returns 'example.com/my'
+```
+
+[&uarr; top](#readme)
+
+
+
+### Normalized
+
+Ubiq has consistent api and normalized.
+
+```php
+$string = 'my/path';
+\UString::start_with( $string, '/' );
+// Returns '/my/path'
+```
+
+```php
+// Prefix by 'is' to test
+\UString::is_start_with( $string, '/' );
+// Returns FALSE
+```
+
+```php
+// Prefix by 'do' to treat by reference
+\UString::do_start_with( $string, '/' );
+// $string value is now '/my/path'
 ```
 
 [&uarr; top](#readme)
