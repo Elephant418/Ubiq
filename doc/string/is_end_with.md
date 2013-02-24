@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-bool \UString::is_end_with( string $haystack, mixed $needles );
+bool \UString::isEndWith( string $haystack, mixed $needles );
 ```
 
 Checks if a string ends with a specific character/sequence. <br>
@@ -25,41 +25,41 @@ Examples
 ### Example 1
 
 ```php
-\UString::is_end_with( 'Ubiq is so cool', 'cool' );
+\UString::isEndWith( 'Ubiq is so cool', 'cool' );
 ```
 Returns TRUE.
 
 ### Example 2
 
 ```php
-\UString::is_end_with( 'Ubiq is so cool', 'Cool' );
+\UString::isEndWith( 'Ubiq is so cool', 'Cool' );
 ```
 Returns FALSE.
 
 ### Example 3
 
 ```php
-\UString::is_end_with( 'Ubiq is so cool', 'boring' );
+\UString::isEndWith( 'Ubiq is so cool', 'boring' );
 ```
 Returns FALSE.
 
 ### Example 4
 
 ```php
-\UString::is_end_with( 'Ubiq is so cool', [ 'cool', 'boring' ] );
+\UString::isEndWith( 'Ubiq is so cool', [ 'cool', 'boring' ] );
 ```
 Returns TRUE.
 
 ### Example 5
 
 ```php
-\UString::is_end_with( 'Ubiq is so cool', [ 'Cool', 'boring' ] );
+\UString::isEndWith( 'Ubiq is so cool', [ 'Cool', 'boring' ] );
 ```
 Returns FALSE.
 
 ### Example 6
 
 ```php
-\UString::is_end_with( 'Ubiq is so cool', [ 'boring', 'classy' ] );
+\UString::isEndWith( 'Ubiq is so cool', [ 'boring', 'classy' ] );
 ```
 Returns FALSE.

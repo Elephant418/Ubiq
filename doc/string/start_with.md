@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-string \UString::start_with( string $haystack, string $needle );
+string \UString::startWith( string $haystack, string $needle );
 ```
 
 If a string does not start with a specific character/sequence, the string is prefixed.
@@ -21,13 +21,13 @@ Examples
 ### Example 1
 
 ```php
-\UString::start_with( 'www.example.com', 'http://' );
+\UString::startWith( 'www.example.com', 'http://' );
 ```
 Returns 'http://www.example.com'.
 
 ### Example 2
 
 ```php
-\UString::start_with( 'http://www.example.com', 'http://' );
+\UString::startWith( 'http://www.example.com', 'http://' );
 ```
 Returns 'http://www.example.com'.

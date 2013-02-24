@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-bool \UString::is_end_with_insensitive( string $haystack, mixed $needles );
+bool \UString::isEndWithInsensitive( string $haystack, mixed $needles );
 ```
 
 Checks if a string ends with a specific character/sequence. <br>
@@ -24,41 +24,41 @@ Examples
 ### Example 1
 
 ```php
-\UString::is_end_with_insensitive( 'Ubiq is so cool', 'cool' );
+\UString::isEndWithInsensitive( 'Ubiq is so cool', 'cool' );
 ```
 Returns TRUE.
 
 ### Example 2
 
 ```php
-\UString::is_end_with_insensitive( 'Ubiq is so cool', 'Cool' );
+\UString::isEndWithInsensitive( 'Ubiq is so cool', 'Cool' );
 ```
 Returns TRUE.
 
 ### Example 3
 
 ```php
-\UString::is_end_with_insensitive( 'Ubiq is so cool', 'boring' );
+\UString::isEndWithInsensitive( 'Ubiq is so cool', 'boring' );
 ```
 Returns FALSE.
 
 ### Example 4
 
 ```php
-\UString::is_end_with_insensitive( 'Ubiq is so cool', [ 'cool', 'boring' ] );
+\UString::isEndWithInsensitive( 'Ubiq is so cool', [ 'cool', 'boring' ] );
 ```
 Returns TRUE.
 
 ### Example 5
 
 ```php
-\UString::is_end_with_insensitive( 'Ubiq is so cool', [ 'Cool', 'boring' ] );
+\UString::isEndWithInsensitive( 'Ubiq is so cool', [ 'Cool', 'boring' ] );
 ```
 Returns TRUE.
 
 ### Example 6
 
 ```php
-\UString::is_end_with_insensitive( 'Ubiq is so cool', [ 'boring', 'classy' ] );
+\UString::isEndWithInsensitive( 'Ubiq is so cool', [ 'boring', 'classy' ] );
 ```
 Returns FALSE.

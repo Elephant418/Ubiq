@@ -10,32 +10,32 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 
 	// IS START WITH
 	public function test_is_start_with__match( ) {
-		$test = \UString::is_start_with( 'Ubiq is so cool', 'Ubiq' );
+		$test = \UString::isStartWith( 'Ubiq is so cool', 'Ubiq' );
 		$this->assertTrue( $test );
 	}
 
 	public function test_is_start_with__match_sensitive( ) {
-		$test = \UString::is_start_with( 'Ubiq is so cool', 'ubiq' );
+		$test = \UString::isStartWith( 'Ubiq is so cool', 'ubiq' );
 		$this->assertFalse( $test );
 	}
 
 	public function test_is_start_with__no_match( ) {
-		$test = \UString::is_start_with( 'Ubiq is so cool', 'Java' );
+		$test = \UString::isStartWith( 'Ubiq is so cool', 'Java' );
 		$this->assertFalse( $test );
 	}
 
 	public function test_is_start_with__multiple_match( ) {
-		$test = \UString::is_start_with( 'Ubiq is so cool', [ 'Ubiq', 'Java' ] );
+		$test = \UString::isStartWith( 'Ubiq is so cool', [ 'Ubiq', 'Java' ] );
 		$this->assertTrue( $test );
 	}
 
 	public function test_is_start_with__multiple_match_sensitive( ) {
-		$test = \UString::is_start_with( 'Ubiq is so cool', [ 'ubiq', 'Java' ] );
+		$test = \UString::isStartWith( 'Ubiq is so cool', [ 'ubiq', 'Java' ] );
 		$this->assertFalse( $test );
 	}
 
 	public function test_is_start_with__multiple_no_match( ) {
-		$test = \UString::is_start_with( 'Ubiq is so cool', [ 'Java', '.NET' ] );
+		$test = \UString::isStartWith( 'Ubiq is so cool', [ 'Java', '.NET' ] );
 		$this->assertFalse( $test );
 	}
 
@@ -43,32 +43,32 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 
 	// IS START WITH INSENSITIVE
 	public function test_is_start_with_insensitive__match( ) {
-		$test = \UString::is_start_with_insensitive( 'Ubiq is so cool', 'Ubiq' );
+		$test = \UString::isStartWithInsensitive( 'Ubiq is so cool', 'Ubiq' );
 		$this->assertTrue( $test );
 	}
 
 	public function test_is_start_with_insensitive__match_sensitive( ) {
-		$test = \UString::is_start_with_insensitive( 'Ubiq is so cool', 'ubiq' );
+		$test = \UString::isStartWithInsensitive( 'Ubiq is so cool', 'ubiq' );
 		$this->assertTrue( $test );
 	}
 
 	public function test_is_start_with_insensitive__no_match( ) {
-		$test = \UString::is_start_with_insensitive( 'Ubiq is so cool', 'Java' );
+		$test = \UString::isStartWithInsensitive( 'Ubiq is so cool', 'Java' );
 		$this->assertFalse( $test );
 	}
 
 	public function test_is_start_with_insensitive__multiple_match( ) {
-		$test = \UString::is_start_with_insensitive( 'Ubiq is so cool', [ 'Ubiq', 'Java' ] );
+		$test = \UString::isStartWithInsensitive( 'Ubiq is so cool', [ 'Ubiq', 'Java' ] );
 		$this->assertTrue( $test );
 	}
 
 	public function test_is_start_with_insensitive__multiple_match_sensitive( ) {
-		$test = \UString::is_start_with_insensitive( 'Ubiq is so cool', [ 'ubiq', 'Java' ] );
+		$test = \UString::isStartWithInsensitive( 'Ubiq is so cool', [ 'ubiq', 'Java' ] );
 		$this->assertTrue( $test );
 	}
 
 	public function test_is_start_with_insensitive__multiple_no_match( ) {
-		$test = \UString::is_start_with_insensitive( 'Ubiq is so cool', [ 'Java', '.NET' ] );
+		$test = \UString::isStartWithInsensitive( 'Ubiq is so cool', [ 'Java', '.NET' ] );
 		$this->assertFalse( $test );
 	}
 
@@ -76,12 +76,12 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 
 	// START WITH
 	public function test_start_with__no_match( ) {
-		$assertion = \UString::start_with( 'www.example.com', 'http://' );
+		$assertion = \UString::startWith( 'www.example.com', 'http://' );
 		$this->assertEquals( 'http://www.example.com', $assertion );
 	}
 
 	public function test_start_with__match( ) {
-		$assertion = \UString::start_with( 'http://www.example.com', 'http://' );
+		$assertion = \UString::startWith( 'http://www.example.com', 'http://' );
 		$this->assertEquals( 'http://www.example.com', $assertion );
 	}
 
@@ -90,13 +90,13 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 	// DO START WITH
 	public function test_do_start_with__no_match( ) {
 		$assertion = 'www.example.com';
-		\UString::do_start_with( $assertion, 'http://' );
+		\UString::doStartWith( $assertion, 'http://' );
 		$this->assertEquals( 'http://www.example.com', $assertion );
 	}
 
 	public function test_do_start_with__match( ) {
 		$assertion = 'http://www.example.com';
-		\UString::do_start_with( $assertion, 'http://' );
+		\UString::doStartWith( $assertion, 'http://' );
 		$this->assertEquals( 'http://www.example.com', $assertion );
 	}
 
@@ -104,22 +104,22 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 
 	// NOT START WITH
 	public function test_not_start_with__match( ) {
-		$assertion = \UString::not_start_with( 'http://www.example.com', 'http://' );
+		$assertion = \UString::notStartWith( 'http://www.example.com', 'http://' );
 		$this->assertEquals( 'www.example.com', $assertion );
 	}
 
 	public function test_not_start_with__no_match( ) {
-		$assertion = \UString::not_start_with( 'www.example.com', 'http://' );
+		$assertion = \UString::notStartWith( 'www.example.com', 'http://' );
 		$this->assertEquals( 'www.example.com', $assertion );
 	}
 
 	public function test_not_start_with__double_match( ) {
-		$assertion = \UString::not_start_with( 'http://http://www.example.com', 'http://' );
+		$assertion = \UString::notStartWith( 'http://http://www.example.com', 'http://' );
 		$this->assertEquals( 'www.example.com', $assertion );
 	}
 
 	public function test_not_start_with__multiple_match( ) {
-		$assertion = \UString::not_start_with( 'https://http://www.example.com', [ 'file://', 'https://', 'http://' ] );
+		$assertion = \UString::notStartWith( 'https://http://www.example.com', [ 'file://', 'https://', 'http://' ] );
 		$this->assertEquals( 'www.example.com', $assertion );
 	}
 
@@ -128,25 +128,25 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 	// DO NOT START WITH
 	public function test_do_not_start_with__match( ) {
 		$assertion = 'http://www.example.com';
-		\UString::do_not_start_with( $assertion, 'http://' );
+		\UString::doNotStartWith( $assertion, 'http://' );
 		$this->assertEquals( 'www.example.com', $assertion );
 	}
 
 	public function test_do_not_start_with__no_match( ) {
 		$assertion = 'www.example.com';
-		\UString::do_not_start_with( $assertion, 'http://' );
+		\UString::doNotStartWith( $assertion, 'http://' );
 		$this->assertEquals( 'www.example.com', $assertion );
 	}
 
 	public function test_do_not_start_with__double_match( ) {
 		$assertion = 'http://http://www.example.com';
-		\UString::do_not_start_with( $assertion, 'http://' );
+		\UString::doNotStartWith( $assertion, 'http://' );
 		$this->assertEquals( 'www.example.com', $assertion );
 	}
 
 	public function test_do_not_start_with__multiple_match( ) {
 		$assertion = 'https://http://www.example.com';
-		\UString::do_not_start_with( $assertion, [ 'file://', 'https://', 'http://' ] );
+		\UString::doNotStartWith( $assertion, [ 'file://', 'https://', 'http://' ] );
 		$this->assertEquals( 'www.example.com', $assertion );
 	}
 
@@ -154,32 +154,32 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 
 	// IS END WITH
 	public function test_is_end_with__match( ) {
-		$test = \UString::is_end_with( 'Ubiq is so cool', 'cool' );
+		$test = \UString::isEndWith( 'Ubiq is so cool', 'cool' );
 		$this->assertTrue( $test );
 	}
 
 	public function test_is_end_with__match_sensitive( ) {
-		$test = \UString::is_end_with( 'Ubiq is so cool', 'Cool' );
+		$test = \UString::isEndWith( 'Ubiq is so cool', 'Cool' );
 		$this->assertFalse( $test );
 	}
 
 	public function test_is_end_with__no_match( ) {
-		$test = \UString::is_end_with( 'Ubiq is so cool', 'boring' );
+		$test = \UString::isEndWith( 'Ubiq is so cool', 'boring' );
 		$this->assertFalse( $test );
 	}
 
 	public function test_is_end_with__multiple_match( ) {
-		$test = \UString::is_end_with( 'Ubiq is so cool', [ 'cool', 'boring' ] );
+		$test = \UString::isEndWith( 'Ubiq is so cool', [ 'cool', 'boring' ] );
 		$this->assertTrue( $test );
 	}
 
 	public function test_is_end_with__multiple_match_sensitive( ) {
-		$test = \UString::is_end_with( 'Ubiq is so cool', [ 'Cool', 'boring' ] );
+		$test = \UString::isEndWith( 'Ubiq is so cool', [ 'Cool', 'boring' ] );
 		$this->assertFalse( $test );
 	}
 
 	public function test_is_end_with__multiple_no_match( ) {
-		$test = \UString::is_end_with( 'Ubiq is so cool', [ 'boring', 'classy' ] );
+		$test = \UString::isEndWith( 'Ubiq is so cool', [ 'boring', 'classy' ] );
 		$this->assertFalse( $test );
 	}
 
@@ -187,32 +187,32 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 
 	// IS END WITH INSENSITIVE
 	public function test_is_end_with_insensitive__match( ) {
-		$test = \UString::is_end_with_insensitive( 'Ubiq is so cool', 'cool' );
+		$test = \UString::isEndWithInsensitive( 'Ubiq is so cool', 'cool' );
 		$this->assertTrue( $test );
 	}
 
 	public function test_is_end_with_insensitive__match_sensitive( ) {
-		$test = \UString::is_end_with_insensitive( 'Ubiq is so cool', 'Cool' );
+		$test = \UString::isEndWithInsensitive( 'Ubiq is so cool', 'Cool' );
 		$this->assertTrue( $test );
 	}
 
 	public function test_is_end_with_insensitive__no_match( ) {
-		$test = \UString::is_end_with_insensitive( 'Ubiq is so cool', 'boring' );
+		$test = \UString::isEndWithInsensitive( 'Ubiq is so cool', 'boring' );
 		$this->assertFalse( $test );
 	}
 
 	public function test_is_end_with_insensitive__multiple_match( ) {
-		$test = \UString::is_end_with_insensitive( 'Ubiq is so cool', [ 'cool', 'boring' ] );
+		$test = \UString::isEndWithInsensitive( 'Ubiq is so cool', [ 'cool', 'boring' ] );
 		$this->assertTrue( $test );
 	}
 
 	public function test_is_end_with_insensitive__multiple_match_sensitive( ) {
-		$test = \UString::is_end_with_insensitive( 'Ubiq is so cool', [ 'Cool', 'boring' ] );
+		$test = \UString::isEndWithInsensitive( 'Ubiq is so cool', [ 'Cool', 'boring' ] );
 		$this->assertTrue( $test );
 	}
 
 	public function test_is_end_with_insensitive__multiple_no_match( ) {
-		$test = \UString::is_end_with_insensitive( 'Ubiq is so cool', [ 'boring', 'classy' ] );
+		$test = \UString::isEndWithInsensitive( 'Ubiq is so cool', [ 'boring', 'classy' ] );
 		$this->assertFalse( $test );
 	}
 
@@ -220,12 +220,12 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 
 	// END WITH
 	public function test_end_with__no_match( ) {
-		$assertion =\UString::end_with( 'http://www.example.com', '/' );
+		$assertion =\UString::endWith( 'http://www.example.com', '/' );
 		$this->assertEquals( 'http://www.example.com/', $assertion );
 	}
 
 	public function test_end_with__match( ) {
-		$assertion =\UString::end_with( 'http://www.example.com/', '/' );
+		$assertion =\UString::endWith( 'http://www.example.com/', '/' );
 		$this->assertEquals( 'http://www.example.com/', $assertion );
 	}
 
@@ -234,13 +234,13 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 	// DO END WITH
 	public function test_do_end_with__no_match( ) {
 		$assertion = 'http://www.example.com';
-		\UString::do_end_with( $assertion, '/' );
+		\UString::doEndWith( $assertion, '/' );
 		$this->assertEquals( 'http://www.example.com/', $assertion );
 	}
 
 	public function test_do_end_with__match( ) {
 		$assertion = 'http://www.example.com/';
-		\UString::do_end_with( $assertion, '/' );
+		\UString::doEndWith( $assertion, '/' );
 		$this->assertEquals( 'http://www.example.com/', $assertion );
 	}
 
@@ -248,22 +248,22 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 
 	// NOT END WITH
 	public function test_not_end_with__no_match( ) {
-		$assertion = \UString::not_end_with( 'http://www.example.com', '/' );
+		$assertion = \UString::notEndWith( 'http://www.example.com', '/' );
 		$this->assertEquals( 'http://www.example.com', $assertion );
 	}
 
 	public function test_not_end_with__macth( ) {
-		$assertion = \UString::not_end_with( 'http://www.example.com/', '/' );
+		$assertion = \UString::notEndWith( 'http://www.example.com/', '/' );
 		$this->assertEquals( 'http://www.example.com', $assertion );
 	}
 
 	public function test_not_end_with__double_match( ) {
-		$assertion = \UString::not_end_with( 'http://www.example.com///', '/' );
+		$assertion = \UString::notEndWith( 'http://www.example.com///', '/' );
 		$this->assertEquals( 'http://www.example.com', $assertion );
 	}
 
 	public function test_not_end_with__multiple_match( ) {
-		$assertion = \UString::not_end_with( 'http://www.example.com/\\/', [ '\\', '/' ] );
+		$assertion = \UString::notEndWith( 'http://www.example.com/\\/', [ '\\', '/' ] );
 		$this->assertEquals( 'http://www.example.com', $assertion );
 	}
 
@@ -272,25 +272,25 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 	// DO NOT END WITH
 	public function test_do_not_end_with__no_match( ) {
 		$assertion = 'http://www.example.com';
-		\UString::do_not_end_with( $assertion, '/' );
+		\UString::doNotEndWith( $assertion, '/' );
 		$this->assertEquals( 'http://www.example.com', $assertion );
 	}
 
 	public function test_do_not_end_with__macth( ) {
 		$assertion = 'http://www.example.com/';
-		\UString::do_not_end_with( $assertion, '/' );
+		\UString::doNotEndWith( $assertion, '/' );
 		$this->assertEquals( 'http://www.example.com', $assertion );
 	}
 
 	public function test_do_not_end_with__double_match( ) {
 		$assertion = 'http://www.example.com///';
-		\UString::do_not_end_with( $assertion, '/' );
+		\UString::doNotEndWith( $assertion, '/' );
 		$this->assertEquals( 'http://www.example.com', $assertion );
 	}
 
 	public function test_do_not_end_with__multiple_match( ) {
 		$assertion = 'http://www.example.com/\\/';
-		\UString::do_not_end_with( $assertion, [ '\\', '/' ] );
+		\UString::doNotEndWith( $assertion, [ '\\', '/' ] );
 		$this->assertEquals( 'http://www.example.com', $assertion );
 	}
 
@@ -331,32 +331,32 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 
 	// HAS INSENSITIVE
 	public function test_has_insensitive__match( ) {
-		$test = \UString::has_insensitive( '/path/to/a/folder', '/to/' );
+		$test = \UString::hasInsensitive( '/path/to/a/folder', '/to/' );
 		$this->assertTrue( $test );
 	}
 
 	public function test_has_insensitive__match_sensitive( ) {
-		$test = \UString::has_insensitive( '/path/to/a/folder', '/TO/' );
+		$test = \UString::hasInsensitive( '/path/to/a/folder', '/TO/' );
 		$this->assertTrue( $test );
 	}
 
 	public function test_has_insensitive__no_match( ) {
-		$test = \UString::has_insensitive( '/path/to/a/folder', '.' );
+		$test = \UString::hasInsensitive( '/path/to/a/folder', '.' );
 		$this->assertFalse( $test );
 	}
 
 	public function test_has_insensitive__multiple_match( ) {
-		$test = \UString::has_insensitive( '/path/to/a/folder', [ '/to/', '.' ] );
+		$test = \UString::hasInsensitive( '/path/to/a/folder', [ '/to/', '.' ] );
 		$this->assertTrue( $test );
 	}
 
 	public function test_has_insensitive__multiple_match_sensitive( ) {
-		$test = \UString::has_insensitive( '/path/to/a/folder', [ '/TO/', '.' ] );
+		$test = \UString::hasInsensitive( '/path/to/a/folder', [ '/TO/', '.' ] );
 		$this->assertTrue( $test );
 	}
 
 	public function test_has_insensitive__multiple_no_match( ) {
-		$test = \UString::has_insensitive( '/path/to/a/folder', [ 'php', '.' ] );
+		$test = \UString::hasInsensitive( '/path/to/a/folder', [ 'php', '.' ] );
 		$this->assertFalse( $test );
 	}
 
@@ -364,11 +364,11 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 
 	// SUBSTR BEFORE
 	public function test_substr_before__match( ) {
-		$substr = \UString::substr_before( 'example.com/my/path', '/' );
+		$substr = \UString::substrBefore( 'example.com/my/path', '/' );
 		$this->assertEquals( 'example.com', $substr );
 	}
 	public function test_substr_before__no_match( ) {
-		$substr = \UString::substr_before( 'example.com', '/' );
+		$substr = \UString::substrBefore( 'example.com', '/' );
 		$this->assertEquals( 'example.com', $substr );
 	}
 
@@ -377,26 +377,26 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 	// DO SUBSTR BEFORE
 	public function test_do_substr_before__match( ) {
 		$original = 'example.com/my/path';
-		$pop = \UString::do_substr_before( $original, '/' );
+		$pop = \UString::doSubstrBefore( $original, '/' );
 		$this->assertEquals( 'example.com', $original );
 		$this->assertEquals( '/my/path', $pop );
 	}
 	public function test_do_substr_before__no_match( ) {
 		$original = 'example.com';
-		$pop = \UString::do_substr_before( $original, '/' );
+		$pop = \UString::doSubstrBefore( $original, '/' );
 		$this->assertEquals( 'example.com', $original );
-		$this->assertEquals( '', $pop );
+		$this->assertEquals( FALSE, $pop );
 	}
 
 
 
 	// SUBSTR BEFORE LAST
 	public function test_substr_before_last__match( ) {
-		$substr = \UString::substr_before_last( 'example.com/my/path/file.md', '/' );
+		$substr = \UString::substrBeforeLast( 'example.com/my/path/file.md', '/' );
 		$this->assertEquals( 'example.com/my/path', $substr );
 	}
 	public function test_substr_before_last__no_match( ) {
-		$substr = \UString::substr_before_last( 'example.com', '/' );
+		$substr = \UString::substrBeforeLast( 'example.com', '/' );
 		$this->assertEquals( '', $substr );
 	}
 
@@ -405,13 +405,13 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 	// DO SUBSTR BEFORE LAST
 	public function test_do_substr_before_last__match( ) {
 		$original = 'example.com/my/path/file.md';
-		$pop = \UString::do_substr_before_last( $original, '/' );
+		$pop = \UString::doSubstrBeforeLast( $original, '/' );
 		$this->assertEquals( 'example.com/my/path', $original );
 		$this->assertEquals( '/file.md', $pop );
 	}
 	public function test_do_substr_before_last__no_match( ) {
 		$original = 'example.com';
-		$pop = \UString::do_substr_before_last( $original, '/' );
+		$pop = \UString::doSubstrBeforeLast( $original, '/' );
 		$this->assertEquals( '', $original );
 		$this->assertEquals( 'example.com', $pop );
 	}
@@ -420,11 +420,11 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 
 	// SUBSTR AFTER
 	public function test_substr_after__match( ) {
-		$substr = \UString::substr_after( 'example.com/my/path', '/' );
+		$substr = \UString::substrAfter( 'example.com/my/path', '/' );
 		$this->assertEquals( 'my/path', $substr );
 	}
 	public function test_substr_after__no_match( ) {
-		$substr = \UString::substr_after( 'example.com', '/' );
+		$substr = \UString::substrAfter( 'example.com', '/' );
 		$this->assertEquals( '', $substr );
 	}
 
@@ -433,13 +433,13 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 	// DO SUBSTR AFTER
 	public function test_do_substr_after__match( ) {
 		$original = 'example.com/my/path';
-		$pop = \UString::do_substr_after( $original, '/' );
+		$pop = \UString::doSubstrAfter( $original, '/' );
 		$this->assertEquals( 'my/path', $original );
 		$this->assertEquals( 'example.com/', $pop );
 	}
 	public function test_do_substr_after__no_match( ) {
 		$original = 'example.com';
-		$pop = \UString::do_substr_after( $original, '/' );
+		$pop = \UString::doSubstrAfter( $original, '/' );
 		$this->assertEquals( '', $original );
 		$this->assertEquals( 'example.com', $pop );
 	}
@@ -448,11 +448,11 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 
 	// SUBSTR AFTER LAST
 	public function test_substr_after_last__match( ) {
-		$substr = \UString::substr_after_last( 'example.com/my/path', '/' );
+		$substr = \UString::substrAfterLast( 'example.com/my/path', '/' );
 		$this->assertEquals( 'path', $substr );
 	}
 	public function test_substr_after_last__no_match( ) {
-		$substr = \UString::substr_after_last( 'example.com', '/' );
+		$substr = \UString::substrAfterLast( 'example.com', '/' );
 		$this->assertEquals( 'example.com', $substr );
 	}
 
@@ -461,13 +461,13 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 	// DO SUBSTR AFTER LAST
 	public function test_do_substr_after_last__match( ) {
 		$original = 'example.com/my/path';
-		$pop = \UString::do_substr_after_last( $original, '/' );
+		$pop = \UString::doSubstrAfterLast( $original, '/' );
 		$this->assertEquals( 'path', $original );
 		$this->assertEquals( 'example.com/my/', $pop );
 	}
 	public function test_do_substr_after_last__no_match( ) {
 		$original = 'example.com';
-		$pop = \UString::do_substr_after_last( $original, '/' );
+		$pop = \UString::doSubstrAfterLast( $original, '/' );
 		$this->assertEquals( 'example.com', $original );
 		$this->assertEquals( '', $pop );
 	}
@@ -492,7 +492,7 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 
 	// STRIP ACCENT
 	public function test_strip_accent( ) {
-		$test = \UString::strip_accent( 'úûüýÿĀāĂăĄąĆć' );
+		$test = \UString::stripAccent( 'úûüýÿĀāĂăĄąĆć' );
 		$this->assertEquals( 'uuuyyAaAaAaCc', $test );
 	}
 
@@ -501,7 +501,7 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 	// DO STRIP ACCENT
 	public function test_do_strip_accent( ) {
 		$test = 'úûüýÿĀāĂăĄąĆć';
-		\UString::do_strip_accent( $test );
+		\UString::doStripAccent( $test );
 		$this->assertEquals( 'uuuyyAaAaAaCc', $test );
 	}
 
@@ -509,15 +509,15 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 
 	// STRIP SPECIAL CHAR
 	public function test_strip_special_char__default( ) {
-		$test = \UString::strip_special_char( 'A page for $13' );
+		$test = \UString::stripSpecialChar( 'A page for $13' );
 		$this->assertEquals( 'A-page-for-13', $test );
 	}
 	public function test_strip_special_char__characters( ) {
-		$test = \UString::strip_special_char( 'A page for $13', 'aeiouyAEIOUY' );
+		$test = \UString::stripSpecialChar( 'A page for $13', 'aeiouyAEIOUY' );
 		$this->assertEquals( 'A-a-e-o', $test );
 	}
 	public function test_strip_special_char__replace( ) {
-		$test = \UString::strip_special_char( 'A page for $13', 'a-zA-Z', '' );
+		$test = \UString::stripSpecialChar( 'A page for $13', 'a-zA-Z', '' );
 		$this->assertEquals( 'Apagefor', $test );
 	}
 
@@ -526,17 +526,17 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 	// DO STRIP SPECIAL CHAR
 	public function test_do_strip_special_char__default( ) {
 		$test = 'A page for $13';
-		\UString::do_strip_special_char( $test );
+		\UString::doStripSpecialChar( $test );
 		$this->assertEquals( 'A-page-for-13', $test );
 	}
 	public function test_do_strip_special_char__characters( ) {
 		$test = 'A page for $13';
-		\UString::do_strip_special_char( $test, 'aeiouyAEIOUY' );
+		\UString::doStripSpecialChar( $test, 'aeiouyAEIOUY' );
 		$this->assertEquals( 'A-a-e-o', $test );
 	}
 	public function test_do_strip_special_char__replace( ) {
 		$test = 'A page for $13';
-		\UString::do_strip_special_char( $test, 'a-zA-Z', '' );
+		\UString::doStripSpecialChar( $test, 'a-zA-Z', '' );
 		$this->assertEquals( 'Apagefor', $test );
 	}
 }

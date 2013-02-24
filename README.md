@@ -26,7 +26,7 @@ With Ubiq, your string treatments are fully readable.
 
 ```php
 $string = 'example.com/my/path';
-\UString::substr_before( $string, '/' );
+\UString::substrBefore( $string, '/' );
 // Returns 'example.com'
 // Instead of usual implementation: substr( $string, 0, strpos( $string, '/' ) );
 ```
@@ -41,17 +41,17 @@ The Ubiq tries to be kind and let you use it in different ways.
 
 ```php
 $string = 'example.com/my/path';
-\UString::substr_before( $string, '/' );
+\UString::substrBefore( $string, '/' );
 // Returns 'example.com'
 ```
 
 ```php
-\UString::substr_before( $string, [ '/', '.' ] );
+\UString::substrBefore( $string, [ '/', '.' ] );
 // Returns 'example'
 ```
 
 ```php
-\UString::substr_before_last( $string, [ '/', '.' ] );
+\UString::substrBeforeLast( $string, [ '/', '.' ] );
 // Returns 'example.com/my'
 ```
 
@@ -65,19 +65,19 @@ Ubiq has consistent and normalized api.
 
 ```php
 $string = 'my/path';
-\UString::start_with( $string, '/' );
+\UString::startWith( $string, '/' );
 // Returns '/my/path'
 ```
 
 ```php
 // Prefix by 'is' to test
-\UString::is_start_with( $string, '/' );
+\UString::isStartWith( $string, '/' );
 // Returns FALSE
 ```
 
 ```php
 // Prefix by 'do' to treat by reference
-\UString::do_start_with( $string, '/' );
+\UString::doStartWith( $string, '/' );
 // $string value is now '/my/path'
 ```
 

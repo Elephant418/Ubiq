@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-string \UString::not_end_with( string $haystack, mixed $needles );
+string \UString::notEndWith( string $haystack, mixed $needles );
 ```
 
 If a string ends with one or several specific character/sequence, the sufix is removed.
@@ -21,27 +21,27 @@ Examples
 ### Example 1
 
 ```php
-\UString::not_end_with( 'http://www.example.com', '/' );
+\UString::notEndWith( 'http://www.example.com', '/' );
 ```
 Returns 'http://www.example.com'.
 
 ### Example 2
 
 ```php
-\UString::not_end_with( 'http://www.example.com/', '/' );
+\UString::notEndWith( 'http://www.example.com/', '/' );
 ```
 Returns 'http://www.example.com'.
 
 ### Example 3
 
 ```php
-\UString::not_end_with( 'http://www.example.com///', '/' );
+\UString::notEndWith( 'http://www.example.com///', '/' );
 ```
 Returns 'http://www.example.com'.
 
 ### Example 4
 
 ```php
-\UString::not_end_with( 'http://www.example.com/\\/', [ '\\', '/' ] );
+\UString::notEndWith( 'http://www.example.com/\\/', [ '\\', '/' ] );
 ```
 Returns 'http://www.example.com'.

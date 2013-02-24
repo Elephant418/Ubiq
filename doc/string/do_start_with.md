@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-void \UString::do_start_with( string &$haystack, string $needle );
+void \UString::doStartWith( string &$haystack, string $needle );
 ```
 
 If a string does not start with a specific character/sequence, the string is prefixed.
@@ -22,7 +22,7 @@ Examples
 
 ```php
 $url = 'www.example.com';
-\UString::do_start_with( $url, 'http://' );
+\UString::doStartWith( $url, 'http://' );
 echo $url;
 ```
 Returns 'http://www.example.com'.
@@ -31,7 +31,7 @@ Returns 'http://www.example.com'.
 
 ```php
 $url = 'http://www.example.com';
-\UString::do_start_with( $url, 'http://' );
+\UString::doStartWith( $url, 'http://' );
 echo $url;
 ```
 Returns 'http://www.example.com'.

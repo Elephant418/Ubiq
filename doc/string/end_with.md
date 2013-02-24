@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-string \UString::end_with( string $haystack, string $needle );
+string \UString::endWith( string $haystack, string $needle );
 ```
 
 If a string does not end with a specific character/sequence, the string is sufixed.
@@ -21,13 +21,13 @@ Examples
 ### Example 1
 
 ```php
-\UString::end_with( 'http://www.example.com', '/' );
+\UString::endWith( 'http://www.example.com', '/' );
 ```
 Returns 'http://www.example.com/'.
 
 ### Example 2
 
 ```php
-\UString::end_with( 'http://www.example.com/', '/' );
+\UString::endWith( 'http://www.example.com/', '/' );
 ```
 Returns 'http://www.example.com/'.

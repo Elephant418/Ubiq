@@ -13,7 +13,7 @@ abstract class UObject {
 		if ( is_object( $mixed ) ) {
 			$mixed = get_class( $mixed );
 		} else {
-			\UString::do_not_start_with( $mixed, '\\' );
+			\UString::doNotStartWith( $mixed, '\\' );
 		}
 		return $mixed;
 	}
@@ -37,11 +37,11 @@ abstract class UObject {
 
 	public static function get_namespace( $class ) {
 		\UObject::do_convert_to_class( $class );
-		return \UString::substr_before_last( $class, '\\' );
+		return \UString::substrBeforeLast( $class, '\\' );
 	}
 
 	public static function get_class_name( $class ) {
 		\UObject::do_convert_to_class( $class );
-		return \UString::substr_after_last( $class, '\\' );
+		return \UString::substrAfterLast( $class, '\\' );
 	}
 }

@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-void \UString::do_not_start_with( string &$haystack, mixed $needles );
+void \UString::doNotStartWith( string &$haystack, mixed $needles );
 ```
 
 If a string starts with one or several specific character/sequence, the prefix is removed.
@@ -22,7 +22,7 @@ Examples
 
 ```php
 $url = 'http://www.example.com';
-\UString::do_not_start_with( $url, 'http://' );
+\UString::doNotStartWith( $url, 'http://' );
 echo $url;
 ```
 Returns 'www.example.com'.
@@ -31,7 +31,7 @@ Returns 'www.example.com'.
 
 ```php
 $url = 'www.example.com';
-\UString::do_not_start_with( $url, 'http://' );
+\UString::doNotStartWith( $url, 'http://' );
 echo $url;
 ```
 Returns 'www.example.com'.
@@ -40,7 +40,7 @@ Returns 'www.example.com'.
 
 ```php
 $url = 'http://http://www.example.com';
-\UString::do_not_start_with( $url, 'http://' );
+\UString::doNotStartWith( $url, 'http://' );
 echo $url;
 ```
 Returns 'www.example.com'.
@@ -49,7 +49,7 @@ Returns 'www.example.com'.
 
 ```php
 $url = 'http://https://www.example.com';
-\UString::do_not_start_with( $url, [ 'file://', 'https://', 'http://' ] );
+\UString::doNotStartWith( $url, [ 'file://', 'https://', 'http://' ] );
 echo $url;
 ```
 Returns 'www.example.com'.
