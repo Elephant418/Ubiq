@@ -3,6 +3,13 @@ Changelog for Ubiq
 
 
 
+0.4: 2013-02-23
+-------- 
+
+* New: Use PSR1 naming standard
+
+
+
 0.3.3: 2013-01-22
 -------- 
 

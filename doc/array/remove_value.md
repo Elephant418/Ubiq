@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-array \UString::remove_value( array $array, mixed $values );
+array \UString::removeValue( array $array, mixed $values );
 ```
 
 Removes the elements designated by values from the input array.
@@ -21,13 +21,13 @@ Examples
 ### Example 1
 
 ```php
-\UArray::remove_index( [ 1, 2, 3 ], 2 );
+\UArray::removeIndex( [ 1, 2, 3 ], 2 );
 ```
 Returns [ 1, 3 ].
 
 ### Example 2
 
 ```php
-\UArray::remove_index( [ 1, 2, 3, 'Ubiq', name' => 'Ubiq' ], [ 'Ubiq', 2 ] );
+\UArray::removeIndex( [ 1, 2, 3, 'Ubiq', name' => 'Ubiq' ], [ 'Ubiq', 2 ] );
 ```
 Returns [ 1, 3 ].

@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-array \UArray::merge_unique( array $array1 [, array $array2, [ … ] ] );
+array \UArray::mergeUnique( array $array1 [, array $array2, [ … ] ] );
 ```
 
 Merges the elements of one or more arrays together without duplicate values. <br>
@@ -21,13 +21,13 @@ Examples
 ### Example 1
 
 ```php
-\UArray::merge_unique( [ 1, 2, 3 ], [ 2, 3, 4 ] );
+\UArray::mergeUnique( [ 1, 2, 3 ], [ 2, 3, 4 ] );
 ```
 Returns [ 1, 2, 3, 4 ]
 
 ### Example 2
 
 ```php
-\UArray::merge_unique( [ 1, 2, 3 ], [ 2, 3, 4 ], [ 5, 2 ] );
+\UArray::mergeUnique( [ 1, 2, 3 ], [ 2, 3, 4 ], [ 5, 2 ] );
 ```
 Returns [ 1, 2, 3, 4, 5 ]

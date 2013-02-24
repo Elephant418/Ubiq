@@ -10,7 +10,7 @@ abstract class UString {
 	  STARTS WITH & ENDS WITH METHODS
 	 *************************************************************************/
 	public static function is_start_with( $haystack, $needles ) {
-		\UArray::do_convert_to_array( $needles );
+		\UArray::doConvertToArray( $needles );
 		foreach( $needles as $needle ) {
 			if ( substr( $haystack, 0, strlen( $needle ) ) === $needle ) {
 				return TRUE;
@@ -20,7 +20,7 @@ abstract class UString {
 	}
 
 	public static function is_start_with_insensitive( $haystack, $needles ) {
-		\UArray::do_convert_to_array( $needles );
+		\UArray::doConvertToArray( $needles );
 		$needles = array_map( 'strtolower', $needles );
 		return \UString::is_start_with( strtolower( $haystack ), $needles );
 	}
@@ -37,7 +37,7 @@ abstract class UString {
 	}
 
 	public static function not_start_with( $haystack, $needles ) {
-		\UArray::do_convert_to_array( $needles );
+		\UArray::doConvertToArray( $needles );
 		array_walk( $needles, function( &$a ) {
 			$a = preg_quote( $a, '/' );
 		} );
@@ -51,7 +51,7 @@ abstract class UString {
 	}
 
 	public static function is_end_with( $haystack, $needles ) {
-		\UArray::do_convert_to_array( $needles );
+		\UArray::doConvertToArray( $needles );
 		foreach( $needles as $needle ) {
 			if ( substr( $haystack, -strlen( $needle ) ) === $needle ) {
 				return TRUE;
@@ -61,7 +61,7 @@ abstract class UString {
 	}
 
 	public static function is_end_with_insensitive( $haystack, $needles ) {
-		\UArray::do_convert_to_array( $needles );
+		\UArray::doConvertToArray( $needles );
 		$needles = array_map( 'strtolower', $needles );
 		return \UString::is_end_with( strtolower( $haystack ), $needles );
 	}
@@ -78,7 +78,7 @@ abstract class UString {
 	}
 
 	public static function not_end_with( $haystack, $needles ) {
-		\UArray::do_convert_to_array( $needles );
+		\UArray::doConvertToArray( $needles );
 		array_walk( $needles, function( &$a ) {
 			$a = preg_quote( $a, '/' );
 		} );
@@ -97,7 +97,7 @@ abstract class UString {
 	  HAS METHODS
 	 *************************************************************************/
 	public static function has( $haystack, $needles ) {
-		\UArray::do_convert_to_array( $needles );
+		\UArray::doConvertToArray( $needles );
 		foreach( $needles as $needle ) {
 			if ( strpos( $haystack, $needle ) !== FALSE ) {
 				return TRUE;
@@ -107,7 +107,7 @@ abstract class UString {
 	}
 
 	public static function has_insensitive( $haystack, $needles ) {
-		\UArray::do_convert_to_array( $needles );
+		\UArray::doConvertToArray( $needles );
 		$needles = array_map( 'strtolower', $needles );
 		return \UString::has( $haystack, $needles );
 	}
@@ -118,7 +118,7 @@ abstract class UString {
 	  SUBSTRING METHODS
 	 *************************************************************************/
 	public static function substr_before( $haystack, $needles ) {
-		\UArray::do_convert_to_array( $needles );
+		\UArray::doConvertToArray( $needles );
 		$result = $haystack;
 		foreach( $needles as $needle ) {
 			if ( ! empty( $needle) && \UString::has( $haystack, $needle ) ) {
@@ -140,7 +140,7 @@ abstract class UString {
 	}
 
 	public static function substr_before_last( $haystack, $needles ) {
-		\UArray::do_convert_to_array( $needles );
+		\UArray::doConvertToArray( $needles );
 		$result = '';
 		foreach( $needles as $needle ) {
 			if ( ! empty( $needle ) && \UString::has( $haystack, $needle ) ) {
@@ -162,7 +162,7 @@ abstract class UString {
 	}
 
 	public static function substr_after( $haystack, $needles ) {
-		\UArray::do_convert_to_array( $needles );
+		\UArray::doConvertToArray( $needles );
 		$result = '';
 		foreach( $needles as $needle ) {
 			if ( ! empty( $needle) && \UString::has( $haystack, $needle ) ) {
@@ -183,7 +183,7 @@ abstract class UString {
 	}
 
 	public static function substr_after_last( $haystack, $needles ) {
-		\UArray::do_convert_to_array( $needles );
+		\UArray::doConvertToArray( $needles );
 		$result = $haystack;
 		foreach( $needles as $needle ) {
 			if ( ! empty( $needle) && \UString::has( $haystack, $needle ) ) {

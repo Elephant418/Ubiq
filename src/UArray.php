@@ -9,7 +9,7 @@ abstract class UArray {
 	/*************************************************************************
 	  CONERSION METHODS
 	 *************************************************************************/
-	public static function convert_to_array( $mixed ) {
+	public static function convertToArray( $mixed ) {
 		if ( is_object( $mixed ) ) {
 			if ( is_a( $mixed, 'StdClass' ) ) {
 				$mixed = ( array ) $mixed;
@@ -28,8 +28,8 @@ abstract class UArray {
 		return $mixed;
 	}
 
-	public static function do_convert_to_array( &$mixed ) {
-		$mixed = \UArray::convert_to_array( $mixed );
+	public static function doConvertToArray( &$mixed ) {
+		$mixed = \UArray::convertToArray( $mixed );
 	}
 
 
@@ -37,7 +37,7 @@ abstract class UArray {
 	/*************************************************************************
 	  SCHEMA METHODS
 	 *************************************************************************/
-	public static function is_match_schema( $array, $schema ) {
+	public static function isMatchSchema( $array, $schema ) {
 		foreach ( $schema as $key => $value ) {
 			if ( is_numeric( $key ) ) {
 				if ( ! isset( $array[ $value ] ) ) {
@@ -48,7 +48,7 @@ abstract class UArray {
 		return TRUE;
 	}
 
-	public static function apply_schema( $array, $schema ) {
+	public static function applySchema( $array, $schema ) {
 		foreach ( $schema as $key => $value ) {
 			if ( is_numeric( $key ) ) {
 				if ( ! isset( $array[ $value ] ) ) {
@@ -63,8 +63,8 @@ abstract class UArray {
 		return $array;
 	}
 
-	public static function do_apply_schema( &$array, $schema ) {
-		$result = \UArray::apply_schema( $array, $schema );
+	public static function doApplySchema( &$array, $schema ) {
+		$result = \UArray::applySchema( $array, $schema );
 		if ( $result !== FALSE ) {
 			$array = $result;
 		}
@@ -76,7 +76,7 @@ abstract class UArray {
 	/*************************************************************************
 	  OFFSET METHODS
 	 *************************************************************************/
-	public static function get_offset_index( $array, $index ) {
+	public static function getOffsetIndex( $array, $index ) {
 		return array_search( $index, array_keys( $array ), TRUE );
 	}
 
@@ -85,8 +85,8 @@ abstract class UArray {
 	/*************************************************************************
 	  REMOVING METHODS
 	 *************************************************************************/
-	public static function remove_index( $array, $indexes ) {
-		\UArray::do_convert_to_array( $indexes );
+	public static function removeIndex( $array, $indexes ) {
+		\UArray::doConvertToArray( $indexes );
 		$removed_keys = [ ];
 		foreach( $indexes as $index ) {
 			if ( is_numeric( $index ) ) {
@@ -98,7 +98,7 @@ abstract class UArray {
 				}
 				$key = $index - $gap;
 				if ( array_key_exists( $key, $array ) ) {
-					$offset = \UArray::get_offset_index( $array, $key );
+					$offset = \UArray::getOffsetIndex( $array, $key );
 					array_splice( $array, $offset, 1 );
 					$removed_keys[ ] = $index;
 				}
@@ -109,21 +109,21 @@ abstract class UArray {
 		return $array;
 	}
 
-	public static function do_remove_index( &$array, $indexes ) {
-		$array = \UArray::remove_index( $array, $indexes );
+	public static function doRemoveIndex( &$array, $indexes ) {
+		$array = \UArray::removeIndex( $array, $indexes );
 	}
 
-	public static function remove_value( $array, $values ) {
-		\UArray::do_convert_to_array( $values );
+	public static function removeValue( $array, $values ) {
+		\UArray::doConvertToArray( $values );
 		$indexes = [ ];
 		foreach( $values as $value ) {
 			$indexes = array_merge( $indexes, array_keys( $array, $value ) );
 		}
-		return \UArray::remove_index( $array, $indexes );
+		return \UArray::removeIndex( $array, $indexes );
 	}
 
-	public static function do_remove_value( &$array, $values ) {
-		$array = \UArray::remove_value( $array, $values );
+	public static function doRemoveValue( &$array, $values ) {
+		$array = \UArray::removeValue( $array, $values );
 	}
 
 
@@ -132,12 +132,12 @@ abstract class UArray {
 	  MERGE METHODS
 	 *************************************************************************/
 	// Keep the order of each FIRST occurence 
-	public static function merge_unique( $array1 ) {
+	public static function mergeUnique( $array1 ) {
 		return array_values( array_unique( call_user_func_array( 'array_merge', func_get_args( ) ) ) );
 	}
 
 	// Keep the order of each LAST occurence 
-	public static function reverse_merge_unique( $array1 ) {
+	public static function reverseMergeUnique( $array1 ) {
 		return array_reverse( array_values( array_unique( array_reverse( call_user_func_array( 'array_merge', func_get_args( ) ) ) ) ) );
 	}
 }

@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-bool \UArray::is_match_schema( array $array, array $schema );
+bool \UArray::isMatchSchema( array $array, array $schema );
 ```
 
 Returns TRUE if the array is matching the schema, FALSE otherwise. 
@@ -20,7 +20,7 @@ Examples
 
 ```php
 $array = [ ];
-\UArray::is_match_schema( $array, [ 'needed' ] );
+\UArray::isMatchSchema( $array, [ 'needed' ] );
 ```
 Returns FALSE
 
@@ -28,7 +28,7 @@ Returns FALSE
 
 ```php
 $array = [ ];
-\UArray::is_match_schema( $array, [ 'optional' => 3 ] );
+\UArray::isMatchSchema( $array, [ 'optional' => 3 ] );
 ```
 Returns TRUE;
 
@@ -36,7 +36,7 @@ Returns TRUE;
 
 ```php
 $array = [ 'extra' => 4 ];
-\UArray::is_match_schema( $array, [ 'optional' => 3 ] );
+\UArray::isMatchSchema( $array, [ 'optional' => 3 ] );
 ```
 Returns TRUE;
 
@@ -44,7 +44,7 @@ Returns TRUE;
 
 ```php
 $array = [ 'needed' => 1 ];
-\UArray::is_match_schema( $array, [ 'needed' ] );
+\UArray::isMatchSchema( $array, [ 'needed' ] );
 ```
 Returns TRUE;
 
@@ -52,7 +52,7 @@ Returns TRUE;
 
 ```php
 $array = [ 'needed' => 1, 'optional' => 2 ];
-\UArray::is_match_schema( $array, [ 'needed', 'optional' => 3 ] );
+\UArray::isMatchSchema( $array, [ 'needed', 'optional' => 3 ] );
 ```
 Returns TRUE;
 
@@ -60,6 +60,6 @@ Returns TRUE;
 
 ```php
 $array = [ 'needed' => 1, 'optional' => 2, 'extra' => 4 ];
-\UArray::is_match_schema( $array, [ 'needed', 'optional' => 3 ] );
+\UArray::isMatchSchema( $array, [ 'needed', 'optional' => 3 ] );
 ```
 Returns TRUE;

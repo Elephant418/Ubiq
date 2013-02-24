@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-array \UArray::convert_to_array( mixed $array );
+array \UArray::convertToArray( mixed $array );
 ```
 
 If the parameter is not an array, it is converted to an array.
@@ -21,20 +21,20 @@ Examples
 ### Example 1
 
 ```php
-\UArray::convert_to_array( 'a string' );
+\UArray::convertToArray( 'a string' );
 ```
 Returns [ 'a string' ]
 
 ### Example 2
 
 ```php
-\UArray::convert_to_array( [ 'a string' ] );
+\UArray::convertToArray( [ 'a string' ] );
 ```
 Returns [ 'a string' ]
 
 ### Example 3
 
 ```php
-\UArray::convert_to_array( NULL );
+\UArray::convertToArray( NULL );
 ```
 Returns [ ]
