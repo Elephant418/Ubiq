@@ -9,7 +9,7 @@ abstract class UObject {
 	/*************************************************************************
 	  CONERSION METHODS
 	 *************************************************************************/
-	public static function convert_to_class( $mixed ) {
+	public static function convertToClass( $mixed ) {
 		if ( is_object( $mixed ) ) {
 			$mixed = get_class( $mixed );
 		} else {
@@ -18,8 +18,8 @@ abstract class UObject {
 		return $mixed;
 	}
 
-	public static function do_convert_to_class( &$mixed ) {
-		$mixed = \UObject::convert_to_class( $mixed );
+	public static function doConvertToClass( &$mixed ) {
+		$mixed = \UObject::convertToClass( $mixed );
 	}
 
 
@@ -27,21 +27,21 @@ abstract class UObject {
 	/*************************************************************************
 	  GETTER METHODS
 	 *************************************************************************/
-	public static function get_attribute_names( $class ) {
-		\UObject::do_convert_to_class( $class );
+	public static function getAttributeNames( $class ) {
+		\UObject::doConvertToClass( $class );
 		if ( class_exists( $class ) ) {
 			return array_keys( get_class_vars( $class ) );
 		}
 		return FALSE;
 	}
 
-	public static function get_namespace( $class ) {
-		\UObject::do_convert_to_class( $class );
+	public static function getNamespace( $class ) {
+		\UObject::doConvertToClass( $class );
 		return \UString::substrBeforeLast( $class, '\\' );
 	}
 
-	public static function get_class_name( $class ) {
-		\UObject::do_convert_to_class( $class );
+	public static function getClassName( $class ) {
+		\UObject::doConvertToClass( $class );
 		return \UString::substrAfterLast( $class, '\\' );
 	}
 }

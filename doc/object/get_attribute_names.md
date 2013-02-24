@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-array \UObject::get_attribute_names( mixed $class );
+array \UObject::getAttributeNames( mixed $class );
 ```
 
 Returns the name of the public attributes of the passed class.
@@ -23,7 +23,7 @@ class Example_Class {
 	public $name;
 	public $height;
 }
-\UObject::get_attribute_names( new Example_Class );
+\UObject::getAttributeNames( new Example_Class );
 ```
 Returns [ 'name', 'height' ]
 
@@ -34,6 +34,6 @@ class Example_Class {
 	public $name;
 	public $height;
 }
-\UObject::get_attribute_names( 'Example_Class' );
+\UObject::getAttributeNames( 'Example_Class' );
 ```
 Returns [ 'name', 'height' ]

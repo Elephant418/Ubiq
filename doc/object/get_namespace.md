@@ -6,7 +6,7 @@ Description
 -------- 
 
 ```php
-string \UObject::get_namespace( mixed $class );
+string \UObject::getNamespace( mixed $class );
 ```
 
 Returns the namespace of passed class.
@@ -22,7 +22,7 @@ Examples
 namespace Test\Ubiq {
 	class Example_Class { }
 }
-\UObject::get_namespace( new \Test\Ubiq\Example_Class );
+\UObject::getNamespace( new \Test\Ubiq\Example_Class );
 ```
 Returns 'Test\Ubiq'
 
@@ -32,13 +32,13 @@ Returns 'Test\Ubiq'
 namespace Test\Ubiq {
 	class Example_Class { }
 }
-\UObject::get_namespace( 'Test\\Ubiq\\Example_Class' );
+\UObject::getNamespace( 'Test\\Ubiq\\Example_Class' );
 ```
 Returns 'Test\Ubiq'
 
 ### Example 3
 
 ```php
-\UObject::get_namespace( new \Exception );
+\UObject::getNamespace( new \Exception );
 ```
 Returns ''
