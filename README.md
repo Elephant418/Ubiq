@@ -20,9 +20,9 @@ Functions for readable treatment of string, array & object.
 Let's code
 -------- 
 
-### Readable
+### Simple
 
-With Ubiq, your string treatments are fully readable.
+With Ubiq, your treatments are simple.
 
 ```php
 $string = 'example.com/my/path';
@@ -35,9 +35,9 @@ $string = 'example.com/my/path';
 
 
 
-### Adaptive
+### Readable
 
-The Ubiq tries to be kind and let you use it in different ways.
+With Ubiq, even your complex treatments still readable.
 
 ```php
 $string = 'example.com/my/path';
@@ -65,18 +65,21 @@ Ubiq has consistent and normalized api.
 
 ```php
 $string = 'my/path';
+// Without prefix, the method return the result of the treatment
 \UString::startWith( $string, '/' );
 // Returns '/my/path'
 ```
 
 ```php
-// Prefix by 'is' to test
+$string = 'my/path';
+// With 'is' prefix, the method return the result of the test
 \UString::isStartWith( $string, '/' );
 // Returns FALSE
 ```
 
 ```php
-// Prefix by 'do' to treat by reference
+$string = 'my/path';
+// With 'do' prefix, the method treat by reference
 \UString::doStartWith( $string, '/' );
 // $string value is now '/my/path'
 ```
@@ -95,7 +98,7 @@ Add or complete the composer.json file at the root of your repository, like this
 ```json
 {
     "require": {
-        "pixel418/ubiq": "0.3.3"
+        "pixel418/ubiq": "0.4"
     }
 }
 ```
@@ -121,7 +124,7 @@ How to Contribute
 
 If you don't know much about pull request, you can read [the Github article](https://help.github.com/articles/using-pull-requests).
 
-All pull requests must follow this particular [style guide](https://github.com/Pixel418/Style_Guide) and accompanied by passing [phpunit](https://github.com/sebastianbergmann/phpunit/) tests.
+All pull requests must follow the PSR1 standard and accompanied by passing [phpunit](https://github.com/sebastianbergmann/phpunit/) tests.
 
 [&uarr; top](#readme)
 
