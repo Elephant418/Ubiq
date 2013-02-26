@@ -3,6 +3,13 @@ Changelog for Ubiq
 
 
 
+0.4.1: 2013-02-26
+-------- 
+
+* New: Add php5.3 support
+
+
+
 0.4: 2013-02-23
 -------- 
 
