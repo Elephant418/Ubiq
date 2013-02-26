@@ -20,9 +20,9 @@ abstract class UArray {
 			}
 		} else if ( ! is_array( $mixed ) ) {
 			if ( empty( $mixed ) ) {
-				$mixed = [ ];
+				$mixed = array( );
 			} else {
-				$mixed = [ $mixed ];
+				$mixed = array( $mixed );
 			}
 		}
 		return $mixed;
@@ -87,7 +87,7 @@ abstract class UArray {
 	 *************************************************************************/
 	public static function removeIndex( $array, $indexes ) {
 		\UArray::doConvertToArray( $indexes );
-		$removed_keys = [ ];
+		$removed_keys = array( );
 		foreach( $indexes as $index ) {
 			if ( is_numeric( $index ) ) {
 				$gap = 0;
@@ -115,7 +115,7 @@ abstract class UArray {
 
 	public static function removeValue( $array, $values ) {
 		\UArray::doConvertToArray( $values );
-		$indexes = [ ];
+		$indexes = array( );
 		foreach( $values as $value ) {
 			$indexes = array_merge( $indexes, array_keys( $array, $value ) );
 		}

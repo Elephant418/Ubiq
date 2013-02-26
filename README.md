@@ -4,8 +4,8 @@ Ubiq [![Build Status](https://secure.travis-ci.org/Pixel418/Ubiq.png)](http://tr
 Functions for readable treatment of string, array & object.
 
 1. [Let's code](#lets-code)    
-1.1 [Readable](#readable)  
-1.2 [Adaptive](#adaptive)  
+1.1 [Simple](#simple)  
+1.2 [Readable](#readable)  
 1.3 [Normalized](#normalized)
 2. [Documentation](https://github.com/Pixel418/Ubiq/blob/master/doc/index.md#readme)  
 2.1 [String manipulation](https://github.com/Pixel418/Ubiq/blob/master/doc/index.md#string)  

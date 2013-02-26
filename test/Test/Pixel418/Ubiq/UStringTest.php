@@ -25,17 +25,17 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function test_is_start_with__multiple_match( ) {
-		$test = \UString::isStartWith( 'Ubiq is so cool', [ 'Ubiq', 'Java' ] );
+		$test = \UString::isStartWith( 'Ubiq is so cool', array( 'Ubiq', 'Java' ) );
 		$this->assertTrue( $test );
 	}
 
 	public function test_is_start_with__multiple_match_sensitive( ) {
-		$test = \UString::isStartWith( 'Ubiq is so cool', [ 'ubiq', 'Java' ] );
+		$test = \UString::isStartWith( 'Ubiq is so cool', array( 'ubiq', 'Java' ) );
 		$this->assertFalse( $test );
 	}
 
 	public function test_is_start_with__multiple_no_match( ) {
-		$test = \UString::isStartWith( 'Ubiq is so cool', [ 'Java', '.NET' ] );
+		$test = \UString::isStartWith( 'Ubiq is so cool', array( 'Java', '.NET' ) );
 		$this->assertFalse( $test );
 	}
 
@@ -58,17 +58,17 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function test_is_start_with_insensitive__multiple_match( ) {
-		$test = \UString::isStartWithInsensitive( 'Ubiq is so cool', [ 'Ubiq', 'Java' ] );
+		$test = \UString::isStartWithInsensitive( 'Ubiq is so cool', array( 'Ubiq', 'Java' ) );
 		$this->assertTrue( $test );
 	}
 
 	public function test_is_start_with_insensitive__multiple_match_sensitive( ) {
-		$test = \UString::isStartWithInsensitive( 'Ubiq is so cool', [ 'ubiq', 'Java' ] );
+		$test = \UString::isStartWithInsensitive( 'Ubiq is so cool', array( 'ubiq', 'Java' ) );
 		$this->assertTrue( $test );
 	}
 
 	public function test_is_start_with_insensitive__multiple_no_match( ) {
-		$test = \UString::isStartWithInsensitive( 'Ubiq is so cool', [ 'Java', '.NET' ] );
+		$test = \UString::isStartWithInsensitive( 'Ubiq is so cool', array( 'Java', '.NET' ) );
 		$this->assertFalse( $test );
 	}
 
@@ -119,7 +119,7 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function test_not_start_with__multiple_match( ) {
-		$assertion = \UString::notStartWith( 'https://http://www.example.com', [ 'file://', 'https://', 'http://' ] );
+		$assertion = \UString::notStartWith( 'https://http://www.example.com', array( 'file://', 'https://', 'http://' ) );
 		$this->assertEquals( 'www.example.com', $assertion );
 	}
 
@@ -146,7 +146,7 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 
 	public function test_do_not_start_with__multiple_match( ) {
 		$assertion = 'https://http://www.example.com';
-		\UString::doNotStartWith( $assertion, [ 'file://', 'https://', 'http://' ] );
+		\UString::doNotStartWith( $assertion, array( 'file://', 'https://', 'http://' ) );
 		$this->assertEquals( 'www.example.com', $assertion );
 	}
 
@@ -169,17 +169,17 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function test_is_end_with__multiple_match( ) {
-		$test = \UString::isEndWith( 'Ubiq is so cool', [ 'cool', 'boring' ] );
+		$test = \UString::isEndWith( 'Ubiq is so cool', array( 'cool', 'boring' ) );
 		$this->assertTrue( $test );
 	}
 
 	public function test_is_end_with__multiple_match_sensitive( ) {
-		$test = \UString::isEndWith( 'Ubiq is so cool', [ 'Cool', 'boring' ] );
+		$test = \UString::isEndWith( 'Ubiq is so cool', array( 'Cool', 'boring' ) );
 		$this->assertFalse( $test );
 	}
 
 	public function test_is_end_with__multiple_no_match( ) {
-		$test = \UString::isEndWith( 'Ubiq is so cool', [ 'boring', 'classy' ] );
+		$test = \UString::isEndWith( 'Ubiq is so cool', array( 'boring', 'classy' ) );
 		$this->assertFalse( $test );
 	}
 
@@ -202,17 +202,17 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function test_is_end_with_insensitive__multiple_match( ) {
-		$test = \UString::isEndWithInsensitive( 'Ubiq is so cool', [ 'cool', 'boring' ] );
+		$test = \UString::isEndWithInsensitive( 'Ubiq is so cool', array( 'cool', 'boring' ) );
 		$this->assertTrue( $test );
 	}
 
 	public function test_is_end_with_insensitive__multiple_match_sensitive( ) {
-		$test = \UString::isEndWithInsensitive( 'Ubiq is so cool', [ 'Cool', 'boring' ] );
+		$test = \UString::isEndWithInsensitive( 'Ubiq is so cool', array( 'Cool', 'boring' ) );
 		$this->assertTrue( $test );
 	}
 
 	public function test_is_end_with_insensitive__multiple_no_match( ) {
-		$test = \UString::isEndWithInsensitive( 'Ubiq is so cool', [ 'boring', 'classy' ] );
+		$test = \UString::isEndWithInsensitive( 'Ubiq is so cool', array( 'boring', 'classy' ) );
 		$this->assertFalse( $test );
 	}
 
@@ -263,7 +263,7 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function test_not_end_with__multiple_match( ) {
-		$assertion = \UString::notEndWith( 'http://www.example.com/\\/', [ '\\', '/' ] );
+		$assertion = \UString::notEndWith( 'http://www.example.com/\\/', array( '\\', '/' ) );
 		$this->assertEquals( 'http://www.example.com', $assertion );
 	}
 
@@ -290,7 +290,7 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 
 	public function test_do_not_end_with__multiple_match( ) {
 		$assertion = 'http://www.example.com/\\/';
-		\UString::doNotEndWith( $assertion, [ '\\', '/' ] );
+		\UString::doNotEndWith( $assertion, array( '\\', '/' ) );
 		$this->assertEquals( 'http://www.example.com', $assertion );
 	}
 
@@ -313,17 +313,17 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function test_has__multiple_match( ) {
-		$test = \UString::has( '/path/to/a/folder', [ '/to/', '.' ] );
+		$test = \UString::has( '/path/to/a/folder', array( '/to/', '.' ) );
 		$this->assertTrue( $test );
 	}
 
 	public function test_has__multiple_match_sensitive( ) {
-		$test = \UString::has( '/path/to/a/folder', [ '/TO/', '.' ] );
+		$test = \UString::has( '/path/to/a/folder', array( '/TO/', '.' ) );
 		$this->assertFalse( $test );
 	}
 
 	public function test_has__multiple_no_match( ) {
-		$test = \UString::has( '/path/to/a/folder', [ 'php', '.' ] );
+		$test = \UString::has( '/path/to/a/folder', array( 'php', '.' ) );
 		$this->assertFalse( $test );
 	}
 
@@ -346,17 +346,17 @@ class UStringTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function test_has_insensitive__multiple_match( ) {
-		$test = \UString::hasInsensitive( '/path/to/a/folder', [ '/to/', '.' ] );
+		$test = \UString::hasInsensitive( '/path/to/a/folder', array( '/to/', '.' ) );
 		$this->assertTrue( $test );
 	}
 
 	public function test_has_insensitive__multiple_match_sensitive( ) {
-		$test = \UString::hasInsensitive( '/path/to/a/folder', [ '/TO/', '.' ] );
+		$test = \UString::hasInsensitive( '/path/to/a/folder', array( '/TO/', '.' ) );
 		$this->assertTrue( $test );
 	}
 
 	public function test_has_insensitive__multiple_no_match( ) {
-		$test = \UString::hasInsensitive( '/path/to/a/folder', [ 'php', '.' ] );
+		$test = \UString::hasInsensitive( '/path/to/a/folder', array( 'php', '.' ) );
 		$this->assertFalse( $test );
 	}
 

@@ -39,12 +39,12 @@ class UObjectTest extends \PHPUnit_Framework_TestCase {
 	// GET ATTRIBUTE NAMES
 	public function test_get_attribute_names__object( ) {
 		$attributes = \UObject::getAttributeNames( new Example_Class );
-		$this->assertEquals( [ 'name', 'height' ], $attributes );
+		$this->assertEquals( array( 'name', 'height' ), $attributes );
 	}
 
 	public function test_get_attribute_names__class( ) {
 		$attributes = \UObject::getAttributeNames( __NAMESPACE__ . '\\Example_Class' );
-		$this->assertEquals( [ 'name', 'height' ], $attributes );
+		$this->assertEquals( array( 'name', 'height' ), $attributes );
 	}
 
 
