@@ -19,7 +19,8 @@
         "classmap": [ 
             "src/UString.php", 
             "src/UArray.php",
-            "src/UObject.php"
+            "src/UObject.php",
+            "src/UDate.php"
         ],
         "psr-0": {
             "Pixel418\\Ubiq": "src/",
