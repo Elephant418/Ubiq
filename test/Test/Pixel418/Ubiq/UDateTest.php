@@ -11,32 +11,61 @@ class UDateTest extends \PHPUnit_Framework_TestCase {
 	/*************************************************************************
 	  DATE FORMAT
 	 *************************************************************************/
-	public function testDateFormat_day_1Digit( ) {
-		$time = time();
-		$this->assertEquals( date( 'j', $time ), \UDate::format( 'D', $time ) );
+	public function testFormat_day_1Digit( ) {
+		$this->_testFormat( 'j', 'D' );
 	}
-	public function testDateFormat_day_2Digit( ) {
-		$time = time();
-		$this->assertEquals( date( 'd', $time ), \UDate::format( 'DD', $time ) );
+	public function testFormat_day_2Digit( ) {
+		$this->_testFormat( 'd', 'DD' );
 	}
-	public function testDateFormat_month_1Digit( ) {
-		$time = time();
-		$this->assertEquals( date( 'n', $time ), \UDate::format( 'M', $time ) );
+	public function testFormat_month_1Digit( ) {
+		$this->_testFormat( 'n', 'M' );
 	}
-	public function testDateFormat_month_2Digit( ) {
-		$time = time();
-		$this->assertEquals( date( 'm', $time ), \UDate::format( 'MM', $time ) );
+	public function testFormat_month_2Digit( ) {
+		$this->_testFormat( 'm', 'MM' );
 	}
-	public function testDateFormat_year_2Digit( ) {
-		$time = time();
-		$this->assertEquals( date( 'y', $time ), \UDate::format( 'YY', $time ) );
+	public function testFormat_year_2Digit( ) {
+		$this->_testFormat( 'y', 'YY' );
 	}
-	public function testDateFormat_year_4Digit( ) {
-		$time = time();
-		$this->assertEquals( date( 'Y', $time ), \UDate::format( 'YYYY', $time ) );
+	public function testFormat_year_4Digit( ) {
+		$this->_testFormat( 'Y', 'YYYY' );
 	}
-	public function testDateFormat_complex( ) {
-		$time = time();
-		$this->assertEquals( 'the ' . date( 'd/m/Y', $time ), \UDate::format( 'the DD/MM/YYYY', $time ) );
+	public function testFormat_complex( ) {
+		$this->_testFormat( 'd/m/Y', 'DD/MM/YYYY' );
+	}
+	protected function _testFormat( $format, $humanPattern ) {
+		$timestamp = time();
+		$this->assertEquals( date( $format, $timestamp ), \UDate::format( $humanPattern, $timestamp ) );
+	}
+
+
+
+	/*************************************************************************
+	  TIMESTAMP FROM FORMAT
+	 *************************************************************************/
+	public function testTimestampFromFormat_day_1Digit( ) {
+		$this->_testTimestampFromFormat( 'j', 'D' );
+	}
+	public function testTimestampFromFormat_day_2Digit( ) {
+		$this->_testTimestampFromFormat( 'd', 'DD' );
+	}
+	public function testTimestampFromFormat_month_1Digit( ) {
+		$this->_testTimestampFromFormat( 'n', 'M' );
+	}
+	public function testTimestampFromFormat_month_2Digit( ) {
+		$this->_testTimestampFromFormat( 'm', 'MM' );
+	}
+	public function testTimestampFromFormat_year_2Digit( ) {
+		$this->_testTimestampFromFormat( 'y', 'YY' );
+	}
+	public function testTimestampFromFormat_year_4Digit( ) {
+		$this->_testTimestampFromFormat( 'Y', 'YYYY' );
+	}
+	public function testTimestampFromFormat_complex( ) {
+		$this->_testTimestampFromFormat( 'd/m/Y', 'DD/MM/YYYY' );
+	}
+	public function _testTimestampFromFormat( $format, $humanPattern ) {
+		$timestamp = time();
+		$time = date( $format, $timestamp );
+		$this->assertEquals( $timestamp, \UDate::getTimestampFromFormat( $humanPattern, $time ) );
 	}
 }
