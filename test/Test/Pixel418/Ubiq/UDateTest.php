@@ -43,7 +43,6 @@ class UDateTest extends \PHPUnit_Framework_TestCase {
 	  TIMESTAMP FROM FORMAT
 	 *************************************************************************/
 	public function testTimestampFromFormat_day_1Digit( ) {
-		echo 
 		$this->_testTimestampFromFormat( 'j', 'D' );
 	}
 	public function testTimestampFromFormat_day_2Digit( ) {
@@ -97,7 +96,6 @@ class UDateTest extends \PHPUnit_Framework_TestCase {
 		$this->assertTrue( \UDate::checkFormat( 'DD/MM/YY', '01/02/98' ) );
 	}
 	public function testCheckFormat_notExisting( ) {
-		echo $this->_debugIncompleteFormat( 'MM/YY', '02/02' );
 		$this->assertFalse( \UDate::checkFormat( 'DD/MM/YYYY', '31/02/2013' ) );
 	}
 }
