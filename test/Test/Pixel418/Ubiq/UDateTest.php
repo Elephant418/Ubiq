@@ -43,6 +43,7 @@ class UDateTest extends \PHPUnit_Framework_TestCase {
 	  TIMESTAMP FROM FORMAT
 	 *************************************************************************/
 	public function testTimestampFromFormat_day_1Digit( ) {
+		echo 
 		$this->_testTimestampFromFormat( 'j', 'D' );
 	}
 	public function testTimestampFromFormat_day_2Digit( ) {
@@ -63,9 +64,40 @@ class UDateTest extends \PHPUnit_Framework_TestCase {
 	public function testTimestampFromFormat_complex( ) {
 		$this->_testTimestampFromFormat( 'd/m/Y', 'DD/MM/YYYY' );
 	}
-	public function _testTimestampFromFormat( $format, $humanPattern ) {
+	public function testTimestampFromFormat_error( ) {
+		$this->assertFalse( \UDate::getTimestampFromFormat( 'DD/MM/YYYY', '01/02/03' ) );
+	}
+	protected function _testTimestampFromFormat( $format, $humanPattern ) {
 		$timestamp = time();
 		$time = date( $format, $timestamp );
 		$this->assertEquals( $timestamp, \UDate::getTimestampFromFormat( $humanPattern, $time ) );
+	}
+	protected function _debugIncompleteFormat( $humanPattern, $time ) {
+		return \UDate::format( 'DD/MM/YYYY', \UDate::getTimestampFromFormat( $humanPattern, $time ) );
+	}
+
+
+
+	/*************************************************************************
+	  CHECK FORMAT
+	 *************************************************************************/
+	public function testCheckFormat_year_notEnougth( ) {
+		$this->assertFalse( \UDate::checkFormat( 'DD/MM/YYYY', '01/02/13' ) );
+	}
+	public function testCheckFormat_year_toMuch( ) {
+		$this->assertFalse( \UDate::checkFormat( 'DD/MM/YY', '01/02/2013' ) );
+	}
+	public function testCheckFormat_yearFull( ) {
+		$this->assertTrue( \UDate::checkFormat( 'DD/MM/YYYY', '01/02/2013' ) );
+	}
+	public function testCheckFormat_yearShort_current( ) {
+		$this->assertTrue( \UDate::checkFormat( 'DD/MM/YY', '01/02/13' ) );
+	}
+	public function testCheckFormat_yearShort_before( ) {
+		$this->assertTrue( \UDate::checkFormat( 'DD/MM/YY', '01/02/98' ) );
+	}
+	public function testCheckFormat_notExisting( ) {
+		echo $this->_debugIncompleteFormat( 'MM/YY', '02/02' );
+		$this->assertFalse( \UDate::checkFormat( 'DD/MM/YYYY', '31/02/2013' ) );
 	}
 }

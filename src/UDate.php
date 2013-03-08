@@ -24,11 +24,14 @@ class UDate {
 
 	public static function checkFormat( $humanPattern, $time ) {
 		$regex = \UDate::convertPatternToRegex( $humanPattern );
-		echo $regex;
-		if ( preg_match( $regex, $time ) === 1 ) {
-			return ( \UDate::createFromFormat( $humanPattern, $time ) !== FALSE );
+		if ( preg_match( $regex, $time ) !== 1 ) {
+			return FALSE;
 		}
-		return FALSE;
+		$timestamp = \UDate::getTimestampFromFormat( $humanPattern, $time );
+		if ( $timestamp === FALSE ) {
+			return FALSE;
+		}
+		return ( \UDate::format( $humanPattern, $timestamp ) === $time );
 	}
 
 	public static function convertPatternToPHP( $humanPattern ) {
@@ -47,13 +50,13 @@ class UDate {
 	public static function convertPatternToRegex( $humanPattern ) {
 		$regex = preg_replace( '/(.)/', '\\\\$1', $humanPattern );
 		$regex = strtr( $regex, array( 
-			'\\D' => '[0-3]?[0-9]',
-			'\\D\\D' => '[0-3][0-9]',
-			'\\M' => '[0-1]?[0-9]',
-			'\\M\\M' => '[0-1][0-9]',
-			'\\Y\\Y' => '[0-9][0-9]',
-			'\\Y\\Y\\Y\\Y' => '[0-9][0-9][0-9][0-9]',
+			'\\D' => '(?<day>[0-3]?[0-9])',
+			'\\D\\D' => '(?<day>[0-3][0-9])',
+			'\\M' => '(?<month>[0-1]?[0-9])',
+			'\\M\\M' => '(?<month>[0-1][0-9])',
+			'\\Y\\Y' => '(?<year>[0-9][0-9])',
+			'\\Y\\Y\\Y\\Y' => '(?<year>[0-9][0-9][0-9][0-9])',
 		) );
-		return $regex;
+		return '@' . $regex . '@';
 	}
 }
