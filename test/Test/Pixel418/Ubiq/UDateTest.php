@@ -34,7 +34,8 @@ class UDateTest extends \PHPUnit_Framework_TestCase {
 	}
 	protected function _testFormat( $format, $humanPattern ) {
 		$timestamp = time();
-		$this->assertEquals( date( $format, $timestamp ), \UDate::format( $humanPattern, $timestamp ) );
+		$assert = mktime(0, 0, 0, date('n'), date('j'), date('Y'));
+		$this->assertEquals( date( $format, $assert ), \UDate::format( $humanPattern, $timestamp ) );
 	}
 
 
@@ -60,6 +61,9 @@ class UDateTest extends \PHPUnit_Framework_TestCase {
 	public function testTimestampFromFormat_year_4Digit( ) {
 		$this->_testTimestampFromFormat( 'Y', 'YYYY' );
 	}
+	public function testTimestampFromFormat_predefined_sql( ) {
+		$this->_testTimestampFromFormat( 'Y-m-d', \UDate::SQL_FORMAT );
+	}
 	public function testTimestampFromFormat_complex( ) {
 		$this->_testTimestampFromFormat( 'd/m/Y', 'DD/MM/YYYY' );
 	}
@@ -69,7 +73,8 @@ class UDateTest extends \PHPUnit_Framework_TestCase {
 	protected function _testTimestampFromFormat( $format, $humanPattern ) {
 		$timestamp = time();
 		$time = date( $format, $timestamp );
-		$this->assertEquals( $timestamp, \UDate::getTimestampFromFormat( $humanPattern, $time ) );
+		$assert = mktime(0, 0, 0, date('n'), date('j'), date('Y'));
+		$this->assertEquals( $assert, \UDate::getTimestampFromFormat( $humanPattern, $time ) );
 	}
 	protected function _debugIncompleteFormat( $humanPattern, $time ) {
 		return \UDate::format( 'DD/MM/YYYY', \UDate::getTimestampFromFormat( $humanPattern, $time ) );

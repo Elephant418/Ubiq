@@ -2,36 +2,44 @@
 
 class UDate {
 
+	const SQL_FORMAT = 'YYYY-MM-DD';
+
+
 	public static function format( $humanPattern, $timestamp = NULL ) {
 		if ( is_null( $timestamp ) ) {
 			$timestamp = time();
 		}
-		$pattern = \UDate::convertPatternToPHP( $humanPattern );
+		$pattern = static::convertPatternToPHP( $humanPattern );
 		return date( $pattern, $timestamp );
 	}
 
 	public static function createFromFormat( $humanPattern, $time ) {
-		$pattern = \UDate::convertPatternToPHP( $humanPattern );
-		return \DateTime::createFromFormat( $pattern, $time );
+		$pattern = static::convertPatternToPHP( $humanPattern );
+		$date = \DateTime::createFromFormat( $pattern, $time );
+		if ( ! $date ) {
+			return FALSE;
+		}
+		$date->modify( 'midnight' );
+		return $date;
 	}
 
 	public static function getTimestampFromFormat( $humanPattern, $time ) {
-		if ( $date = \UDate::createFromFormat( $humanPattern, $time ) ) {
+		if ( $date = static::createFromFormat( $humanPattern, $time ) ) {
 			return $date->getTimestamp( );
 		}
 		return FALSE;
 	}
 
 	public static function checkFormat( $humanPattern, $time ) {
-		$regex = \UDate::convertPatternToRegex( $humanPattern );
+		$regex = static::convertPatternToRegex( $humanPattern );
 		if ( preg_match( $regex, $time ) !== 1 ) {
 			return FALSE;
 		}
-		$timestamp = \UDate::getTimestampFromFormat( $humanPattern, $time );
+		$timestamp = static::getTimestampFromFormat( $humanPattern, $time );
 		if ( $timestamp === FALSE ) {
 			return FALSE;
 		}
-		return ( \UDate::format( $humanPattern, $timestamp ) === $time );
+		return ( static::format( $humanPattern, $timestamp ) === $time );
 	}
 
 	public static function convertPatternToPHP( $humanPattern ) {
