@@ -1,10 +1,21 @@
 <?php
 
+/* This file is part of the Ubiq project, which is under MIT license */
+
 class UDate {
 
+
+
+	/*************************************************************************
+	  CONSTANTS
+	 *************************************************************************/
 	const SQL_FORMAT = 'YYYY-MM-DD';
 
 
+
+	/*************************************************************************
+	  FORMATING METHODS
+	 *************************************************************************/
 	public static function format( $humanPattern, $timestamp = NULL ) {
 		if ( is_null( $timestamp ) ) {
 			$timestamp = time();
@@ -44,6 +55,11 @@ class UDate {
 		return ( preg_match( $regex, $time ) === 1 );
 	}
 
+
+
+	/*************************************************************************
+	  PATTERN CONVERSION METHODS
+	 *************************************************************************/
 	public static function convertPatternToPHP( $humanPattern ) {
 		$pattern = preg_replace( '/(.)/', '\\\\$1', $humanPattern );
 		$pattern = strtr( $pattern, array( 
