@@ -20,26 +20,28 @@ class UDate {
 			return FALSE;
 		}
 		$date->modify( 'midnight' );
+		if ( static::format( $humanPattern, $date->getTimestamp( ) ) !== $time ) {
+			return FALSE;
+		}
 		return $date;
 	}
 
 	public static function getTimestampFromFormat( $humanPattern, $time ) {
-		if ( $date = static::createFromFormat( $humanPattern, $time ) ) {
-			return $date->getTimestamp( );
+		$date = static::createFromFormat( $humanPattern, $time );
+		if ( ! $date ) {
+			return FALSE;
 		}
-		return FALSE;
+		return $date->getTimestamp( );
+	}
+
+	public static function checkDate( $humanPattern, $time ) {
+		$date = static::createFromFormat( $humanPattern, $time );
+		return ( $date !== FALSE );
 	}
 
 	public static function checkFormat( $humanPattern, $time ) {
 		$regex = static::convertPatternToRegex( $humanPattern );
-		if ( preg_match( $regex, $time ) !== 1 ) {
-			return FALSE;
-		}
-		$timestamp = static::getTimestampFromFormat( $humanPattern, $time );
-		if ( $timestamp === FALSE ) {
-			return FALSE;
-		}
-		return ( static::format( $humanPattern, $timestamp ) === $time );
+		return ( preg_match( $regex, $time ) === 1 );
 	}
 
 	public static function convertPatternToPHP( $humanPattern ) {

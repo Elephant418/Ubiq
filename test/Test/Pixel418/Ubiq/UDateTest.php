@@ -86,21 +86,21 @@ class UDateTest extends \PHPUnit_Framework_TestCase {
 	  CHECK FORMAT
 	 *************************************************************************/
 	public function testCheckFormat_year_notEnougth( ) {
-		$this->assertFalse( \UDate::checkFormat( 'DD/MM/YYYY', '01/02/13' ) );
+		$this->assertFalse( \UDate::checkDate( 'DD/MM/YYYY', '01/02/13' ) );
 	}
 	public function testCheckFormat_year_toMuch( ) {
-		$this->assertFalse( \UDate::checkFormat( 'DD/MM/YY', '01/02/2013' ) );
+		$this->assertFalse( \UDate::checkDate( 'DD/MM/YY', '01/02/2013' ) );
 	}
 	public function testCheckFormat_yearFull( ) {
-		$this->assertTrue( \UDate::checkFormat( 'DD/MM/YYYY', '01/02/2013' ) );
+		$this->assertTrue( \UDate::checkDate( 'DD/MM/YYYY', '01/02/2013' ) );
 	}
 	public function testCheckFormat_yearShort_current( ) {
-		$this->assertTrue( \UDate::checkFormat( 'DD/MM/YY', '01/02/13' ) );
+		$this->assertTrue( \UDate::checkDate( 'DD/MM/YY', '01/02/13' ) );
 	}
 	public function testCheckFormat_yearShort_before( ) {
-		$this->assertTrue( \UDate::checkFormat( 'DD/MM/YY', '01/02/98' ) );
+		$this->assertTrue( \UDate::checkDate( 'DD/MM/YY', '01/02/98' ) );
 	}
 	public function testCheckFormat_notExisting( ) {
-		$this->assertFalse( \UDate::checkFormat( 'DD/MM/YYYY', '31/02/2013' ) );
+		$this->assertFalse( \UDate::checkDate( 'DD/MM/YYYY', '31/02/2013' ) );
 	}
 }
