@@ -2,6 +2,34 @@ Changelog for Ubiq
 ======
 
 
+0.4.5: 2013-03-11
+-------- 
+
+* New: Add UArray::mergeRecursive functions
+* New: Add do prefixed version of the UArray::mergeUnique functions
+
+
+0.4.4: 2013-03-10
+-------- 
+
+* New: Add UArray::isAssociative functions
+* Fix: The UArray::deepSelector
+
+
+
+0.4.3: 2013-03-10
+-------- 
+
+* New: Add UArray::deepSelector functions
+
+
+
+0.4.2: 2013-03-09
+-------- 
+
+* New: Add UDate functions
+
+
 
 0.4.1: 2013-02-26
 -------- 

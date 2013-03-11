@@ -98,7 +98,7 @@ Add or complete the composer.json file at the root of your repository, like this
 ```json
 {
     "require": {
-        "pixel418/ubiq": "0.4.1"
+        "pixel418/ubiq": "0.4.5"
     }
 }
 ```
