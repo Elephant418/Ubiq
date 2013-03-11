@@ -458,6 +458,17 @@ class UArrayTest extends \PHPUnit_Framework_TestCase {
 		$merged = \UArray::mergeUnique( array( 1, 2, 3 ), array( 2, 3, 4 ), array( 5, 2 ) );
 		$this->assertEquals( array( 1, 2, 3, 4, 5 ), $merged );
 	}
+	public function test_do_merge_unique__two( ) {
+		$merged = array( 1, 2, 3 );
+		\UArray::doMergeUnique( $merged, array( 2, 3, 4 ) );
+		$this->assertEquals( array( 1, 2, 3, 4 ), $merged );
+	}
+
+	public function test_do_merge_unique__three( ) {
+		$merged = array( 1, 2, 3 );
+		\UArray::doMergeUnique( $merged, array( 2, 3, 4 ), array( 5, 2 ) );
+		$this->assertEquals( array( 1, 2, 3, 4, 5 ), $merged );
+	}
 
 
 
@@ -471,6 +482,18 @@ class UArrayTest extends \PHPUnit_Framework_TestCase {
 
 	public function test_reverse_merge_unique__three( ) {
 		$merged = \UArray::reverseMergeUnique( array( 1, 2, 3 ), array( 2, 3, 4 ), array( 5, 2 ) );
+		$this->assertEquals( array( 1, 3, 4, 5, 2 ), $merged );
+	}
+
+	public function test_do_reverse_merge_unique__two( ) {
+		$merged = array( 1, 2, 3 );
+		\UArray::doReverseMergeUnique( $merged, array( 2, 3, 4 ) );
+		$this->assertEquals( array( 1, 2, 3, 4 ), $merged );
+	}
+
+	public function test_do_reverse_merge_unique__three( ) {
+		$merged = array( 1, 2, 3 );
+		\UArray::doReverseMergeUnique( $merged, array( 2, 3, 4 ), array( 5, 2 ) );
 		$this->assertEquals( array( 1, 3, 4, 5, 2 ), $merged );
 	}
 }

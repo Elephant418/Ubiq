@@ -141,10 +141,16 @@ abstract class UArray {
 	public static function mergeUnique( $array1 ) {
 		return array_values( array_unique( call_user_func_array( 'array_merge', func_get_args( ) ) ) );
 	}
+	public static function doMergeUnique( &$array1 ) {
+		$array1 = call_user_func_array( array( 'UArray', 'mergeUnique' ), func_get_args( ) );
+	}
 
 	// Keep the order of each LAST occurence 
 	public static function reverseMergeUnique( $array1 ) {
 		return array_reverse( array_values( array_unique( array_reverse( call_user_func_array( 'array_merge', func_get_args( ) ) ) ) ) );
+	}
+	public static function doReverseMergeUnique( &$array1 ) {
+		$array1 = call_user_func_array( array( 'UArray', 'reverseMergeUnique' ), func_get_args( ) );
 	}
 
 	// array_merge_recursive that keep the depth of the arrays
