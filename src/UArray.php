@@ -79,6 +79,12 @@ abstract class UArray {
 	public static function getOffsetIndex( $array, $index ) {
 		return array_search( $index, array_keys( $array ), TRUE );
 	}
+	public static function isAssociative( $array ) {
+        return ( array_values( $array ) !== $array );
+    }
+	public static function isSequential( $array ) {
+        return ( ! \UArray::isAssociative( $array ) );
+    }
 
 
 
@@ -186,7 +192,7 @@ abstract class UArray {
 		$current =& $array;
 		while ( count( $path ) ) {
 			$current_key = array_shift( $path );
-			if ( ! isset( $current[ $current_key ] ) ) {
+			if ( ! isset( $current[ $current_key ] ) || ! is_array( $current[ $current_key ] ) ) {
 				$result = call_user_func_array( $callback_path_not_found, array( &$current, $current_key ) );
 				if ( ! isset( $current[ $current_key ] ) ) {
 					return $result;
