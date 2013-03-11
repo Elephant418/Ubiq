@@ -147,6 +147,29 @@ abstract class UArray {
 		return array_reverse( array_values( array_unique( array_reverse( call_user_func_array( 'array_merge', func_get_args( ) ) ) ) ) );
 	}
 
+	// array_merge_recursive that keep the depth of the arrays
+	public static function mergeRecursive( $reference, $append ) {
+		\UArray::doMergeRecursive( $reference, $append );
+		return $reference;
+	}
+	public static function doMergeRecursive( &$reference, $append ) {
+		foreach ( $append as $key => $value ) {
+			if ( isset( $reference[ $key ] ) ) {
+				if ( is_array( $reference[ $key ] ) && is_array( $value ) ) {
+					$reference[ $key ] = \UArray::mergeRecursive( $reference[ $key ], $value );
+				} else {
+					if ( is_numeric( $key ) ) {
+						$reference[ ] = $value;
+					} else {
+						$reference[ $key ] = $value;
+					}
+				}
+			} else {
+				$reference[ $key ] = $value;
+			}
+		}
+	}
+
 
 
 	/*************************************************************************
