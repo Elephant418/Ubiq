@@ -138,7 +138,7 @@ abstract class UArray {
     GROUP METHODS
      *************************************************************************/
     public static function keyBy( $array, $index ) {
-        $newArray = [];
+        $newArray = array();
         foreach( $array as $item ) {
             if (isset($item[$index])) {
                 $key = $item[$index];
@@ -156,7 +156,7 @@ abstract class UArray {
     }
 
     public static function groupBy( $array, $index ) {
-        $newArray = [];
+        $newArray = array();
         foreach( $array as $key => $item ) {
             if (isset($item[$index])) {
                 $group = $item[$index];
