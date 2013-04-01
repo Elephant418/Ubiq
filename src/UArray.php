@@ -161,7 +161,7 @@ abstract class UArray {
     GROUP METHODS
      *************************************************************************/
     public static function keyBy( $array, $index ) {
-        $newArray = [];
+        $newArray = array();
         foreach( $array as $item ) {
             $key = \UArray::getKeyValue( $item, $index, 'empty' );
             $newArray[$key] = $item;
@@ -174,7 +174,7 @@ abstract class UArray {
     }
 
     public static function groupBy( $array, $index ) {
-        $newArray = [];
+        $newArray = array();
         foreach( $array as $key => $item ) {
             $group = \UArray::getKeyValue( $item, $index, 'empty' );
             $newArray[$group][$key] = $item;
