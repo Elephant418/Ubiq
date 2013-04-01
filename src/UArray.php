@@ -7,7 +7,7 @@ abstract class UArray {
 
 
     /*************************************************************************
-    CONERSION METHODS
+      CONVERSION METHODS
      *************************************************************************/
     public static function convertToArray( $mixed ) {
         if ( is_object( $mixed ) ) {
@@ -35,7 +35,7 @@ abstract class UArray {
 
 
     /*************************************************************************
-    SCHEMA METHODS
+      SCHEMA METHODS
      *************************************************************************/
     public static function isMatchSchema( $array, $schema ) {
         foreach ( $schema as $key => $value ) {
@@ -74,7 +74,7 @@ abstract class UArray {
 
 
     /*************************************************************************
-    OFFSET METHODS
+      OFFSET, INDEX & KEY METHODS
      *************************************************************************/
     public static function getOffsetIndex( $array, $index ) {
         return array_search( $index, array_keys( $array ), TRUE );
@@ -85,11 +85,34 @@ abstract class UArray {
     public static function isSequential( $array ) {
         return ( ! \UArray::isAssociative( $array ) );
     }
+    public static function getKeyValue( $array, $key, $default=NULL ) {
+        if (isset($item[$key])) {
+            return $item[$key];
+            unset($item[$key]);
+        }
+        if (isset($item->$key)) {
+            return $item->$key;
+        }
+        return $default;
+    }
+    public static function renameKey( $array, $key, $newKey ) {
+        if (!isset($array[$key])) {
+            return $array;
+        }
+        $keys = array_keys( $array );
+        $keys = array_combine( $keys, $keys );
+        $keys[ $key ] = $newKey;
+        return array_combine( $keys, $array );
+    }
+
+    public static function doRenameKey( &$array, $key, $newKey ) {
+        $array = \UArray::renameKey( $array, $key, $newKey );
+    }
 
 
 
     /*************************************************************************
-    REMOVING METHODS
+      REMOVING METHODS
      *************************************************************************/
     public static function removeIndex( $array, $indexes ) {
         \UArray::doConvertToArray( $indexes );
@@ -138,14 +161,9 @@ abstract class UArray {
     GROUP METHODS
      *************************************************************************/
     public static function keyBy( $array, $index ) {
-        $newArray = array();
+        $newArray = [];
         foreach( $array as $item ) {
-            if (isset($item[$index])) {
-                $key = $item[$index];
-                unset($item[$index]);
-            } else {
-                $key = 'empty';
-            }
+            $key = \UArray::getKeyValue( $item, $index, 'empty' );
             $newArray[$key] = $item;
         }
         return $newArray;
@@ -156,14 +174,9 @@ abstract class UArray {
     }
 
     public static function groupBy( $array, $index ) {
-        $newArray = array();
+        $newArray = [];
         foreach( $array as $key => $item ) {
-            if (isset($item[$index])) {
-                $group = $item[$index];
-                unset($item[$index]);
-            } else {
-                $group = 'empty';
-            }
+            $group = \UArray::getKeyValue( $item, $index, 'empty' );
             $newArray[$group][$key] = $item;
         }
         return $newArray;
@@ -176,9 +189,9 @@ abstract class UArray {
 
 
     /*************************************************************************
-    MERGE METHODS
+      MERGE METHODS
      *************************************************************************/
-    // Keep the order of each FIRST occurence
+    // Keep the order of each FIRST occurence 
     public static function mergeUnique( $array1 ) {
         return array_values( array_unique( call_user_func_array( 'array_merge', func_get_args( ) ) ) );
     }
@@ -186,7 +199,7 @@ abstract class UArray {
         $array1 = call_user_func_array( array( 'UArray', 'mergeUnique' ), func_get_args( ) );
     }
 
-    // Keep the order of each LAST occurence
+    // Keep the order of each LAST occurence 
     public static function reverseMergeUnique( $array1 ) {
         return array_reverse( array_values( array_unique( array_reverse( call_user_func_array( 'array_merge', func_get_args( ) ) ) ) ) );
     }
@@ -220,7 +233,7 @@ abstract class UArray {
 
 
     /*************************************************************************
-    DEEP SELECTORS METHODS
+      DEEP SELECTORS METHODS
      *************************************************************************/
     public static function hasDeepSelector( $array, $selector ) {
         return static::deepSelectorCallback( $array, $selector, function( &$current, $current_key ) {
