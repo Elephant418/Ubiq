@@ -2,6 +2,15 @@ Changelog for Ubiq
 ======
 
 
+0.4.6: 2013-05-10
+--------
+
+* New: Add UArray::renameKey functions
+* New: Add UArray::filterBy functions
+* New: Add UArray::keyBy functions
+* New: Add UArray::groupBy functions
+
+
 0.4.5: 2013-03-11
 -------- 
 
