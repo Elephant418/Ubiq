@@ -186,6 +186,21 @@ abstract class UArray {
         $array = \UArray::groupBy( $array, $index );
     }
 
+    public static function filterBy( $array, $index, $value ) {
+        $newArray = array();
+        foreach( $array as $item ) {
+            $indexValue = \UArray::getKeyValue( $item, $index );
+            if ($indexValue === $value) {
+                $newArray[] = $item;
+            }
+        }
+        return $newArray;
+    }
+
+    public static function doFilterBy( &$array, $index, $value ) {
+        $array = \UArray::filterBy( $array, $index, $value );
+    }
+
 
 
     /*************************************************************************
