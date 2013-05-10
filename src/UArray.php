@@ -85,10 +85,9 @@ abstract class UArray {
     public static function isSequential( $array ) {
         return ( ! \UArray::isAssociative( $array ) );
     }
-    public static function getKeyValue( $array, $key, $default=NULL ) {
+    public static function getKeyValue( $item, $key, $default=NULL ) {
         if (isset($item[$key])) {
             return $item[$key];
-            unset($item[$key]);
         }
         if (isset($item->$key)) {
             return $item->$key;
