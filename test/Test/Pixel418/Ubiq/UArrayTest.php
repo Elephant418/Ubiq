@@ -6,6 +6,8 @@ require_once( __DIR__ . '/../../../../vendor/autoload.php' );
 
 echo 'Ubiq ' . \Pixel418\Ubiq::VERSION . ' tested with ';
 
+date_default_timezone_set('Europe/Paris');
+
 class UArrayTest extends \PHPUnit_Framework_TestCase {
 
 
