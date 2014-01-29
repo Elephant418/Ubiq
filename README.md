@@ -134,6 +134,6 @@ Author & Community
 --------
 
 Ubiq is under the [MIT License](http://opensource.org/licenses/MIT).  
-It is created and maintained by [Thomas ZILLIOX](http://zilliox.me).
+It is created and maintained by [Thomas ZILLIOX](http://tzi.fr).
 
 [&uarr; top](#readme)
