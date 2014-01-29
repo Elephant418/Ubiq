@@ -2,6 +2,12 @@ Changelog for Ubiq
 ======
 
 
+0.4.7: 2014-01-29
+--------
+
+* New: Add UArray::valueBy functions
+
+
 0.4.6: 2013-05-10
 --------
 
