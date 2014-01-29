@@ -7,7 +7,7 @@ abstract class UArray {
 
 
     /*************************************************************************
-      CONVERSION METHODS
+    CONVERSION METHODS
      *************************************************************************/
     public static function convertToArray( $mixed ) {
         if ( is_object( $mixed ) ) {
@@ -35,7 +35,7 @@ abstract class UArray {
 
 
     /*************************************************************************
-      SCHEMA METHODS
+    SCHEMA METHODS
      *************************************************************************/
     public static function isMatchSchema( $array, $schema ) {
         foreach ( $schema as $key => $value ) {
@@ -74,7 +74,7 @@ abstract class UArray {
 
 
     /*************************************************************************
-      OFFSET, INDEX & KEY METHODS
+    OFFSET, INDEX & KEY METHODS
      *************************************************************************/
     public static function getOffsetIndex( $array, $index ) {
         return array_search( $index, array_keys( $array ), TRUE );
@@ -111,7 +111,7 @@ abstract class UArray {
 
 
     /*************************************************************************
-      REMOVING METHODS
+    REMOVING METHODS
      *************************************************************************/
     public static function removeIndex( $array, $indexes ) {
         \UArray::doConvertToArray( $indexes );
@@ -172,6 +172,18 @@ abstract class UArray {
         $array = \UArray::keyBy( $array, $index );
     }
 
+    public static function valueBy( $array, $index ) {
+        $newArray = array();
+        foreach( $array as $key => $item ) {
+            $newArray[$key] = \UArray::getKeyValue( $item, $index );
+        }
+        return $newArray;
+    }
+
+    public static function doValueBy( &$array, $index ) {
+        $array = \UArray::valueBy( $array, $index );
+    }
+
     public static function groupBy( $array, $index ) {
         $newArray = array();
         foreach( $array as $key => $item ) {
@@ -203,7 +215,7 @@ abstract class UArray {
 
 
     /*************************************************************************
-      MERGE METHODS
+    MERGE METHODS
      *************************************************************************/
     // Keep the order of each FIRST occurence 
     public static function mergeUnique( $array1 ) {
@@ -247,7 +259,7 @@ abstract class UArray {
 
 
     /*************************************************************************
-      DEEP SELECTORS METHODS
+    DEEP SELECTORS METHODS
      *************************************************************************/
     public static function hasDeepSelector( $array, $selector ) {
         return static::deepSelectorCallback( $array, $selector, function( &$current, $current_key ) {
