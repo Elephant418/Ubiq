@@ -157,59 +157,59 @@ abstract class UArray {
 
 
     /*************************************************************************
-    GROUP METHODS
+    SUBINDEX METHODS
      *************************************************************************/
-    public static function keyBy( $array, $index ) {
+    public static function keyBySubItem( $array, $subIndex ) {
         $newArray = array();
         foreach( $array as $item ) {
-            $key = \UArray::getKeyValue( $item, $index, 'empty' );
+            $key = \UArray::getKeyValue( $item, $subIndex, 'empty' );
             $newArray[$key] = $item;
         }
         return $newArray;
     }
 
-    public static function doKeyBy( &$array, $index ) {
-        $array = \UArray::keyBy( $array, $index );
+    public static function doKeyBySubItem( &$array, $subIndex ) {
+        $array = \UArray::keyBySubItem( $array, $subIndex );
     }
 
-    public static function valueBy( $array, $index ) {
+    public static function fillBySubItem( $array, $subIndex ) {
         $newArray = array();
         foreach( $array as $key => $item ) {
-            $newArray[$key] = \UArray::getKeyValue( $item, $index );
+            $newArray[$key] = \UArray::getKeyValue( $item, $subIndex );
         }
         return $newArray;
     }
 
-    public static function doValueBy( &$array, $index ) {
-        $array = \UArray::valueBy( $array, $index );
+    public static function doFillBySubItem( &$array, $subIndex ) {
+        $array = \UArray::fillBySubItem( $array, $subIndex );
     }
 
-    public static function groupBy( $array, $index ) {
+    public static function groupBySubItem( $array, $subIndex ) {
         $newArray = array();
         foreach( $array as $key => $item ) {
-            $group = \UArray::getKeyValue( $item, $index, 'empty' );
+            $group = \UArray::getKeyValue( $item, $subIndex, 'empty' );
             $newArray[$group][$key] = $item;
         }
         return $newArray;
     }
 
-    public static function doGroupBy( &$array, $index ) {
-        $array = \UArray::groupBy( $array, $index );
+    public static function doGroupBySubItem( &$array, $subIndex ) {
+        $array = \UArray::groupBySubItem( $array, $subIndex );
     }
 
-    public static function filterBy( $array, $index, $value ) {
+    public static function filterBySubItem( $array, $subIndex, $subValue ) {
         $newArray = array();
         foreach( $array as $item ) {
-            $indexValue = \UArray::getKeyValue( $item, $index );
-            if ($indexValue === $value) {
+            $indexValue = \UArray::getKeyValue( $item, $subIndex );
+            if ($indexValue === $subValue) {
                 $newArray[] = $item;
             }
         }
         return $newArray;
     }
 
-    public static function doFilterBy( &$array, $index, $value ) {
-        $array = \UArray::filterBy( $array, $index, $value );
+    public static function doFilterBySubItem( &$array, $subIndex, $subValue ) {
+        $array = \UArray::filterBySubItem( $array, $subIndex, $subValue );
     }
 
 

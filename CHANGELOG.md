@@ -2,6 +2,15 @@ Changelog for Ubiq
 ======
 
 
+0.5.0: 2014-01-31
+--------
+
+* Fix: Rename keyBy functions to keyBySubItem
+* Fix: Rename valueBy functions to fillBySubItem
+* Fix: Rename groupBy functions to groupBySubItem
+* Fix: Rename filterBy functions to filterBySubItem
+
+
 0.4.7: 2014-01-29
 --------
 
