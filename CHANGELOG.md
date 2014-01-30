@@ -5,6 +5,7 @@ Changelog for Ubiq
 0.5.0: 2014-01-31
 --------
 
+* New: Add convertDeepSelectors functions
 * Fix: Rename keyBy functions to keyBySubItem
 * Fix: Rename valueBy functions to fillBySubItem
 * Fix: Rename groupBy functions to groupBySubItem

@@ -498,4 +498,23 @@ class UArrayTest extends \PHPUnit_Framework_TestCase {
 		\UArray::doReverseMergeUnique( $merged, array( 2, 3, 4 ), array( 5, 2 ) );
 		$this->assertEquals( array( 1, 3, 4, 5, 2 ), $merged );
 	}
+
+
+
+    /*************************************************************************
+    CONVERT FROM DEEP SELECTOR
+     *************************************************************************/
+    public function test_convert_from_deep_selectors( ) {
+        $source = array( 'thomas.role.main' => 'Developer', 'you.role.main' => 'User' );
+        $expected = array( 'thomas' => array( 'role' => array( 'main' => 'Developer' ) ), 'you' => array( 'role' => array( 'main' => 'User' ) ) );
+        $converted = \UArray::convertDeepSelectors( $source );
+        $this->assertEquals( $expected, $converted );
+    }
+
+    public function test_convert_from_deep_selectors_sub_item( ) {
+        $source = array( 'person' => array( 'thomas.role.main' => 'Developer', 'you.role.main' => 'User' ) );
+        $expected = array( 'person' => array( 'thomas' => array( 'role' => array( 'main' => 'Developer' ) ), 'you' => array( 'role' => array( 'main' => 'User' ) ) ) );
+        $converted = \UArray::convertDeepSelectors( $source );
+        $this->assertEquals( $expected, $converted );
+    }
 }

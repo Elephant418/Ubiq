@@ -157,7 +157,7 @@ abstract class UArray {
 
 
     /*************************************************************************
-    SUBINDEX METHODS
+    SUB ITEM METHODS
      *************************************************************************/
     public static function keyBySubItem( $array, $subIndex ) {
         $newArray = array();
@@ -261,6 +261,21 @@ abstract class UArray {
     /*************************************************************************
     DEEP SELECTORS METHODS
      *************************************************************************/
+    public static function convertDeepSelectors( $array ) {
+        $newArray = array();
+        foreach( $array as $selector => $value ) {
+            if ( is_array( $value ) ) {
+                \UArray::doConvertDeepSelectors( $value );
+            }
+            \UArray::doSetDeepSelector( $newArray, $selector, $value );
+        }
+        return $newArray;
+    }
+
+    public static function doConvertDeepSelectors( &$array ) {
+        $array = \UArray::convertDeepSelectors( $array );
+    }
+
     public static function hasDeepSelector( $array, $selector ) {
         return static::deepSelectorCallback( $array, $selector, function( &$current, $current_key ) {
             return FALSE;
@@ -286,6 +301,10 @@ abstract class UArray {
         } );
     }
 
+    public static function doSetDeepSelector( &$array, $selector, $value ) {
+        $array = \UArray::setDeepSelector( $array, $selector, $value );
+    }
+
     public static function unsetDeepSelector( $array, $selector ) {
         return static::deepSelectorCallback( $array, $selector, function( &$current, $current_key ) use ( &$array ) {
             return $array;
@@ -293,6 +312,10 @@ abstract class UArray {
             unset( $current[ $current_key ] );
             return $array;
         } );
+    }
+
+    public static function doUnsetDeepSelector( &$array, $selector ) {
+        $array = \UArray::unsetDeepSelector( $array, $selector );
     }
 
     public static function deepSelectorCallback( &$array, $selector, $callback_path_not_found, $callback_end ) {
