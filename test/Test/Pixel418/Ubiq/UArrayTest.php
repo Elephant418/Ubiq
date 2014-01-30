@@ -8,100 +8,51 @@ echo 'Ubiq ' . \Pixel418\Ubiq::VERSION . ' tested with ';
 
 date_default_timezone_set('Europe/Paris');
 
-class UArrayTest extends \PHPUnit_Framework_TestCase {
+class UArrayTest extends \PHPUnit_Framework_TestCase
+{
 
 
 
 	/*************************************************************************
 	  CONVERT TO ARRAY
 	 *************************************************************************/
-	public function test_convert_to_array__string( ) {
-		$array = \UArray::convertToArray( 'a string' );
-		$this->assertEquals( array( 'a string' ), $array );
+    
+    /**
+     * @dataProvider providerConvertToArray
+     */
+	public function testConvertToArray($source, $expected) {
+		$actual = \UArray::convertToArray($source);
+		$this->assertEquals($expected, $actual);
 	}
 
-	public function test_convert_to_array__string_empty( ) {
-		$array =\UArray::convertToArray( '' );
-		$this->assertEquals( array( ), $array );
-	}
+    /**
+     * @dataProvider providerConvertToArray
+     */
+    public function testDoConvertToArray($source, $expected) {
+        $actual = $source;
+        \UArray::doConvertToArray( $actual );
+        $this->assertEquals($expected, $actual);
+    }
 
-	public function test_convert_to_array__null( ) {
-		$array =\UArray::convertToArray( NULL );
-		$this->assertEquals( array( ), $array );
-	}
-
-	public function test_convert_to_array__array( ) {
-		$array = \UArray::convertToArray( array( 'a string' ) );
-		$this->assertEquals( array( 'a string' ), $array );
-	}
-
-	public function test_convert_to_array__object__stdclass( ) {
-		$mixed = new \StdClass( );
-		$mixed->entry = 'a string';
-		$array = \UArray::convertToArray( $mixed );
-		$this->assertEquals( array( 'entry' => 'a string' ), $array );
-	}
-
-	public function test_convert_to_array__object__array_object( ) {
-		$array = \UArray::convertToArray( new \ArrayObject( array( 'entry' => 'a string' ) ) );
-		$this->assertEquals( array( 'entry' => 'a string' ), $array );
-	}
-
-	public function test_convert_to_array__object__exception( ) {
-		$mixed = new \Exception( );
-		$mixed->entry = 'a string';
-		$array = \UArray::convertToArray( $mixed );
-		$this->assertEquals( array( 'entry' => 'a string' ), $array );
-	}
-
-
-
-	/*************************************************************************
-	  DO CONVERT TO ARRAY
-	 *************************************************************************/
-	public function test_do_convert_to_array__string( ) {
-		$array = 'a string';
-		\UArray::doConvertToArray( $array );
-		$this->assertEquals( array( 'a string' ), $array );
-	}
-
-	public function test_do_convert_to_array__string_empty( ) {
-		$array = '';
-		\UArray::doConvertToArray( $array );
-		$this->assertEquals( array( ), $array );
-	}
-
-	public function test_do_convert_to_array__null( ) {
-		$array = NULL;
-		\UArray::doConvertToArray( $array );
-		$this->assertEquals( array( ), $array );
-	}
-
-	public function test_do_convert_to_array__array( ) {
-		$array = array( 'a string' );
-		\UArray::doConvertToArray( $array );
-		$this->assertEquals( array( 'a string' ), $array );
-	}
-
-	public function test_do_convert_to_array__object__stdclass( ) {
-		$array = new \StdClass( );
-		$array->entry = 'a string';
-		\UArray::doConvertToArray( $array );
-		$this->assertEquals( array( 'entry' => 'a string' ), $array );
-	}
-
-	public function test_do_convert_to_array__object__array_object( ) {
-		$array = new \ArrayObject( array( 'entry' => 'a string' ) );
-		\UArray::doConvertToArray( $array );
-		$this->assertEquals( array( 'entry' => 'a string' ), $array );
-	}
-
-	public function test_do_convert_to_array__object__exception( ) {
-		$array = new \Exception( );
-		$array->entry = 'a string';
-		\UArray::doConvertToArray( $array );
-		$this->assertEquals( array( 'entry' => 'a string' ), $array );
-	}
+    public function providerConvertToArray( ) {
+        $string = 'a string';
+        $sequentialArray = array( $string );
+        $associativeArray = array( 'entry' => $string );
+        $stdClass = new \StdClass( );
+        $stdClass->entry = $string;
+        $arrayObject = new \ArrayObject( $associativeArray );
+        $object = new \Exception( );
+        $object->entry = $string;
+        return array(
+            array( $string, $sequentialArray ),
+            array( '', array( ) ),
+            array( null, array( ) ),
+            array( $associativeArray, $associativeArray ),
+            array( $stdClass, $associativeArray ),
+            array( $arrayObject, $associativeArray ),
+            array( $object, $associativeArray ),
+        );
+    }
 
 
 
