@@ -21,7 +21,7 @@ class UArrayTest extends \PHPUnit_Framework_TestCase
      * @dataProvider providerConvertToArray
      */
 	public function testConvertToArray($source, $expected) {
-		$actual = \UArray::convertToArray($source);
+		$actual = \UArray::getArray($source);
 		$this->assertEquals($expected, $actual);
 	}
 
@@ -30,7 +30,7 @@ class UArrayTest extends \PHPUnit_Framework_TestCase
      */
     public function testDoConvertToArray($source, $expected) {
         $actual = $source;
-        \UArray::doConvertToArray( $actual );
+        \UArray::convertToArray( $actual );
         $this->assertEquals($expected, $actual);
     }
 

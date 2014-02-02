@@ -10,12 +10,12 @@ class UObjectTest extends \PHPUnit_Framework_TestCase {
 
 	// CONVERT TO CLASS
 	public function test_convert_to_class__object( ) {
-		$class = \UObject::convertToClass( New \Exception );
+		$class = \UObject::getClassName( New \Exception );
 		$this->assertEquals( 'Exception', $class );
 	}
 
 	public function test_convert_to_class__class( ) {
-		$class = \UObject::convertToClass( '\\Exception' );
+		$class = \UObject::getClassName( '\\Exception' );
 		$this->assertEquals( 'Exception', $class );
 	}
 
@@ -24,13 +24,13 @@ class UObjectTest extends \PHPUnit_Framework_TestCase {
 	// DO CONVERT TO CLASS
 	public function test_do_convert_to_class__object( ) {
 		$class = New \Exception;
-		\UObject::doConvertToClass( $class );
+		\UObject::convertToClassName( $class );
 		$this->assertEquals( 'Exception', $class );
 	}
 
 	public function test_do_convert_to_class__class( ) {
 		$class = '\\Exception';
-		\UObject::doConvertToClass( $class );
+		\UObject::convertToClassName( $class );
 		$this->assertEquals( 'Exception', $class );
 	}
 
@@ -68,17 +68,17 @@ class UObjectTest extends \PHPUnit_Framework_TestCase {
 
 	// GET CLASS NAME
 	public function test_get_class_name__object( ) {
-		$class_name = \UObject::getClassName( new Example_Class );
+		$class_name = \UObject::getClassBaseName( new Example_Class );
 		$this->assertEquals( 'Example_Class', $class_name );
 	}
 
 	public function test_get_class_name__class( ) {
-		$class_name = \UObject::getClassName( __NAMESPACE__ . '\\Example_Class' );
+		$class_name = \UObject::getClassBaseName( __NAMESPACE__ . '\\Example_Class' );
 		$this->assertEquals( 'Example_Class', $class_name );
 	}
 
 	public function test_get_class_name__no_namespace( ) {
-		$class_name = \UObject::getClassName( new \Exception );
+		$class_name = \UObject::getClassBaseName( new \Exception );
 		$this->assertEquals( 'Exception', $class_name );
 	}
 }

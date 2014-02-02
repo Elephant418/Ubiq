@@ -9,7 +9,7 @@ abstract class UArray {
     /*************************************************************************
     CONVERSION METHODS
      *************************************************************************/
-    public static function convertToArray( $mixed ) {
+    public static function getArray( $mixed ) {
         if ( is_object( $mixed ) ) {
             if ( is_a( $mixed, 'StdClass' ) ) {
                 $mixed = ( array ) $mixed;
@@ -28,8 +28,8 @@ abstract class UArray {
         return $mixed;
     }
 
-    public static function doConvertToArray( &$mixed ) {
-        $mixed = \UArray::convertToArray( $mixed );
+    public static function convertToArray( &$mixed ) {
+        $mixed = \UArray::getArray( $mixed );
     }
 
 
@@ -114,7 +114,7 @@ abstract class UArray {
     REMOVING METHODS
      *************************************************************************/
     public static function removeIndex( $array, $indexes ) {
-        \UArray::doConvertToArray( $indexes );
+        \UArray::convertToArray( $indexes );
         $removed_keys = array( );
         foreach( $indexes as $index ) {
             if ( is_numeric( $index ) ) {
@@ -142,7 +142,7 @@ abstract class UArray {
     }
 
     public static function removeValue( $array, $values ) {
-        \UArray::doConvertToArray( $values );
+        \UArray::convertToArray( $values );
         $indexes = array( );
         foreach( $values as $value ) {
             $indexes = array_merge( $indexes, array_keys( $array, $value ) );

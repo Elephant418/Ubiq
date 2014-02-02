@@ -7,41 +7,48 @@ abstract class UObject {
 
 
 	/*************************************************************************
-	  CONERSION METHODS
+	  CLASS NAME METHODS
 	 *************************************************************************/
-	public static function convertToClass( $mixed ) {
-		if ( is_object( $mixed ) ) {
-			$mixed = get_class( $mixed );
+	public static function getClassName( $reference ) {
+		if ( is_object( $reference ) ) {
+			$class = get_class( $reference );
 		} else {
-			\UString::doNotStartWith( $mixed, '\\' );
+            $class = \UString::getUnprefixedBy( $reference, '\\' );
 		}
-		return $mixed;
+		return $class;
 	}
 
-	public static function doConvertToClass( &$mixed ) {
-		$mixed = \UObject::convertToClass( $mixed );
+	public static function convertToClassName( &$reference ) {
+		$reference = \UObject::getClassName( $reference );
 	}
-
-
-
-	/*************************************************************************
-	  GETTER METHODS
-	 *************************************************************************/
-	public static function getAttributeNames( $class ) {
-		\UObject::doConvertToClass( $class );
-		if ( class_exists( $class ) ) {
-			return array_keys( get_class_vars( $class ) );
+    
+	public static function getAttributeNames( $reference ) {
+		\UObject::convertToClassName( $reference );
+		if ( class_exists( $reference ) ) {
+			return array_keys( get_class_vars( $reference ) );
 		}
-		return FALSE;
+		return false;
 	}
 
-	public static function getNamespace( $class ) {
-		\UObject::doConvertToClass( $class );
-		return \UString::substrBeforeLast( $class, '\\' );
+    public static function convertToAttributeNames( &$reference ) {
+        $reference = \UObject::getAttributeNames( $reference );
+    }
+
+	public static function getNamespace( $reference ) {
+		\UObject::convertToClassName( $reference );
+		return \UString::getCutBeforeLast( $reference, '\\' );
 	}
 
-	public static function getClassName( $class ) {
-		\UObject::doConvertToClass( $class );
-		return \UString::substrAfterLast( $class, '\\' );
+    public static function convertToNamespace( &$reference ) {
+        $reference = \UObject::getNamespace( $reference );
+    }
+
+	public static function getClassBaseName( $reference ) {
+		\UObject::convertToClassName( $reference );
+		return \UString::getCutAfterLast( $reference, '\\' );
 	}
+
+    public static function convertToClassBaseName( &$reference ) {
+        $reference = \UObject::getClassBaseName( $reference );
+    }
 }
