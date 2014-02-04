@@ -21,7 +21,7 @@ class UArrayTest extends \PHPUnit_Framework_TestCase
      * @dataProvider providerConvertToArray
      */
 	public function testConvertToArray($source, $expected) {
-		$actual = \UArray::getArray($source);
+		$actual = \UArray::getAsArray($source);
 		$this->assertEquals($expected, $actual);
 	}
 

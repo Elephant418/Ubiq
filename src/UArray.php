@@ -9,7 +9,7 @@ abstract class UArray {
     /*************************************************************************
     CONVERSION METHODS
      *************************************************************************/
-    public static function getArray($reference)
+    public static function getAsArray($reference)
     {
         if (is_object($reference)) {
             if (is_a($reference, 'StdClass')) {
@@ -31,7 +31,7 @@ abstract class UArray {
 
     public static function convertToArray(&$reference)
     {
-        $reference = \UArray::getArray($reference);
+        $reference = \UArray::getAsArray($reference);
     }
 
 

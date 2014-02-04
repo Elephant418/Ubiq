@@ -19,43 +19,43 @@ abstract class UObject {
 		return $class;
 	}
 
-	public static function convertToClassName(&$reference)
+	public static function replaceByClassName(&$reference)
     {
 		$reference = \UObject::getClassName($reference);
 	}
     
 	public static function getAttributeNames($reference)
     {
-		\UObject::convertToClassName($reference);
+		\UObject::replaceByClassName($reference);
 		if (class_exists($reference)) {
 			return array_keys(get_class_vars($reference));
 		}
 		return false;
 	}
 
-    public static function convertToAttributeNames(&$reference)
+    public static function replaceByAttributeNames(&$reference)
     {
         $reference = \UObject::getAttributeNames($reference);
     }
 
 	public static function getNamespace($reference)
     {
-		\UObject::convertToClassName($reference);
+		\UObject::replaceByClassName($reference);
 		return \UString::getCutBeforeLast($reference, '\\');
 	}
 
-    public static function convertToNamespace(&$reference)
+    public static function replaceByNamespace(&$reference)
     {
         $reference = \UObject::getNamespace($reference);
     }
 
 	public static function getClassBaseName($reference)
     {
-		\UObject::convertToClassName($reference);
+		\UObject::replaceByClassName($reference);
 		return \UString::getCutAfterLast($reference, '\\');
 	}
 
-    public static function convertToClassBaseName(&$reference)
+    public static function replaceByClassBaseName(&$reference)
     {
         $reference = \UObject::getClassBaseName($reference);
     }

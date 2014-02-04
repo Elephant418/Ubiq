@@ -24,13 +24,13 @@ class UObjectTest extends \PHPUnit_Framework_TestCase {
 	// DO CONVERT TO CLASS
 	public function test_do_convert_to_class__object() {
 		$class = New \Exception;
-		\UObject::convertToClassName($class);
+		\UObject::replaceByClassName($class);
 		$this->assertEquals('Exception', $class);
 	}
 
 	public function test_do_convert_to_class__class() {
 		$class = '\\Exception';
-		\UObject::convertToClassName($class);
+		\UObject::replaceByClassName($class);
 		$this->assertEquals('Exception', $class);
 	}
 
