@@ -49,6 +49,12 @@ abstract class UObject {
         $reference = \UObject::getNamespace($reference);
     }
 
+    public static function hasNamespace(&$reference)
+    {
+        \UObject::replaceByClassName($reference);
+        return \UString::contains($reference, '\\');
+    }
+
 	public static function getClassBaseName($reference)
     {
 		\UObject::replaceByClassName($reference);
