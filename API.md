@@ -13,7 +13,7 @@ Every Ubiq operators should match one these 3 API cases.
 There is 3 templates of modifier API:
 
 ```php
-void  \UType::modifyExplicitly( $reference, $param )
+void  \UType::modifyExplicitly( &$reference, $param )
 mixed \UType::getModifiedExplicitly( $reference, $param )
 bool  \UType::isModifiedExplicitly( $reference, $param )
 ```
@@ -21,7 +21,7 @@ bool  \UType::isModifiedExplicitly( $reference, $param )
 For example, the modifier functions to suffix a string:
 
 ```php
-void   \UString::suffixBy( $reference, $suffix )
+void   \UString::suffixBy( &$reference, $suffix )
 string \UString::getSuffixedBy( $reference, $suffix )
 bool   \UString::isSuffixedBy( $reference, $suffix )
 ```
@@ -30,34 +30,38 @@ bool   \UString::isSuffixedBy( $reference, $suffix )
 2. Converter
 -------------
 
-There is 2 templates of converter API:
+There is 3 templates of converter API:
 
 ```php
-void  \UType::convertToExplicitTarget( $reference, $param )
-mixed \UType::getAsExplicitTarget( $reference, $param )
+void  \UType::convertToExplicitType( &$reference, $param )
+mixed \UType::getAsExplicitType( $reference, $param )
+mixed \UType::isExplicitType( $reference, $param )
 ```
 
 For example, the converter functions to convert anything to an array:
 
 ```php
-void  \UArray::convertToArray( $reference )
+void  \UArray::convertToArray( &$reference )
 array \UArray::getAsArray( $reference )
+bool  \UArray::isTraversable( $reference )
 ```
 
 
 3. Attribute Selector
 -------------
 
-There is 2 templates of attribute selector API:
+There is 3 templates of attribute selector API:
 
 ```php
-mixed \UType::getExplicitAttribute( $reference, $param )
+mixed \UType::getExplicitAttribute( &$reference, $param )
 void  \UType::replaceByExplicitAttribute( $reference, $param )
+bool  \UType::hasExplicitAttribute( $reference, $param )
 ```
 
 For example, the attribute selector functions to get the class name of an object:
 
 ```php
-string \UObject::getClassName( $reference )
-void   \UObject::replaceByClassName( $reference )
+string \UObject::getNamespace( &$reference )
+void   \UObject::replaceByNamespace( $reference )
+bool   \UObject::hasNamespace( $reference )
 ```
