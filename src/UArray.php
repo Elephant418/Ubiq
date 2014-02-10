@@ -33,6 +33,10 @@ abstract class UArray {
     {
         $reference = \UArray::getAsArray($reference);
     }
+    
+    public static function isTraversable($reference) {
+        return (is_array($reference) || $reference instanceof Traversable);
+    }
 
 
 
