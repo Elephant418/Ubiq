@@ -58,7 +58,7 @@ void  \UType::replaceByExplicitAttribute( $reference, $param )
 bool  \UType::hasExplicitAttribute( $reference, $param )
 ```
 
-For example, the attribute selector functions to get the class name of an object:
+For example, the attribute selector functions to get the namespace of an object:
 
 ```php
 string \UObject::getNamespace( &$reference )
