@@ -1,4 +1,4 @@
-Ubiq [![Build Status](https://secure.travis-ci.org/Pixel418/Ubiq.png)](http://travis-ci.org/Pixel418/Ubiq)
+Ubiq [![Build Status](https://secure.travis-ci.org/Pixel418/Ubiq.png?branch=master)](http://travis-ci.org/Pixel418/Ubiq?branch=master)
 ======
 
 Functions for readable treatment of string, array & object.
